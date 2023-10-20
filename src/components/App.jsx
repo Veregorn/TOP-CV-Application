@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Header from './Header.jsx'
+import NavBar from './NavBar.jsx'
 import '../styles/App.css'
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className='app-container'>
       <Header />
+      <NavBar />
       <button onClick={() => setCount((count) => count + 1)}>
         count is {count}
       </button>

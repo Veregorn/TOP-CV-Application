@@ -1,0 +1,6 @@
+.cd-multi-steps li::after {
+    display: inline-block;
+    content: '\00bb';
+    margin: 0 .6em;
+    color: #0eb2e1;
+}
