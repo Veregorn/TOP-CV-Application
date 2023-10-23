@@ -1,4 +1,4 @@
-import logo from '../assets/images/cv-on-the-go-logo(80x80).png'
+import logo from '../assets/images/cvonthego-logo.png'
 import '../styles/Logo.css'
 
 function Logo() {
