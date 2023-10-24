@@ -1,6 +1,7 @@
 import '../styles/CVForm.css'
 import Label from './Label'
 import Input from './Input'
+import Button from './Button'
 
 function CVForm() {
     return (
@@ -22,6 +23,7 @@ function CVForm() {
             <Input type='text' placeholder='New York' />
             <Label text='Country' />
             <Input type='text' placeholder='USA' />
+            <Button text='Next >' />
         </div>
     )
 }
