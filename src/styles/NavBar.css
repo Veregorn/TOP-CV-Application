@@ -9,7 +9,7 @@
 
 .cd-multi-steps {
     font-family: 'Kanit-Regular', 'Arial', 'sans-serif';
-    width: 90%;
+    /* width: 90%; */
     padding: 0.5em 1em;
     margin: 1em auto;
     border-radius: .25em;
@@ -65,7 +65,7 @@
     content: counter(steps) " - ";
 }
 
-@media only screen and (min-width: 1275px) {
+@media only screen and (min-width: 1180px) {
     
     .cd-multi-steps {
         /* reset style */

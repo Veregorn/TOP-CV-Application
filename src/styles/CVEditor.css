@@ -1,0 +1,9 @@
+.book-style {
+    width: 90%;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin: 1em auto;
+}
