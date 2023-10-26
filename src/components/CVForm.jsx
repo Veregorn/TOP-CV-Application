@@ -1,13 +1,14 @@
 import '../styles/CVForm.css'
-import Label from './Label'
+import FormSection from './FormSection'
+/* import Label from './Label'
 import Input from './Input'
-import Button from './Button'
+import Button from './Button' */
 
 function CVForm() {
     return (
         <div className='form'>
-            <h2>General Information</h2>
-            <Label text='First Name' />
+            <FormSection title='General Information' />
+            {/* <Label text='First Name' />
             <Input type='text' placeholder='John' />
             <Label text='Last Name' />
             <Input type='text' placeholder='Doe' />
@@ -23,7 +24,7 @@ function CVForm() {
             <Input type='text' placeholder='New York' />
             <Label text='Country' />
             <Input type='text' placeholder='USA' />
-            <Button text='Next >' />
+            <Button text='Next >' /> */}
         </div>
     )
 }

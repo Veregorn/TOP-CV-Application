@@ -45,6 +45,8 @@
     font-size: 1em;
     color: #2c3f4c;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
 }
 
 .cd-multi-steps li.visited > * {
