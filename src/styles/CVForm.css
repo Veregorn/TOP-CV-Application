@@ -7,3 +7,12 @@
     justify-content: center;
     border-right: 1px solid #959fa5;
 }
+
+.form > div {
+    display: none;
+}
+
+.form > div.current {
+    display: flex;
+    flex-direction: column;
+}
