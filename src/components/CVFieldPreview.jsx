@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 
 function CVFieldPreview(props) {
     return (
-        <div className='field' id={props.key}>
+        <div className='field'>
             <p>{props.value}</p>
         </div>
     )
 }
 
 CVFieldPreview.propTypes = {
-    key: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired
 }
 

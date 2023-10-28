@@ -8,11 +8,11 @@ function FormSection(props) {
     const fields = props.fields.map((field) => {
         return (
             // If the field id is 'name', then we want to pass the nameInputText and onNameChange props to the Input component
-            <div key={field.id} className='field'>
+            <div key={('form-') + field.id} className='form-field'>
                 <Label text={field.label} />
-                {field.id == 'name' ? 
+                {field.id == 'gi-name' ? 
                     <Input 
-                        id={field.id}
+                        id={field.id + ('-input')}
                         type={field.type} 
                         placeholder={field.placeholder} 
                         required={field.required}
@@ -20,7 +20,7 @@ function FormSection(props) {
                         onChange={props.onNameChange}
                     /> : 
                     <Input 
-                        id={field.id}
+                        id={field.id + ('-input')}
                         type={field.type} 
                         placeholder={field.placeholder} 
                         required={field.required}

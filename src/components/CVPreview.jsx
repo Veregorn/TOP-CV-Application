@@ -11,7 +11,7 @@ function CVPreview({ namePreviewText }) {
         if (section.id == 'generalInfo') {
             return (
                 <PreviewSection 
-                    key={section.id}
+                    key={section.id + ('-preview')}
                     title={section.longTitle} 
                     fields={section.fields} 
                     namePreviewText={namePreviewText}
@@ -21,7 +21,7 @@ function CVPreview({ namePreviewText }) {
         else {
             return (
                 <PreviewSection 
-                    key={section.id} 
+                    key={section.id + ('-preview')} 
                     title={section.longTitle} 
                     fields={section.fields} 
                 />

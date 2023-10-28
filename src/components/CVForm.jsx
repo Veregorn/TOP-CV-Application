@@ -11,7 +11,7 @@ function CVForm({ nameInputText, onNameChange }) {
         if (section.id == 'generalInfo') {
             return (
                 <FormSection 
-                    key={section.id} 
+                    key={section.id + ('-form')} 
                     title={section.longTitle} 
                     className={index == 0 ? 'section current' : 'section'} 
                     fields={section.fields} 
@@ -23,9 +23,9 @@ function CVForm({ nameInputText, onNameChange }) {
         else {
             return (
                 <FormSection 
-                    key={section.id} 
+                    key={section.id + ('-form')} 
                     title={section.longTitle} 
-                    className={index == 0 ? 'section current' : 'section'} 
+                    className={index == 0 ? 'form-section current' : 'form-section'} 
                     fields={section.fields} 
                 />
             )
