@@ -3,7 +3,18 @@ import PreviewSection from './PreviewSection'
 import PropTypes from 'prop-types'
 import SECTION_DATA from '../assets/data'
 
-function CVPreview({ namePreviewText }) {
+function CVPreview({ 
+    namePreviewText, 
+    emailPreviewText,
+    phonePreviewText,
+    addressPreviewText,
+    postalCodeInputText,
+    cityPreviewText,
+    countryPreviewText,
+    birthDatePreviewText,
+    genderPreviewText,
+    photoPreviewText 
+}) {
     
     const sections = SECTION_DATA.map((section) => {
         
@@ -15,6 +26,15 @@ function CVPreview({ namePreviewText }) {
                     title={section.longTitle} 
                     fields={section.fields} 
                     namePreviewText={namePreviewText}
+                    emailPreviewText={emailPreviewText}
+                    phonePreviewText={phonePreviewText} 
+                    addressPreviewText={addressPreviewText} 
+                    postalCodeInputText={postalCodeInputText} 
+                    cityPreviewText={cityPreviewText} 
+                    countryPreviewText={countryPreviewText} 
+                    birthDatePreviewText={birthDatePreviewText} 
+                    genderPreviewText={genderPreviewText} 
+                    photoPreviewText={photoPreviewText} 
                 />
             )
         }
@@ -38,7 +58,16 @@ function CVPreview({ namePreviewText }) {
 }
 
 CVPreview.propTypes = {
-    namePreviewText: PropTypes.string.isRequired
+    namePreviewText: PropTypes.string.isRequired,
+    emailPreviewText: PropTypes.string.isRequired,
+    phonePreviewText: PropTypes.string.isRequired,
+    addressPreviewText: PropTypes.string.isRequired,
+    postalCodeInputText: PropTypes.string.isRequired,
+    cityPreviewText: PropTypes.string.isRequired,
+    countryPreviewText: PropTypes.string.isRequired,
+    birthDatePreviewText: PropTypes.string.isRequired,
+    genderPreviewText: PropTypes.string.isRequired,
+    photoPreviewText: PropTypes.string.isRequired
 }
 
 export default CVPreview
