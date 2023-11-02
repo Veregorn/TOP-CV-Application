@@ -22,7 +22,7 @@ function CVForm({
     onBirthDateChange, 
     genderInputText, 
     onGenderChange, 
-    photoInputText,
+    photoImage,
     onPhotoChange 
 }) {
     
@@ -54,7 +54,7 @@ function CVForm({
                     onBirthDateChange={onBirthDateChange} 
                     genderInputText={genderInputText} 
                     onGenderChange={onGenderChange} 
-                    photoInputText={photoInputText} 
+                    photoImage={photoImage} 
                     onPhotoChange={onPhotoChange} 
                 />
             )
@@ -97,7 +97,7 @@ CVForm.propTypes = {
     onBirthDateChange: PropTypes.func.isRequired,
     genderInputText: PropTypes.string.isRequired,
     onGenderChange: PropTypes.func.isRequired,
-    photoInputText: PropTypes.string.isRequired,
+    photoImage: PropTypes.string,
     onPhotoChange: PropTypes.func.isRequired
 }
 

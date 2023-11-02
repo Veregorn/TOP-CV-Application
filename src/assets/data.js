@@ -71,7 +71,6 @@ const SECTION_DATA = [
                 id: 'gi-photo',
                 label: 'Photo',
                 type: 'file',
-                placeholder: 'Enter your photo',
                 required: true,
             }
         ]

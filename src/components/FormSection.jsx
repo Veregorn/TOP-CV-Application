@@ -139,9 +139,8 @@ function FormSection(props) {
                     <Input 
                         id={field.id + ('-input')} 
                         type={field.type} 
-                        placeholder={field.placeholder} 
+                        accept='image/*'
                         required={field.required}
-                        value={props.photoInputText} 
                         onChange={props.onPhotoChange} 
                     />
                 </div>
@@ -185,7 +184,6 @@ FormSection.propTypes = {
     onBirthDateChange: PropTypes.func,
     genderInputText: PropTypes.string,
     onGenderChange: PropTypes.func,
-    photoInputText: PropTypes.string,
     onPhotoChange: PropTypes.func
 }
 

@@ -13,7 +13,7 @@ function CVPreview({
     countryPreviewText,
     birthDatePreviewText,
     genderPreviewText,
-    photoPreviewText 
+    photoImage 
 }) {
     
     const sections = SECTION_DATA.map((section) => {
@@ -34,7 +34,7 @@ function CVPreview({
                     countryPreviewText={countryPreviewText} 
                     birthDatePreviewText={birthDatePreviewText} 
                     genderPreviewText={genderPreviewText} 
-                    photoPreviewText={photoPreviewText} 
+                    photoImage={photoImage} 
                 />
             )
         }
@@ -67,7 +67,7 @@ CVPreview.propTypes = {
     countryPreviewText: PropTypes.string.isRequired,
     birthDatePreviewText: PropTypes.string.isRequired,
     genderPreviewText: PropTypes.string.isRequired,
-    photoPreviewText: PropTypes.string.isRequired
+    photoImage: PropTypes.string
 }
 
 export default CVPreview

@@ -15,7 +15,7 @@ function CVEditor() {
     const [countryInputText, setCountryInputText] = useState(''); // State for the country input
     const [birthDateInputText, setBirthDateInputText] = useState(''); // State for the birth date input
     const [genderInputText, setGenderInputText] = useState(''); // State for the gender input
-    const [photoInputText, setPhotoInputText] = useState(''); // State for the photo input
+    const [photo, setPhoto] = useState(''); // State for the photo input
 
 
     const handleNameInputChange = (event) => {
@@ -55,44 +55,53 @@ function CVEditor() {
     }
 
     const handlePhotoInputChange = (event) => {
-        setPhotoInputText(event.target.value);
+        const image = event.target.files[0];
+        const reader = new FileReader();
+        
+        reader.onloadend = () => {
+            setPhoto(reader.result);
+        }
+
+        if (image) {
+            reader.readAsDataURL(image);
+        }
     }
 
     return (
         <div className='book-style'>
             <CVForm 
-                nameInputText={nameInputText}
-                onNameChange={handleNameInputChange}
-                emailInputText={emailInputText}
+                nameInputText={nameInputText} 
+                onNameChange={handleNameInputChange} 
+                emailInputText={emailInputText} 
                 onEmailChange={handleEmailInputChange} 
                 phoneInputText={phoneInputText} 
-                onPhoneChange={handlePhoneInputChange}
-                addressInputText={addressInputText}
-                onAddressChange={handleAddressInputChange}
-                postalCodeInputText={postalCodeInputText}
-                onPostalCodeChange={handlePostalCodeInputChange}
-                cityInputText={cityInputText}
-                onCityChange={handleCityInputChange}
-                countryInputText={countryInputText}
-                onCountryChange={handleCountryInputChange}
-                birthDateInputText={birthDateInputText}
-                onBirthDateChange={handleBirthDateInputChange}
-                genderInputText={genderInputText}
-                onGenderChange={handleGenderInputChange}
-                photoInputText={photoInputText}
-                onPhotoChange={handlePhotoInputChange}
+                onPhoneChange={handlePhoneInputChange} 
+                addressInputText={addressInputText} 
+                onAddressChange={handleAddressInputChange} 
+                postalCodeInputText={postalCodeInputText} 
+                onPostalCodeChange={handlePostalCodeInputChange} 
+                cityInputText={cityInputText} 
+                onCityChange={handleCityInputChange} 
+                countryInputText={countryInputText} 
+                onCountryChange={handleCountryInputChange} 
+                birthDateInputText={birthDateInputText} 
+                onBirthDateChange={handleBirthDateInputChange} 
+                genderInputText={genderInputText} 
+                onGenderChange={handleGenderInputChange} 
+                photoImage={photo} 
+                onPhotoChange={handlePhotoInputChange} 
             />
             <CVPreview 
-                namePreviewText={nameInputText}
+                namePreviewText={nameInputText} 
                 emailPreviewText={emailInputText} 
-                phonePreviewText={phoneInputText}
-                addressPreviewText={addressInputText}
-                postalCodeInputText={postalCodeInputText}
-                cityPreviewText={cityInputText}
+                phonePreviewText={phoneInputText} 
+                addressPreviewText={addressInputText} 
+                postalCodeInputText={postalCodeInputText} 
+                cityPreviewText={cityInputText} 
                 countryPreviewText={countryInputText} 
                 birthDatePreviewText={birthDateInputText} 
                 genderPreviewText={genderInputText} 
-                photoPreviewText={photoInputText}
+                photoImage={photo} 
             />
         </div>
     )

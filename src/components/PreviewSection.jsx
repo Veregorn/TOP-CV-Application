@@ -14,13 +14,14 @@ function PreviewSection({
     countryPreviewText,
     birthDatePreviewText,
     genderPreviewText,
-    photoPreviewText
+    photoImage
  }) {
     const sectionFields = fields.map((field) => {
         if (field.id == 'gi-name') {
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')} 
                     value={namePreviewText} 
                 />
             )
@@ -28,6 +29,7 @@ function PreviewSection({
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')} 
                     value={emailPreviewText} 
                 />
             )
@@ -35,6 +37,7 @@ function PreviewSection({
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')} 
                     value={phonePreviewText} 
                 />
             )
@@ -42,6 +45,7 @@ function PreviewSection({
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')} 
                     value={addressPreviewText} 
                 />
             )
@@ -49,6 +53,7 @@ function PreviewSection({
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')} 
                     value={postalCodeInputText} 
                 />
             )
@@ -56,6 +61,7 @@ function PreviewSection({
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')} 
                     value={cityPreviewText} 
                 />
             )
@@ -63,6 +69,7 @@ function PreviewSection({
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')} 
                     value={countryPreviewText} 
                 />
             )
@@ -70,6 +77,7 @@ function PreviewSection({
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')} 
                     value={birthDatePreviewText} 
                 />
             )
@@ -77,6 +85,7 @@ function PreviewSection({
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')} 
                     value={genderPreviewText} 
                 />
             )
@@ -84,7 +93,8 @@ function PreviewSection({
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
-                    value={photoPreviewText} 
+                    id={field.id + ('-preview')} 
+                    value={photoImage} 
                 />
             )
         }
@@ -116,7 +126,7 @@ PreviewSection.propTypes = {
     countryPreviewText: PropTypes.string,
     birthDatePreviewText: PropTypes.string,
     genderPreviewText: PropTypes.string,
-    photoPreviewText: PropTypes.string
+    photoImage: PropTypes.string
 }
 
 export default PreviewSection
