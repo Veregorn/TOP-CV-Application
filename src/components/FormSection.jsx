@@ -2,6 +2,7 @@ import '../styles/FormSection.css'
 import PropTypes from 'prop-types';
 import Input from './Input';
 import Label from './Label';
+import Button from './Button';
 
 function FormSection(props) {
     
@@ -152,6 +153,7 @@ function FormSection(props) {
         <div className={props.className}>
             <h2>{props.title}</h2>
             {fields}
+            <Button text='Next >' onClick={props.onNextClick}/>
         </div>
     )
 }
@@ -163,7 +165,7 @@ FormSection.propTypes = {
         id: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
         type: PropTypes.string.isRequired,
-        placeholder: PropTypes.string.isRequired,
+        placeholder: PropTypes.string,
         required: PropTypes.bool.isRequired
     })).isRequired,
     nameInputText: PropTypes.string,
@@ -184,7 +186,8 @@ FormSection.propTypes = {
     onBirthDateChange: PropTypes.func,
     genderInputText: PropTypes.string,
     onGenderChange: PropTypes.func,
-    onPhotoChange: PropTypes.func
+    onPhotoChange: PropTypes.func,
+    onNextClick: PropTypes.func
 }
 
 export default FormSection

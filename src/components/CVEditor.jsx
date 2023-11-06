@@ -2,8 +2,9 @@ import '../styles/CVEditor.css'
 import CVForm from './CVForm'
 import CVPreview from './CVPreview'
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
-function CVEditor() {
+function CVEditor(props) {
 
     // General information state variables
     const [nameInputText, setNameInputText] = useState(''); // State for the name input
@@ -70,6 +71,7 @@ function CVEditor() {
     return (
         <div className='book-style'>
             <CVForm 
+                cuSection={props.cuSection}
                 nameInputText={nameInputText} 
                 onNameChange={handleNameInputChange} 
                 emailInputText={emailInputText} 
@@ -90,6 +92,7 @@ function CVEditor() {
                 onGenderChange={handleGenderInputChange} 
                 photoImage={photo} 
                 onPhotoChange={handlePhotoInputChange} 
+                onNextClick={props.onNextClick} 
             />
             <CVPreview 
                 namePreviewText={nameInputText} 
@@ -105,6 +108,11 @@ function CVEditor() {
             />
         </div>
     )
+}
+
+CVEditor.propTypes = {
+    cuSection: PropTypes.number.isRequired,
+    onNextClick: PropTypes.func.isRequired
 }
 
 export default CVEditor

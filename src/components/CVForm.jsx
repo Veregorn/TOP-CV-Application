@@ -1,9 +1,10 @@
 import '../styles/CVForm.css'
 import FormSection from './FormSection'
 import SECTION_DATA from '../assets/data'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 function CVForm({ 
+    cuSection,
     nameInputText, 
     onNameChange, 
     emailInputText, 
@@ -23,7 +24,8 @@ function CVForm({
     genderInputText, 
     onGenderChange, 
     photoImage,
-    onPhotoChange 
+    onPhotoChange,
+    onNextClick
 }) {
     
     const sections = SECTION_DATA.map((section, index) => {
@@ -34,7 +36,7 @@ function CVForm({
                 <FormSection 
                     key={section.id + ('-form')} 
                     title={section.longTitle} 
-                    className={index == 0 ? 'section current' : 'section'} 
+                    className={index == cuSection ? 'section current' : 'section'} 
                     fields={section.fields} 
                     nameInputText={nameInputText}
                     onNameChange={onNameChange} 
@@ -56,6 +58,7 @@ function CVForm({
                     onGenderChange={onGenderChange} 
                     photoImage={photoImage} 
                     onPhotoChange={onPhotoChange} 
+                    onNextClick={onNextClick}
                 />
             )
         }
@@ -66,6 +69,7 @@ function CVForm({
                     title={section.longTitle} 
                     className={index == 0 ? 'form-section current' : 'form-section'} 
                     fields={section.fields} 
+                    onNextClick={onNextClick} 
                 />
             )
         }
@@ -79,6 +83,7 @@ function CVForm({
 }
 
 CVForm.propTypes = {
+    cuSection: PropTypes.number.isRequired,
     nameInputText: PropTypes.string.isRequired,
     onNameChange: PropTypes.func.isRequired,
     emailInputText: PropTypes.string.isRequired,
@@ -98,7 +103,8 @@ CVForm.propTypes = {
     genderInputText: PropTypes.string.isRequired,
     onGenderChange: PropTypes.func.isRequired,
     photoImage: PropTypes.string,
-    onPhotoChange: PropTypes.func.isRequired
+    onPhotoChange: PropTypes.func.isRequired,
+    onNextClick: PropTypes.func.isRequired
 }
 
 export default CVForm

@@ -1,11 +1,12 @@
 import '../styles/NavBar.css'
 import SECTION_DATA from '../assets/data'
+import PropTypes from 'prop-types'
 
-function NavBar() {
+function NavBar(props) {
     
     const sections = SECTION_DATA.map((section, index) => {
         return (
-            <li key={section.id} className={index == 0 ? 'current' : ''}><button>{section.buttonTitle}</button></li>
+            <li key={section.id} className={index == props.cuSection ? 'current' : ''}><button>{section.buttonTitle}</button></li>
         )
     })
     
@@ -16,6 +17,10 @@ function NavBar() {
             </ol>
         </nav>
     )
+}
+
+NavBar.propTypes = {
+    cuSection: PropTypes.number.isRequired
 }
 
 export default NavBar
