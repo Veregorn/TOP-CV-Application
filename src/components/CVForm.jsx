@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 
 function CVForm({ 
     cuSection,
+    onNextClick,
+    // General Info
     nameInputText, 
     onNameChange, 
     emailInputText, 
@@ -25,7 +27,21 @@ function CVForm({
     onGenderChange, 
     photoImage,
     onPhotoChange,
-    onNextClick
+    // Education
+    schoolInputText,
+    onSchoolChange,
+    studiesTitleInputText,
+    onStudiesTitleChange,
+    studiesStartDateSelect,
+    onStudiesStartDateChange,
+    studiesEndDateSelect,
+    onStudiesEndDateChange,
+    studiesDescriptionInputText,
+    onStudiesDescriptionChange
+    // Experience
+    // Skills
+    // Contact
+    // Hobbies
 }) {
     
     const sections = SECTION_DATA.map((section, index) => {
@@ -61,8 +77,27 @@ function CVForm({
                     onNextClick={onNextClick}
                 />
             )
-        }
-        else {
+        } else if (section.id == 'education') {
+            return (
+                <FormSection 
+                    key={section.id + ('-form')} 
+                    title={section.longTitle} 
+                    className={index == cuSection ? 'section current' : 'section'} 
+                    fields={section.fields} 
+                    schoolInputText={schoolInputText} 
+                    onSchoolChange={onSchoolChange} 
+                    studiesTitleInputText={studiesTitleInputText} 
+                    onStudiesTitleChange={onStudiesTitleChange} 
+                    studiesStartDateSelect={studiesStartDateSelect} 
+                    onStudiesStartDateChange={onStudiesStartDateChange} 
+                    studiesEndDateSelect={studiesEndDateSelect} 
+                    onStudiesEndDateChange={onStudiesEndDateChange} 
+                    studiesDescriptionInputText={studiesDescriptionInputText} 
+                    onStudiesDescriptionChange={onStudiesDescriptionChange} 
+                    onNextClick={onNextClick} 
+                />
+            )
+        } else {
             return (
                 <FormSection 
                     key={section.id + ('-form')} 
@@ -84,6 +119,8 @@ function CVForm({
 
 CVForm.propTypes = {
     cuSection: PropTypes.number.isRequired,
+    onNextClick: PropTypes.func.isRequired,
+    // General Info prop types
     nameInputText: PropTypes.string.isRequired,
     onNameChange: PropTypes.func.isRequired,
     emailInputText: PropTypes.string.isRequired,
@@ -104,7 +141,17 @@ CVForm.propTypes = {
     onGenderChange: PropTypes.func.isRequired,
     photoImage: PropTypes.string,
     onPhotoChange: PropTypes.func.isRequired,
-    onNextClick: PropTypes.func.isRequired
+    // Education prop types
+    schoolInputText: PropTypes.string.isRequired,
+    onSchoolChange: PropTypes.func.isRequired,
+    studiesTitleInputText: PropTypes.string.isRequired,
+    onStudiesTitleChange: PropTypes.func.isRequired,
+    studiesStartDateSelect: PropTypes.string.isRequired,
+    onStudiesStartDateChange: PropTypes.func.isRequired,
+    studiesEndDateSelect: PropTypes.string.isRequired,
+    onStudiesEndDateChange: PropTypes.func.isRequired,
+    studiesDescriptionInputText: PropTypes.string.isRequired,
+    onStudiesDescriptionChange: PropTypes.func.isRequired
 }
 
 export default CVForm

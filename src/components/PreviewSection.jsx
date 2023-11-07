@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 
 function PreviewSection({ 
     title, 
-    fields, 
+    fields,
+    // General information props
     namePreviewText, 
     emailPreviewText,
     phonePreviewText,
@@ -14,9 +15,16 @@ function PreviewSection({
     countryPreviewText,
     birthDatePreviewText,
     genderPreviewText,
-    photoImage
+    photoImage,
+    // Education props
+    schoolPreviewText,
+    studiesTitlePreviewText,
+    studiesStartDatePreviewText,
+    studiesEndDatePreviewText,
+    studiesDescriptionPreviewText
  }) {
     const sectionFields = fields.map((field) => {
+        // General information fields
         if (field.id == 'gi-name') {
             return (
                 <CVFieldPreview 
@@ -98,6 +106,48 @@ function PreviewSection({
                 />
             )
         }
+        // Education fields
+        else if (field.id == 'ed-school') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={schoolPreviewText} 
+                />
+            )
+        } else if (field.id == 'ed-study-title') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={studiesTitlePreviewText} 
+                />
+            )
+        } else if (field.id == 'ed-start-date') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={studiesStartDatePreviewText} 
+                />
+            )
+        } else if (field.id == 'ed-end-date') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={studiesEndDatePreviewText} 
+                />
+            )
+        } else if (field.id == 'ed-description') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={studiesDescriptionPreviewText} 
+                />
+            )
+        }
     })
 
     return (
@@ -113,10 +163,11 @@ PreviewSection.propTypes = {
     fields: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
+        type: PropTypes.string,
         placeholder: PropTypes.string,
         required: PropTypes.bool.isRequired
     })).isRequired,
+    // General information props
     namePreviewText: PropTypes.string,
     emailPreviewText: PropTypes.string,
     phonePreviewText: PropTypes.string,
@@ -126,7 +177,13 @@ PreviewSection.propTypes = {
     countryPreviewText: PropTypes.string,
     birthDatePreviewText: PropTypes.string,
     genderPreviewText: PropTypes.string,
-    photoImage: PropTypes.string
+    photoImage: PropTypes.string,
+    // Education props
+    schoolPreviewText: PropTypes.string,
+    studiesTitlePreviewText: PropTypes.string,
+    studiesStartDatePreviewText: PropTypes.string,
+    studiesEndDatePreviewText: PropTypes.string,
+    studiesDescriptionPreviewText: PropTypes.string
 }
 
 export default PreviewSection

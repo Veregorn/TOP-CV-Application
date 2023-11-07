@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import SECTION_DATA from '../assets/data'
 
 function CVPreview({ 
+    // General information props
     namePreviewText, 
     emailPreviewText,
     phonePreviewText,
@@ -13,7 +14,13 @@ function CVPreview({
     countryPreviewText,
     birthDatePreviewText,
     genderPreviewText,
-    photoImage 
+    photoImage,
+    // Education props
+    schoolPreviewText,
+    studiesTitlePreviewText,
+    studiesStartDatePreviewText,
+    studiesEndDatePreviewText,
+    studiesDescriptionPreviewText
 }) {
     
     const sections = SECTION_DATA.map((section) => {
@@ -35,6 +42,19 @@ function CVPreview({
                     birthDatePreviewText={birthDatePreviewText} 
                     genderPreviewText={genderPreviewText} 
                     photoImage={photoImage} 
+                />
+            )
+        } else if (section.id == 'education') {
+            return (
+                <PreviewSection 
+                    key={section.id + ('-preview')} 
+                    title={section.longTitle} 
+                    fields={section.fields} 
+                    schoolPreviewText={schoolPreviewText} 
+                    studiesTitlePreviewText={studiesTitlePreviewText} 
+                    studiesStartDatePreviewText={studiesStartDatePreviewText} 
+                    studiesEndDatePreviewText={studiesEndDatePreviewText} 
+                    studiesDescriptionPreviewText={studiesDescriptionPreviewText} 
                 />
             )
         }
@@ -67,7 +87,12 @@ CVPreview.propTypes = {
     countryPreviewText: PropTypes.string.isRequired,
     birthDatePreviewText: PropTypes.string.isRequired,
     genderPreviewText: PropTypes.string.isRequired,
-    photoImage: PropTypes.string
+    photoImage: PropTypes.string,
+    schoolPreviewText: PropTypes.string.isRequired,
+    studiesTitlePreviewText: PropTypes.string.isRequired,
+    studiesStartDatePreviewText: PropTypes.string.isRequired,
+    studiesEndDatePreviewText: PropTypes.string.isRequired,
+    studiesDescriptionPreviewText: PropTypes.string.isRequired
 }
 
 export default CVPreview

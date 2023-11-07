@@ -17,8 +17,14 @@ function CVEditor(props) {
     const [birthDateInputText, setBirthDateInputText] = useState(''); // State for the birth date input
     const [genderInputText, setGenderInputText] = useState(''); // State for the gender input
     const [photo, setPhoto] = useState(''); // State for the photo input
+    // Education state variables
+    const [schoolInputText, setSchoolInputText] = useState(''); // State for the school input
+    const [studiesTitleInputText, setStudiesTitleInputText] = useState(''); // State for the studies title input
+    const [studiesStartDateSelect, setStudiesStartDateSelect] = useState(''); // State for the studies start date input
+    const [studiesEndDateSelect, setStudiesEndDateSelect] = useState(''); // State for the studies end date input
+    const [studiesDescriptionInputText, setStudiesDescriptionInputText] = useState(''); // State for the studies description input
 
-
+    // General information input change handlers
     const handleNameInputChange = (event) => {
         setNameInputText(event.target.value);
     }
@@ -68,10 +74,33 @@ function CVEditor(props) {
         }
     }
 
+    // Education input change handlers
+    const handleSchoolInputChange = (event) => {
+        setSchoolInputText(event.target.value);
+    }
+
+    const handleStudiesTitleInputChange = (event) => {
+        setStudiesTitleInputText(event.target.value);
+    }
+
+    const handleStudiesStartDateSelectChange = (event) => {
+        setStudiesStartDateSelect(event.target.value);
+    }
+
+    const handleStudiesEndDateSelectChange = (event) => {
+        setStudiesEndDateSelect(event.target.value);
+    }
+
+    const handleStudiesDescriptionInputChange = (event) => {
+        setStudiesDescriptionInputText(event.target.value);
+    }
+
     return (
         <div className='book-style'>
             <CVForm 
-                cuSection={props.cuSection}
+                cuSection={props.cuSection} 
+                onNextClick={props.onNextClick} 
+                // General information props
                 nameInputText={nameInputText} 
                 onNameChange={handleNameInputChange} 
                 emailInputText={emailInputText} 
@@ -92,9 +121,20 @@ function CVEditor(props) {
                 onGenderChange={handleGenderInputChange} 
                 photoImage={photo} 
                 onPhotoChange={handlePhotoInputChange} 
-                onNextClick={props.onNextClick} 
+                // Education props
+                schoolInputText={schoolInputText} 
+                onSchoolChange={handleSchoolInputChange} 
+                studiesTitleInputText={studiesTitleInputText} 
+                onStudiesTitleChange={handleStudiesTitleInputChange} 
+                studiesStartDateSelect={studiesStartDateSelect} 
+                onStudiesStartDateChange={handleStudiesStartDateSelectChange} 
+                studiesEndDateSelect={studiesEndDateSelect} 
+                onStudiesEndDateChange={handleStudiesEndDateSelectChange} 
+                studiesDescriptionInputText={studiesDescriptionInputText} 
+                onStudiesDescriptionChange={handleStudiesDescriptionInputChange} 
             />
             <CVPreview 
+                // General information props
                 namePreviewText={nameInputText} 
                 emailPreviewText={emailInputText} 
                 phonePreviewText={phoneInputText} 
@@ -105,6 +145,12 @@ function CVEditor(props) {
                 birthDatePreviewText={birthDateInputText} 
                 genderPreviewText={genderInputText} 
                 photoImage={photo} 
+                // Education props
+                schoolPreviewText={schoolInputText} 
+                studiesTitlePreviewText={studiesTitleInputText} 
+                studiesStartDatePreviewText={studiesStartDateSelect} 
+                studiesEndDatePreviewText={studiesEndDateSelect} 
+                studiesDescriptionPreviewText={studiesDescriptionInputText} 
             />
         </div>
     )

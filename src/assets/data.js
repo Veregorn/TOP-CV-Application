@@ -57,7 +57,6 @@ const SECTION_DATA = [
                 id: 'gi-birth',
                 label: 'Date of Birth',
                 type: 'date',
-                placeholder: 'Enter your date of birth',
                 required: true,
             },
             {
@@ -81,38 +80,34 @@ const SECTION_DATA = [
         longTitle: 'Education',
         fields: [
             {
-                id: 'ed-name',
-                label: 'Name',
+                id: 'ed-school',
+                label: 'School Name',
                 type: 'text',
-                placeholder: 'Enter your name',
+                placeholder: 'Enter the school name',
                 required: true,
             },
             {
-                id: 'ed-email',
-                label: 'Email',
-                type: 'email',
-                placeholder: 'Enter your email',
-                required: true,
-            },
-            {
-                id: 'ed-phone',
-                label: 'Phone',
-                type: 'tel',
-                placeholder: 'Enter your phone number',
-                required: true,
-            },
-            {
-                id: 'ed-address',
-                label: 'Address',
+                id: 'ed-study-title',
+                label: 'Study Title',
                 type: 'text',
-                placeholder: 'Enter your address',
+                placeholder: 'Enter the study title',
                 required: true,
             },
             {
-                id: 'ed-website',
-                label: 'Website',
-                type: 'url',
-                placeholder: 'Enter your website',
+                id: 'ed-start-date',
+                label: 'Start Date',
+                required: true,
+            },
+            {
+                id: 'ed-end-date',
+                label: 'End Date',
+                required: true,
+            },
+            {
+                id: 'ed-description',
+                label: 'Description',
+                type: 'text',
+                placeholder: 'Enter the description',
                 required: false,
             }
         ]

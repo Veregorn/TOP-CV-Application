@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 
 function Label(props) {
     return (
-        <label>{props.text}</label>
+        <label htmlFor={props.for}>{props.text}</label>
     )
 }
 
 Label.propTypes = {
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    for: PropTypes.string.isRequired
 }
 
 export default Label

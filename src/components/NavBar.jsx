@@ -5,9 +5,20 @@ import PropTypes from 'prop-types'
 function NavBar(props) {
     
     const sections = SECTION_DATA.map((section, index) => {
-        return (
-            <li key={section.id} className={index == props.cuSection ? 'current' : ''}><button>{section.buttonTitle}</button></li>
-        )
+        if (index < props.cuSection) {
+            return (
+                <li key={section.id} className='visited'><button>{section.buttonTitle}</button></li>
+            )
+        } else if (index == props.cuSection) {
+            return (
+                <li key={section.id} className='current'><button>{section.buttonTitle}</button></li>
+            )
+        }
+        else {
+            return (
+                <li key={section.id}><button>{section.buttonTitle}</button></li>
+            )
+        }
     })
     
     return (
