@@ -21,7 +21,8 @@ function PreviewSection({
     studiesTitlePreviewText,
     studiesStartDatePreviewText,
     studiesEndDatePreviewText,
-    studiesDescriptionPreviewText
+    studiesDescriptionPreviewText,
+    studies
  }) {
     const sectionFields = fields.map((field) => {
         // General information fields
@@ -150,12 +151,50 @@ function PreviewSection({
         }
     })
 
-    return (
-        <div className='preview-section'>
-            <h3>{title}</h3>
-            {sectionFields}
-        </div>
-    )
+    if (!studies) {
+        return (
+            <div className='preview-section'>
+                <h3>{title}</h3>
+                {sectionFields}
+            </div>
+        )
+    } else {
+        const studiesFields = studies.map((study) => {
+            return (
+                <div key={study.id + ('-preview')}>
+                    <CVFieldPreview 
+                        id={study.id + ('-preview')}
+                        value={study.school} 
+                    />
+                    <CVFieldPreview 
+                        id={study.id + ('-preview')}
+                        value={study.title} 
+                    />
+                    <CVFieldPreview 
+                        id={study.id + ('-preview')}
+                        value={study.startDate} 
+                    />
+                    <CVFieldPreview 
+                        id={study.id + ('-preview')}
+                        value={study.endDate} 
+                    />
+                    <CVFieldPreview 
+                        id={study.id + ('-preview')}
+                        value={study.description} 
+                    />
+                </div>
+            )
+        })
+        
+        return (
+            <div className='preview-section'>
+                <h3>{title}</h3>
+                {sectionFields}
+                {studiesFields}
+            </div>
+        )
+    }
+
 }
 
 PreviewSection.propTypes = {
@@ -183,7 +222,15 @@ PreviewSection.propTypes = {
     studiesTitlePreviewText: PropTypes.string,
     studiesStartDatePreviewText: PropTypes.string,
     studiesEndDatePreviewText: PropTypes.string,
-    studiesDescriptionPreviewText: PropTypes.string
+    studiesDescriptionPreviewText: PropTypes.string,
+    studies: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        school: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired
+    }))
 }
 
 export default PreviewSection

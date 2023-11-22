@@ -3,237 +3,217 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import Label from './Label';
 import Button from './Button';
-import Select from './Select';
+import FormSubSection from './FormSubSection';
 
 function FormSection(props) {
-    
-    const fields = props.fields.map((field) => {
-        if (field.id == 'gi-name') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')}
-                        type={field.type} 
-                        placeholder={field.placeholder} 
-                        required={field.required}
-                        value={props.nameInputText}
-                        onChange={props.onNameChange}
-                    />
-                </div>
-            )
-        } else if (field.id == 'gi-email') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')}
-                        type={field.type} 
-                        placeholder={field.placeholder} 
-                        required={field.required}
-                        value={props.emailInputText} 
-                        onChange={props.onEmailChange} 
-                    />
-                </div>
-            )
-        } else if (field.id == 'gi-phone') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')}
-                        type={field.type} 
-                        placeholder={field.placeholder} 
-                        required={field.required}
-                        value={props.phoneInputText} 
-                        onChange={props.onPhoneChange} 
-                    />
-                </div>
-            )
-        } else if (field.id == 'gi-address') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')}
-                        type={field.type} 
-                        placeholder={field.placeholder} 
-                        required={field.required}
-                        value={props.addressInputText} 
-                        onChange={props.onAddressChange} 
-                    />
-                </div>
-            )
-        } else if (field.id == 'gi-postal') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')}
-                        type={field.type} 
-                        placeholder={field.placeholder} 
-                        required={field.required}
-                        value={props.postalCodeInputText} 
-                        onChange={props.onPostalCodeChange} 
-                    />
-                </div>
-            )
-        } else if (field.id == 'gi-city') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')}
-                        type={field.type} 
-                        placeholder={field.placeholder} 
-                        required={field.required}
-                        value={props.cityInputText} 
-                        onChange={props.onCityChange} 
-                    />
-                </div>
-            )
-        } else if (field.id == 'gi-country') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')}
-                        type={field.type} 
-                        placeholder={field.placeholder} 
-                        required={field.required}
-                        value={props.countryInputText} 
-                        onChange={props.onCountryChange} 
-                    />
-                </div>
-            )
-        } else if (field.id == 'gi-birth') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')}
-                        type={field.type} 
-                        required={field.required}
-                        value={props.birthDateInputText} 
-                        onChange={props.onBirthDateChange} 
-                    />
-                </div>
-            )
-        } else if (field.id == 'gi-gender') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')}
-                        type={field.type} 
-                        placeholder={field.placeholder} 
-                        required={field.required}
-                        value={props.genderInputText} 
-                        onChange={props.onGenderChange} 
-                    />
-                </div>
-            )
-        } else if (field.id == 'gi-photo') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')} 
-                        type={field.type} 
-                        accept='image/*'
-                        required={field.required}
-                        onChange={props.onPhotoChange} 
-                    />
-                </div>
-            )
-        } else if (field.id == 'ed-school') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')} 
-                        type={field.type} 
-                        placeholder={field.placeholder}
-                        required={field.required}
-                        value={props.schoolInputText}
-                        onChange={props.onSchoolChange}
-                    />
-                </div>
-            )
-        } else if (field.id == 'ed-study-title') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')} 
-                        type={field.type} 
-                        placeholder={field.placeholder}
-                        required={field.required}
-                        value={props.studiesTitleInputText}
-                        onChange={props.onStudiesTitleChange}
-                    />
-                </div>
-            )
-        } else if (field.id == 'ed-start-date') {
-            const currentYear = new Date().getFullYear();
-            const years = [];
-            for (let i = currentYear; i >= currentYear - 80; i--) {
-                years.push(String(i));
+
+    if (props.title == 'General Information') {
+
+        const fields = props.fields.map((field) => {
+            if (field.id == 'gi-name') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <Label text={field.label} for={field.id + ('-input')} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.type} 
+                            placeholder={field.placeholder} 
+                            required={field.required}
+                            value={props.nameInputText}
+                            onChange={props.onNameChange}
+                        />
+                    </div>
+                )
+            } else if (field.id == 'gi-email') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <Label text={field.label} for={field.id + ('-input')} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.type} 
+                            placeholder={field.placeholder} 
+                            required={field.required}
+                            value={props.emailInputText} 
+                            onChange={props.onEmailChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'gi-phone') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <Label text={field.label} for={field.id + ('-input')} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.type} 
+                            placeholder={field.placeholder} 
+                            required={field.required}
+                            value={props.phoneInputText} 
+                            onChange={props.onPhoneChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'gi-address') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <Label text={field.label} for={field.id + ('-input')} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.type} 
+                            placeholder={field.placeholder} 
+                            required={field.required}
+                            value={props.addressInputText} 
+                            onChange={props.onAddressChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'gi-postal') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <Label text={field.label} for={field.id + ('-input')} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.type} 
+                            placeholder={field.placeholder} 
+                            required={field.required}
+                            value={props.postalCodeInputText} 
+                            onChange={props.onPostalCodeChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'gi-city') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <Label text={field.label} for={field.id + ('-input')} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.type} 
+                            placeholder={field.placeholder} 
+                            required={field.required}
+                            value={props.cityInputText} 
+                            onChange={props.onCityChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'gi-country') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <Label text={field.label} for={field.id + ('-input')} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.type} 
+                            placeholder={field.placeholder} 
+                            required={field.required}
+                            value={props.countryInputText} 
+                            onChange={props.onCountryChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'gi-birth') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <Label text={field.label} for={field.id + ('-input')} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.inputType} 
+                            required={field.required}
+                            value={props.birthDateInputText} 
+                            onChange={props.onBirthDateChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'gi-gender') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <Label text={field.label} for={field.id + ('-input')} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.type} 
+                            placeholder={field.placeholder} 
+                            required={field.required}
+                            value={props.genderInputText} 
+                            onChange={props.onGenderChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'gi-photo') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <Label text={field.label} for={field.id + ('-input')} />
+                        <Input 
+                            id={field.id + ('-input')} 
+                            type={field.inputType} 
+                            accept='image/*'
+                            required={field.required}
+                            onChange={props.onPhotoChange} 
+                        />
+                    </div>
+                )
             }
+        })
+
+        return (
+            
+            <div className={props.className}>
+                <h2>{props.title}</h2>
+                {fields}
+                <Button text='Next >' onClick={props.onNextClick}/>
+            </div>
+
+        )
+
+    } else if (props.title == 'Education') {
+
+        const subSections = props.studies.map((study) => {
             return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-select')} />
-                    <Select 
-                        id={field.id + ('-select')} 
-                        required={field.required} 
-                        value={props.studiesStartDateSelect} 
-                        onChange={props.onStudiesStartDateChange} 
-                        options={years.map((year) => ({value: year, label: year}))}
-                    />
-                </div>
+                <FormSubSection 
+                    key={('ed-sub-section') + String(study.id)} 
+                    fields={props.fields} 
+                    schoolInputText={study.school} 
+                    onSchoolChange={props.onSchoolChange} 
+                    studiesTitleInputText={study.title} 
+                    onStudiesTitleChange={props.onStudiesTitleChange} 
+                    studiesStartDateSelect={study.startDate} 
+                    onStudiesStartDateChange={props.onStudiesStartDateChange} 
+                    studiesEndDateSelect={study.endDate} 
+                    onStudiesEndDateChange={props.onStudiesEndDateChange} 
+                    studiesDescriptionInputText={study.description} 
+                    onStudiesDescriptionChange={props.onStudiesDescriptionChange} 
+                />
             )
-        } else if (field.id == 'ed-end-date') {
-            const currentYear = new Date().getFullYear();
-            const years = [];
-            for (let i = currentYear; i >= currentYear - 80; i--) {
-                years.push(String(i));
-            }
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-select')} />
-                    <Select 
-                        id={field.id + ('-select')} 
-                        required={field.required} 
-                        value={props.studiesEndDateSelect} 
-                        onChange={props.onStudiesEndDateChange} 
-                        options={years.map((year) => ({value: year, label: year}))}
-                    />
-                </div>
-            )
-        } else if (field.id == 'ed-description') {
-            return (
-                <div key={('form-') + field.id} className='form-field'>
-                    <Label text={field.label} for={field.id + ('-input')} />
-                    <Input 
-                        id={field.id + ('-input')} 
-                        type={field.type} 
-                        placeholder={field.placeholder}
-                        required={field.required}
-                        value={props.studiesDescriptionInputText}
-                        onChange={props.onStudiesDescriptionChange}
-                    />
-                </div>
-            )
-        }
-    })
-    
-    return (
-        <div className={props.className}>
-            <h2>{props.title}</h2>
-            {fields}
-            <Button text='Next >' onClick={props.onNextClick}/>
-        </div>
-    )
+        })
+        
+        return (
+            <div className={props.className}>
+                <h2>{props.title}</h2>
+                {subSections}
+                <FormSubSection 
+                    fields={props.fields} 
+                    schoolInputText={props.schoolInputText} 
+                    onSchoolChange={props.onSchoolChange} 
+                    studiesTitleInputText={props.studiesTitleInputText} 
+                    onStudiesTitleChange={props.onStudiesTitleChange} 
+                    studiesStartDateSelect={props.studiesStartDateSelect} 
+                    onStudiesStartDateChange={props.onStudiesStartDateChange} 
+                    studiesEndDateSelect={props.studiesEndDateSelect} 
+                    onStudiesEndDateChange={props.onStudiesEndDateChange} 
+                    studiesDescriptionInputText={props.studiesDescriptionInputText} 
+                    onStudiesDescriptionChange={props.onStudiesDescriptionChange} 
+                />
+                <Button text='+ More studies' onClick={props.onAddStudiesClick}/>
+                <Button text='Next >' onClick={props.onNextClick}/>
+            </div>
+        )
+
+    } else if (props.title == 'Practical Experience') {
+        console.log('Practical Experience')
+    } else if (props.title == 'Skills') {
+        console.log('Skills')
+    } else if (props.title == 'Contact') {
+        console.log('Contact')
+    } else if (props.title == 'Hobbies') {
+        console.log('Hobbies')
+    }
+        
 }
 
 FormSection.propTypes = {
@@ -277,7 +257,16 @@ FormSection.propTypes = {
     studiesEndDateSelect: PropTypes.string,
     onStudiesEndDateChange: PropTypes.func,
     studiesDescriptionInputText: PropTypes.string,
-    onStudiesDescriptionChange: PropTypes.func
+    onStudiesDescriptionChange: PropTypes.func,
+    studies: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        school: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired
+    })),
+    onAddStudiesClick: PropTypes.func
 }
 
 export default FormSection

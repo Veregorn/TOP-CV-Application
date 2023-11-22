@@ -37,7 +37,9 @@ function CVForm({
     studiesEndDateSelect,
     onStudiesEndDateChange,
     studiesDescriptionInputText,
-    onStudiesDescriptionChange
+    onStudiesDescriptionChange,
+    studies,
+    onAddStudiesClick
     // Experience
     // Skills
     // Contact
@@ -94,7 +96,9 @@ function CVForm({
                     onStudiesEndDateChange={onStudiesEndDateChange} 
                     studiesDescriptionInputText={studiesDescriptionInputText} 
                     onStudiesDescriptionChange={onStudiesDescriptionChange} 
+                    studies={studies} 
                     onNextClick={onNextClick} 
+                    onAddStudiesClick={onAddStudiesClick} 
                 />
             )
         } else {
@@ -151,7 +155,9 @@ CVForm.propTypes = {
     studiesEndDateSelect: PropTypes.string.isRequired,
     onStudiesEndDateChange: PropTypes.func.isRequired,
     studiesDescriptionInputText: PropTypes.string.isRequired,
-    onStudiesDescriptionChange: PropTypes.func.isRequired
+    onStudiesDescriptionChange: PropTypes.func.isRequired,
+    studies: PropTypes.array.isRequired,
+    onAddStudiesClick: PropTypes.func.isRequired
 }
 
 export default CVForm

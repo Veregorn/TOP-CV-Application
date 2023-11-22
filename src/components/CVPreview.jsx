@@ -20,7 +20,8 @@ function CVPreview({
     studiesTitlePreviewText,
     studiesStartDatePreviewText,
     studiesEndDatePreviewText,
-    studiesDescriptionPreviewText
+    studiesDescriptionPreviewText,
+    studies
 }) {
     
     const sections = SECTION_DATA.map((section) => {
@@ -55,6 +56,7 @@ function CVPreview({
                     studiesStartDatePreviewText={studiesStartDatePreviewText} 
                     studiesEndDatePreviewText={studiesEndDatePreviewText} 
                     studiesDescriptionPreviewText={studiesDescriptionPreviewText} 
+                    studies={studies} 
                 />
             )
         }
@@ -92,7 +94,8 @@ CVPreview.propTypes = {
     studiesTitlePreviewText: PropTypes.string.isRequired,
     studiesStartDatePreviewText: PropTypes.string.isRequired,
     studiesEndDatePreviewText: PropTypes.string.isRequired,
-    studiesDescriptionPreviewText: PropTypes.string.isRequired
+    studiesDescriptionPreviewText: PropTypes.string.isRequired,
+    studies: PropTypes.array.isRequired
 }
 
 export default CVPreview

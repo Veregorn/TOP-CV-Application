@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 function CVEditor(props) {
 
+    // Ideally, state variables would be generated dynamically from the SECTION_DATA array, but I don't know how to do that yet
     // General information state variables
     const [nameInputText, setNameInputText] = useState(''); // State for the name input
     const [emailInputText, setEmailInputText] = useState(''); // State for the email input
@@ -23,8 +24,14 @@ function CVEditor(props) {
     const [studiesStartDateSelect, setStudiesStartDateSelect] = useState(''); // State for the studies start date input
     const [studiesEndDateSelect, setStudiesEndDateSelect] = useState(''); // State for the studies end date input
     const [studiesDescriptionInputText, setStudiesDescriptionInputText] = useState(''); // State for the studies description input
+    const [studies, setStudies] = useState([]); // State for the studies array
+    const [studiesId, setStudiesId] = useState(0); // State for the studies id
+    // Experience state variables
+    // Skills state variables
+    // Contact state variables
+    // Hobbies state variables
 
-    // General information input change handlers
+    // General information fields change handlers
     const handleNameInputChange = (event) => {
         setNameInputText(event.target.value);
     }
@@ -74,7 +81,7 @@ function CVEditor(props) {
         }
     }
 
-    // Education input change handlers
+    // Education fields change handlers
     const handleSchoolInputChange = (event) => {
         setSchoolInputText(event.target.value);
     }
@@ -94,6 +101,19 @@ function CVEditor(props) {
     const handleStudiesDescriptionInputChange = (event) => {
         setStudiesDescriptionInputText(event.target.value);
     }
+
+    const handleAddStudiesClick = () => {
+        setStudies([...studies, {id: studiesId, school: schoolInputText, title: studiesTitleInputText, startDate: studiesStartDateSelect, endDate: studiesEndDateSelect, description: studiesDescriptionInputText}]);
+        console.log(studies);
+        setStudiesId(studiesId + 1);
+        setSchoolInputText('');
+        setStudiesTitleInputText('');
+        setStudiesStartDateSelect('');
+        setStudiesEndDateSelect('');
+        setStudiesDescriptionInputText('');
+    }
+
+    // Experience input change handlers
 
     return (
         <div className='book-style'>
@@ -132,6 +152,8 @@ function CVEditor(props) {
                 onStudiesEndDateChange={handleStudiesEndDateSelectChange} 
                 studiesDescriptionInputText={studiesDescriptionInputText} 
                 onStudiesDescriptionChange={handleStudiesDescriptionInputChange} 
+                studies={studies} 
+                onAddStudiesClick={handleAddStudiesClick} 
             />
             <CVPreview 
                 // General information props
@@ -151,6 +173,7 @@ function CVEditor(props) {
                 studiesStartDatePreviewText={studiesStartDateSelect} 
                 studiesEndDatePreviewText={studiesEndDateSelect} 
                 studiesDescriptionPreviewText={studiesDescriptionInputText} 
+                studies={studies}
             />
         </div>
     )
