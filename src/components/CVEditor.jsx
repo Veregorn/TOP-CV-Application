@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 function CVEditor(props) {
 
     // Ideally, state variables would be generated dynamically from the SECTION_DATA array, but I don't know how to do that yet
+    
     // General information state variables
     const [nameInputText, setNameInputText] = useState(''); // State for the name input
     const [emailInputText, setEmailInputText] = useState(''); // State for the email input
@@ -18,6 +19,7 @@ function CVEditor(props) {
     const [birthDateInputText, setBirthDateInputText] = useState(''); // State for the birth date input
     const [genderInputText, setGenderInputText] = useState(''); // State for the gender input
     const [photo, setPhoto] = useState(''); // State for the photo input
+    
     // Education state variables
     const [schoolInputText, setSchoolInputText] = useState(''); // State for the school input
     const [studiesTitleInputText, setStudiesTitleInputText] = useState(''); // State for the studies title input
@@ -26,7 +28,16 @@ function CVEditor(props) {
     const [studiesDescriptionInputText, setStudiesDescriptionInputText] = useState(''); // State for the studies description input
     const [studies, setStudies] = useState([]); // State for the studies array
     const [studiesId, setStudiesId] = useState(0); // State for the studies id
+    
     // Experience state variables
+    const [companyInputText, setCompanyInputText] = useState(''); // State for the company input
+    const [jobPositionInputText, setJobPositionInputText] = useState(''); // State for the job title input
+    const [jobStartDateSelect, setJobStartDateSelect] = useState(''); // State for the job start date input
+    const [jobEndDateSelect, setJobEndDateSelect] = useState(''); // State for the job end date input
+    const [jobDescriptionInputText, setJobDescriptionInputText] = useState(''); // State for the job description input
+    const [jobs, setJobs] = useState([]); // State for the jobs array
+    const [jobsId, setJobsId] = useState(0); // State for the jobs id
+
     // Skills state variables
     // Contact state variables
     // Hobbies state variables
@@ -104,7 +115,6 @@ function CVEditor(props) {
 
     const handleAddStudiesClick = () => {
         setStudies([...studies, {id: studiesId, school: schoolInputText, title: studiesTitleInputText, startDate: studiesStartDateSelect, endDate: studiesEndDateSelect, description: studiesDescriptionInputText}]);
-        console.log(studies);
         setStudiesId(studiesId + 1);
         setSchoolInputText('');
         setStudiesTitleInputText('');
@@ -114,6 +124,35 @@ function CVEditor(props) {
     }
 
     // Experience input change handlers
+    const handleCompanyInputChange = (event) => {
+        setCompanyInputText(event.target.value);
+    }
+
+    const handleJobPositionInputChange = (event) => {
+        setJobPositionInputText(event.target.value);
+    }
+
+    const handleJobStartDateSelectChange = (event) => {
+        setJobStartDateSelect(event.target.value);
+    }
+
+    const handleJobEndDateSelectChange = (event) => {
+        setJobEndDateSelect(event.target.value);
+    }
+
+    const handleJobDescriptionInputChange = (event) => {
+        setJobDescriptionInputText(event.target.value);
+    }
+
+    const handleAddJobClick = () => {
+        setJobs([...jobs, {id: jobsId, company: companyInputText, position: jobPositionInputText, startDate: jobStartDateSelect, endDate: jobEndDateSelect, description: jobDescriptionInputText}]);
+        setJobsId(jobsId + 1);
+        setCompanyInputText('');
+        setJobPositionInputText('');
+        setJobStartDateSelect('');
+        setJobEndDateSelect('');
+        setJobDescriptionInputText('');
+    }
 
     return (
         <div className='book-style'>
@@ -154,6 +193,19 @@ function CVEditor(props) {
                 onStudiesDescriptionChange={handleStudiesDescriptionInputChange} 
                 studies={studies} 
                 onAddStudiesClick={handleAddStudiesClick} 
+                // Experience props
+                companyInputText={companyInputText} 
+                onCompanyChange={handleCompanyInputChange} 
+                jobPositionInputText={jobPositionInputText} 
+                onJobPositionChange={handleJobPositionInputChange} 
+                jobStartDateSelect={jobStartDateSelect} 
+                onJobStartDateChange={handleJobStartDateSelectChange} 
+                jobEndDateSelect={jobEndDateSelect} 
+                onJobEndDateChange={handleJobEndDateSelectChange} 
+                jobDescriptionInputText={jobDescriptionInputText} 
+                onJobDescriptionChange={handleJobDescriptionInputChange} 
+                jobs={jobs} 
+                onAddJobClick={handleAddJobClick} 
             />
             <CVPreview 
                 // General information props
@@ -174,6 +226,13 @@ function CVEditor(props) {
                 studiesEndDatePreviewText={studiesEndDateSelect} 
                 studiesDescriptionPreviewText={studiesDescriptionInputText} 
                 studies={studies}
+                // Experience props
+                companyPreviewText={companyInputText} 
+                jobPositionPreviewText={jobPositionInputText} 
+                jobStartDatePreviewText={jobStartDateSelect} 
+                jobEndDatePreviewText={jobEndDateSelect} 
+                jobDescriptionPreviewText={jobDescriptionInputText} 
+                jobs={jobs} 
             />
         </div>
     )

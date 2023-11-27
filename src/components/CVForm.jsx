@@ -39,8 +39,20 @@ function CVForm({
     studiesDescriptionInputText,
     onStudiesDescriptionChange,
     studies,
-    onAddStudiesClick
+    onAddStudiesClick,
     // Experience
+    companyInputText,
+    onCompanyChange,
+    jobPositionInputText,
+    onJobPositionChange,
+    jobStartDateSelect,
+    onJobStartDateChange,
+    jobEndDateSelect,
+    onJobEndDateChange,
+    jobDescriptionInputText,
+    onJobDescriptionChange,
+    jobs,
+    onAddJobClick
     // Skills
     // Contact
     // Hobbies
@@ -101,6 +113,28 @@ function CVForm({
                     onAddStudiesClick={onAddStudiesClick} 
                 />
             )
+        } else if (section.id == 'practicalExp') {
+            return ( 
+                <FormSection 
+                    key={section.id + ('-form')} 
+                    title={section.longTitle} 
+                    className={index == cuSection ? 'section current' : 'section'} 
+                    fields={section.fields} 
+                    companyInputText={companyInputText} 
+                    onCompanyChange={onCompanyChange} 
+                    jobPositionInputText={jobPositionInputText} 
+                    onJobPositionChange={onJobPositionChange} 
+                    jobStartDateSelect={jobStartDateSelect} 
+                    onJobStartDateChange={onJobStartDateChange} 
+                    jobEndDateSelect={jobEndDateSelect} 
+                    onJobEndDateChange={onJobEndDateChange} 
+                    jobDescriptionInputText={jobDescriptionInputText} 
+                    onJobDescriptionChange={onJobDescriptionChange} 
+                    jobs={jobs} 
+                    onNextClick={onNextClick} 
+                    onAddJobClick={onAddJobClick} 
+                />
+            )
         } else {
             return (
                 <FormSection 
@@ -157,7 +191,23 @@ CVForm.propTypes = {
     studiesDescriptionInputText: PropTypes.string.isRequired,
     onStudiesDescriptionChange: PropTypes.func.isRequired,
     studies: PropTypes.array.isRequired,
-    onAddStudiesClick: PropTypes.func.isRequired
+    onAddStudiesClick: PropTypes.func.isRequired,
+    // Experience prop types
+    companyInputText: PropTypes.string.isRequired,
+    onCompanyChange: PropTypes.func.isRequired,
+    jobPositionInputText: PropTypes.string.isRequired,
+    onJobPositionChange: PropTypes.func.isRequired,
+    jobStartDateSelect: PropTypes.string.isRequired,
+    onJobStartDateChange: PropTypes.func.isRequired,
+    jobEndDateSelect: PropTypes.string.isRequired,
+    onJobEndDateChange: PropTypes.func.isRequired,
+    jobDescriptionInputText: PropTypes.string.isRequired,
+    onJobDescriptionChange: PropTypes.func.isRequired,
+    jobs: PropTypes.array.isRequired,
+    onAddJobClick: PropTypes.func.isRequired
+    // Skills prop types
+    // Contact prop types
+    // Hobbies prop types
 }
 
 export default CVForm

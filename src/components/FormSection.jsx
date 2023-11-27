@@ -205,7 +205,48 @@ function FormSection(props) {
         )
 
     } else if (props.title == 'Practical Experience') {
-        console.log('Practical Experience')
+        
+        const subSections = props.jobs.map((job) => {
+            return (
+                <FormSubSection 
+                    key={('exp-sub-section') + String(job.id)} 
+                    fields={props.fields} 
+                    companyInputText={job.company} 
+                    onCompanyChange={props.onCompanyChange} 
+                    jobPositionInputText={job.position} 
+                    onJobPositionChange={props.onJobPositionChange} 
+                    jobStartDateSelect={job.startDate} 
+                    onJobStartDateChange={props.onJobStartDateChange} 
+                    jobEndDateSelect={job.endDate} 
+                    onJobEndDateChange={props.onJobEndDateChange} 
+                    jobDescriptionInputText={job.description} 
+                    onJobDescriptionChange={props.onJobDescriptionChange} 
+                />
+            )
+        })
+
+        return (
+            <div className={props.className}>
+                <h2>{props.title}</h2>
+                {subSections}
+                <FormSubSection 
+                    fields={props.fields} 
+                    companyInputText={props.companyInputText} 
+                    onCompanyChange={props.onCompanyChange} 
+                    jobPositionInputText={props.jobPositionInputText} 
+                    onJobPositionChange={props.onJobPositionChange} 
+                    jobStartDateSelect={props.jobStartDateSelect} 
+                    onJobStartDateChange={props.onJobStartDateChange} 
+                    jobEndDateSelect={props.jobEndDateSelect} 
+                    onJobEndDateChange={props.onJobEndDateChange} 
+                    jobDescriptionInputText={props.jobDescriptionInputText} 
+                    onJobDescriptionChange={props.onJobDescriptionChange} 
+                />
+                <Button text='+ More jobs' onClick={props.onAddJobClick}/>
+                <Button text='Next >' onClick={props.onNextClick}/>
+            </div>
+        )
+
     } else if (props.title == 'Skills') {
         console.log('Skills')
     } else if (props.title == 'Contact') {
@@ -266,7 +307,27 @@ FormSection.propTypes = {
         endDate: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired
     })),
-    onAddStudiesClick: PropTypes.func
+    onAddStudiesClick: PropTypes.func,
+    // Practical Experience prop types
+    companyInputText: PropTypes.string,
+    onCompanyChange: PropTypes.func,
+    jobPositionInputText: PropTypes.string,
+    onJobPositionChange: PropTypes.func,
+    jobStartDateSelect: PropTypes.string,
+    onJobStartDateChange: PropTypes.func,
+    jobEndDateSelect: PropTypes.string,
+    onJobEndDateChange: PropTypes.func,
+    jobDescriptionInputText: PropTypes.string,
+    onJobDescriptionChange: PropTypes.func,
+    jobs: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        company: PropTypes.string.isRequired,
+        position: PropTypes.string.isRequired,
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired
+    })),
+    onAddJobClick: PropTypes.func
 }
 
 export default FormSection

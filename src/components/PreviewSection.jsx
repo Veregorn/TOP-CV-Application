@@ -22,8 +22,16 @@ function PreviewSection({
     studiesStartDatePreviewText,
     studiesEndDatePreviewText,
     studiesDescriptionPreviewText,
-    studies
+    studies,
+    // Practical experience props
+    companyPreviewText,
+    jobPositionPreviewText,
+    jobStartDatePreviewText,
+    jobEndDatePreviewText,
+    jobDescriptionPreviewText,
+    jobs
  }) {
+
     const sectionFields = fields.map((field) => {
         // General information fields
         if (field.id == 'gi-name') {
@@ -149,52 +157,112 @@ function PreviewSection({
                 />
             )
         }
-    })
-
-    if (!studies) {
-        return (
-            <div className='preview-section'>
-                <h3>{title}</h3>
-                {sectionFields}
-            </div>
-        )
-    } else {
-        const studiesFields = studies.map((study) => {
+        // Practical experience fields
+        else if (field.id == 'exp-company') {
             return (
-                <div key={study.id + ('-preview')}>
-                    <CVFieldPreview 
-                        id={study.id + ('-preview')}
-                        value={study.school} 
-                    />
-                    <CVFieldPreview 
-                        id={study.id + ('-preview')}
-                        value={study.title} 
-                    />
-                    <CVFieldPreview 
-                        id={study.id + ('-preview')}
-                        value={study.startDate} 
-                    />
-                    <CVFieldPreview 
-                        id={study.id + ('-preview')}
-                        value={study.endDate} 
-                    />
-                    <CVFieldPreview 
-                        id={study.id + ('-preview')}
-                        value={study.description} 
-                    />
-                </div>
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={companyPreviewText} 
+                />
             )
-        })
+        } else if (field.id == 'exp-job-position') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={jobPositionPreviewText} 
+                />
+            )
+        } else if (field.id == 'exp-start-date') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={jobStartDatePreviewText} 
+                />
+            )
+        } else if (field.id == 'exp-end-date') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={jobEndDatePreviewText} 
+                />
+            )
+        } else if (field.id == 'exp-description') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={jobDescriptionPreviewText} 
+                />
+            )
+        }
+    })
         
+    const studiesFields = studies ? studies.map((study) => {
         return (
-            <div className='preview-section'>
-                <h3>{title}</h3>
-                {sectionFields}
-                {studiesFields}
+            <div key={study.id + ('-preview')} className='study-preview'>
+                <CVFieldPreview 
+                    id={study.id + ('-preview')}
+                    value={study.school} 
+                />
+                <CVFieldPreview 
+                    id={study.id + ('-preview')}
+                    value={study.title} 
+                />
+                <CVFieldPreview 
+                    id={study.id + ('-preview')}
+                    value={study.startDate} 
+                />
+                <CVFieldPreview 
+                    id={study.id + ('-preview')}
+                    value={study.endDate} 
+                />
+                <CVFieldPreview 
+                    id={study.id + ('-preview')}
+                    value={study.description} 
+                />
             </div>
         )
-    }
+    }) : null
 
+    const jobsFields = jobs ? jobs.map((job) => {
+        return (
+            <div key={job.id + ('-preview')} className='job-preview'>
+                <CVFieldPreview 
+                    id={job.id + ('-preview')}
+                    value={job.company} 
+                />
+                <CVFieldPreview 
+                    id={job.id + ('-preview')}
+                    value={job.position} 
+                />
+                <CVFieldPreview 
+                    id={job.id + ('-preview')}
+                    value={job.startDate} 
+                />
+                <CVFieldPreview 
+                    id={job.id + ('-preview')}
+                    value={job.endDate} 
+                />
+                <CVFieldPreview 
+                    id={job.id + ('-preview')}
+                    value={job.description} 
+                />
+            </div>
+        )
+    }) : null
+        
+    return (
+        <div className='preview-section'>
+            <h3>{title}</h3>
+            {sectionFields}
+            {studies && studiesFields}
+            {jobs && jobsFields}
+        </div>
+    )
 }
 
 PreviewSection.propTypes = {
@@ -227,6 +295,20 @@ PreviewSection.propTypes = {
         id: PropTypes.number.isRequired,
         school: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
+        startDate: PropTypes.string.isRequired,
+        endDate: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired
+    })),
+    // Practical experience props
+    companyPreviewText: PropTypes.string,
+    jobPositionPreviewText: PropTypes.string,
+    jobStartDatePreviewText: PropTypes.string,
+    jobEndDatePreviewText: PropTypes.string,
+    jobDescriptionPreviewText: PropTypes.string,
+    jobs: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        company: PropTypes.string.isRequired,
+        position: PropTypes.string.isRequired,
         startDate: PropTypes.string.isRequired,
         endDate: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired

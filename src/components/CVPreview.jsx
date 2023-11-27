@@ -21,7 +21,17 @@ function CVPreview({
     studiesStartDatePreviewText,
     studiesEndDatePreviewText,
     studiesDescriptionPreviewText,
-    studies
+    studies,
+    // Experience props
+    companyPreviewText,
+    jobPositionPreviewText,
+    jobStartDatePreviewText,
+    jobEndDatePreviewText,
+    jobDescriptionPreviewText,
+    jobs
+    // Skills props
+    // Contact props
+    // Hobbies props
 }) {
     
     const sections = SECTION_DATA.map((section) => {
@@ -59,6 +69,20 @@ function CVPreview({
                     studies={studies} 
                 />
             )
+        } else if (section.id == 'practicalExp') {
+            return (
+                <PreviewSection 
+                    key={section.id + ('-preview')} 
+                    title={section.longTitle} 
+                    fields={section.fields} 
+                    companyPreviewText={companyPreviewText} 
+                    jobPositionPreviewText={jobPositionPreviewText} 
+                    jobStartDatePreviewText={jobStartDatePreviewText} 
+                    jobEndDatePreviewText={jobEndDatePreviewText} 
+                    jobDescriptionPreviewText={jobDescriptionPreviewText} 
+                    jobs={jobs} 
+                />
+            )
         }
         else {
             return (
@@ -80,6 +104,7 @@ function CVPreview({
 }
 
 CVPreview.propTypes = {
+    // General information props
     namePreviewText: PropTypes.string.isRequired,
     emailPreviewText: PropTypes.string.isRequired,
     phonePreviewText: PropTypes.string.isRequired,
@@ -90,12 +115,20 @@ CVPreview.propTypes = {
     birthDatePreviewText: PropTypes.string.isRequired,
     genderPreviewText: PropTypes.string.isRequired,
     photoImage: PropTypes.string,
+    // Education props
     schoolPreviewText: PropTypes.string.isRequired,
     studiesTitlePreviewText: PropTypes.string.isRequired,
     studiesStartDatePreviewText: PropTypes.string.isRequired,
     studiesEndDatePreviewText: PropTypes.string.isRequired,
     studiesDescriptionPreviewText: PropTypes.string.isRequired,
-    studies: PropTypes.array.isRequired
+    studies: PropTypes.array.isRequired,
+    // Experience props
+    companyPreviewText: PropTypes.string.isRequired,
+    jobPositionPreviewText: PropTypes.string.isRequired,
+    jobStartDatePreviewText: PropTypes.string.isRequired,
+    jobEndDatePreviewText: PropTypes.string.isRequired,
+    jobDescriptionPreviewText: PropTypes.string.isRequired,
+    jobs: PropTypes.array.isRequired
 }
 
 export default CVPreview

@@ -19,8 +19,8 @@ function Select(props) {
 
 Select.propTypes = {
     id: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
+    value: PropTypes.string,
+    onChange: PropTypes.func,
     options: PropTypes.array.isRequired,
     required: PropTypes.bool.isRequired
 }
