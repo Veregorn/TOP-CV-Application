@@ -4,6 +4,7 @@ import Input from './Input'
 import Select from './Select'
 import Label from './Label'
 import Textarea from './Textarea'
+import Radio from './Radio'
 
 function FormSubSection(props) {
     
@@ -166,6 +167,36 @@ function FormSubSection(props) {
                     />
                 </div>
             )
+        } else if (field.id == 'sk-name') {
+            return (
+                <div key={('form-') + field.id} className='form-field'>
+                    <Label text={field.label} for={field.id + ('-input')} />
+                    <Input 
+                        id={field.id + ('-input')} 
+                        type={field.inputType} 
+                        placeholder={field.placeholder}
+                        required={field.required}
+                        value={props.skillNameInputText}
+                        onChange={props.onSkillNameChange}
+                    />
+                </div>
+            )
+        } else if (field.id == 'sk-level') {
+            return (
+                <div key={('form-') + field.id} className='form-field'>
+                    
+                    <Radio 
+                        id={field.id} 
+                        legend={field.label}  
+                        name={props.index !== undefined ? field.id + '-' + props.index : field.id} 
+                        options={field.options} 
+                        required={field.required} 
+                        value={props.skillLevelRadio} 
+                        onChange={props.onSkillLevelChange} 
+                    />
+
+                </div>
+            )
         }
 
     })
@@ -180,6 +211,7 @@ function FormSubSection(props) {
 
 FormSubSection.propTypes = {
     fields: PropTypes.array,
+    index: PropTypes.number,
     // Education
     schoolInputText: PropTypes.string,
     onSchoolChange: PropTypes.func,
@@ -201,7 +233,12 @@ FormSubSection.propTypes = {
     jobEndDateSelect: PropTypes.string,
     onJobEndDateChange: PropTypes.func,
     jobDescriptionInputText: PropTypes.string,
-    onJobDescriptionChange: PropTypes.func
+    onJobDescriptionChange: PropTypes.func,
+    // Skills
+    skillNameInputText: PropTypes.string,
+    onSkillNameChange: PropTypes.func,
+    skillLevelRadio: PropTypes.string,
+    onSkillLevelChange: PropTypes.func
 }
 
 export default FormSubSection

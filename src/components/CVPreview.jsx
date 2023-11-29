@@ -28,8 +28,11 @@ function CVPreview({
     jobStartDatePreviewText,
     jobEndDatePreviewText,
     jobDescriptionPreviewText,
-    jobs
+    jobs,
     // Skills props
+    skillNamePreviewText,
+    skillLevelPreviewText,
+    skills
     // Contact props
     // Hobbies props
 }) {
@@ -83,8 +86,18 @@ function CVPreview({
                     jobs={jobs} 
                 />
             )
-        }
-        else {
+        } else if (section.id == 'skills') {
+            return (
+                <PreviewSection 
+                    key={section.id + ('-preview')} 
+                    title={section.longTitle} 
+                    fields={section.fields} 
+                    skillNamePreviewText={skillNamePreviewText} 
+                    skillLevelPreviewText={skillLevelPreviewText} 
+                    skills={skills} 
+                />
+            )
+        } else {
             return (
                 <PreviewSection 
                     key={section.id + ('-preview')} 
@@ -128,7 +141,11 @@ CVPreview.propTypes = {
     jobStartDatePreviewText: PropTypes.string.isRequired,
     jobEndDatePreviewText: PropTypes.string.isRequired,
     jobDescriptionPreviewText: PropTypes.string.isRequired,
-    jobs: PropTypes.array.isRequired
+    jobs: PropTypes.array.isRequired,
+    // Skills props
+    skillNamePreviewText: PropTypes.string.isRequired,
+    skillLevelPreviewText: PropTypes.string.isRequired,
+    skills: PropTypes.array.isRequired
 }
 
 export default CVPreview

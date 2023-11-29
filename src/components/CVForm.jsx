@@ -52,8 +52,14 @@ function CVForm({
     jobDescriptionInputText,
     onJobDescriptionChange,
     jobs,
-    onAddJobClick
+    onAddJobClick,
     // Skills
+    skills,
+    onAddSkillClick,
+    skillNameInputText,
+    onSkillNameChange,
+    skillLevelRadio,
+    onSkillLevelChange
     // Contact
     // Hobbies
 }) {
@@ -135,6 +141,22 @@ function CVForm({
                     onAddJobClick={onAddJobClick} 
                 />
             )
+        } else if (section.id == 'skills') {
+            return (
+                <FormSection 
+                    key={section.id + ('-form')} 
+                    title={section.longTitle} 
+                    className={index == cuSection ? 'section current' : 'section'} 
+                    fields={section.fields} 
+                    skills={skills} 
+                    onNextClick={onNextClick} 
+                    onAddSkillClick={onAddSkillClick} 
+                    skillNameInputText={skillNameInputText} 
+                    onSkillNameChange={onSkillNameChange} 
+                    skillLevelRadio={skillLevelRadio} 
+                    onSkillLevelChange={onSkillLevelChange} 
+                />
+            )
         } else {
             return (
                 <FormSection 
@@ -204,8 +226,14 @@ CVForm.propTypes = {
     jobDescriptionInputText: PropTypes.string.isRequired,
     onJobDescriptionChange: PropTypes.func.isRequired,
     jobs: PropTypes.array.isRequired,
-    onAddJobClick: PropTypes.func.isRequired
+    onAddJobClick: PropTypes.func.isRequired,
     // Skills prop types
+    skills: PropTypes.array.isRequired,
+    onAddSkillClick: PropTypes.func.isRequired,
+    skillNameInputText: PropTypes.string.isRequired,
+    onSkillNameChange: PropTypes.func.isRequired,
+    skillLevelRadio: PropTypes.string.isRequired,
+    onSkillLevelChange: PropTypes.func.isRequired
     // Contact prop types
     // Hobbies prop types
 }

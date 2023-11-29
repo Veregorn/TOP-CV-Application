@@ -176,38 +176,39 @@ const SECTION_DATA = [
         fields: [
             {
                 id: 'sk-name',
-                label: 'Name',
-                type: 'text',
-                placeholder: 'Enter your name',
+                label: 'Skill Name',
+                type: 'input',
+                inputType: 'text',
+                placeholder: 'Enter the skill name',
                 required: true,
             },
             {
-                id: 'sk-email',
-                label: 'Email',
-                type: 'email',
-                placeholder: 'Enter your email',
+                id: 'sk-level',
+                label: 'Skill Level',
+                type: 'radio',
                 required: true,
-            },
-            {
-                id: 'sk-phone',
-                label: 'Phone',
-                type: 'tel',
-                placeholder: 'Enter your phone number',
-                required: true,
-            },
-            {
-                id: 'sk-address',
-                label: 'Address',
-                type: 'text',
-                placeholder: 'Enter your address',
-                required: true,
-            },
-            {
-                id: 'sk-website',
-                label: 'Website',
-                type: 'url',
-                placeholder: 'Enter your website',
-                required: false,
+                options: [
+                    {
+                        label: 'Beginner',
+                        value: 'beginner'
+                    },
+                    {
+                        label: 'Elementary',
+                        value: 'elementary'
+                    },
+                    {
+                        label: 'Intermediate',
+                        value: 'intermediate'
+                    },
+                    {
+                        label: 'Advanced',
+                        value: 'advanced'
+                    },
+                    {
+                        label: 'Expert',
+                        value: 'expert'
+                    }
+                ]
             }
         ]
     },

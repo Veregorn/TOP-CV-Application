@@ -248,7 +248,37 @@ function FormSection(props) {
         )
 
     } else if (props.title == 'Skills') {
-        console.log('Skills')
+        
+        const subSections = props.skills.map((skill, index) => {
+            return (
+                <FormSubSection 
+                    key={('sk-sub-section') + String(skill.id)} 
+                    index={index} 
+                    fields={props.fields} 
+                    skillNameInputText={skill.name} 
+                    onSkillNameChange={props.onSkillNameChange} 
+                    skillLevelRadio={skill.level} 
+                    onSkillLevelChange={props.onSkillLevelChange} 
+                />
+            )
+        })
+
+        return (
+            <div className={props.className}>
+                <h2>{props.title}</h2>
+                {subSections}
+                <FormSubSection 
+                    fields={props.fields} 
+                    skillNameInputText={props.skillNameInputText} 
+                    onSkillNameChange={props.onSkillNameChange} 
+                    skillLevelRadio={props.skillLevelRadio} 
+                    onSkillLevelChange={props.onSkillLevelChange} 
+                />
+                <Button text='+ More skills' onClick={props.onAddSkillClick}/>
+                <Button text='Next >' onClick={props.onNextClick}/>
+            </div>
+        )
+
     } else if (props.title == 'Contact') {
         console.log('Contact')
     } else if (props.title == 'Hobbies') {
@@ -327,7 +357,18 @@ FormSection.propTypes = {
         endDate: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired
     })),
-    onAddJobClick: PropTypes.func
+    onAddJobClick: PropTypes.func,
+    // Skills prop types
+    skillNameInputText: PropTypes.string,
+    onSkillNameChange: PropTypes.func,
+    skillLevelRadio: PropTypes.string,
+    onSkillLevelChange: PropTypes.func,
+    skills: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        level: PropTypes.string.isRequired
+    })),
+    onAddSkillClick: PropTypes.func
 }
 
 export default FormSection

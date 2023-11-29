@@ -29,7 +29,11 @@ function PreviewSection({
     jobStartDatePreviewText,
     jobEndDatePreviewText,
     jobDescriptionPreviewText,
-    jobs
+    jobs,
+    // Skills props
+    skillNamePreviewText,
+    skillLevelPreviewText,
+    skills
  }) {
 
     const sectionFields = fields.map((field) => {
@@ -199,6 +203,24 @@ function PreviewSection({
                 />
             )
         }
+        // Skills fields
+        else if (field.id == 'sk-name') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={skillNamePreviewText} 
+                />
+            )
+        } else if (field.id == 'sk-level') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')}
+                    value={skillLevelPreviewText} 
+                />
+            )
+        }
     })
         
     const studiesFields = studies ? studies.map((study) => {
@@ -254,6 +276,21 @@ function PreviewSection({
             </div>
         )
     }) : null
+
+    const skillsFields = skills ? skills.map((skill) => {
+        return (
+            <div key={skill.id + ('-preview')} className='skill-preview'>
+                <CVFieldPreview 
+                    id={skill.id + ('-preview')}
+                    value={skill.name} 
+                />
+                <CVFieldPreview 
+                    id={skill.id + ('-preview')}
+                    value={skill.level} 
+                />
+            </div>
+        )
+    } ) : null
         
     return (
         <div className='preview-section'>
@@ -261,6 +298,7 @@ function PreviewSection({
             {sectionFields}
             {studies && studiesFields}
             {jobs && jobsFields}
+            {skills && skillsFields}
         </div>
     )
 }
@@ -312,6 +350,14 @@ PreviewSection.propTypes = {
         startDate: PropTypes.string.isRequired,
         endDate: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired
+    })),
+    // Skills props
+    skillNamePreviewText: PropTypes.string,
+    skillLevelPreviewText: PropTypes.string,
+    skills: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        level: PropTypes.string.isRequired
     }))
 }
 

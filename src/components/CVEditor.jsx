@@ -39,6 +39,11 @@ function CVEditor(props) {
     const [jobsId, setJobsId] = useState(0); // State for the jobs id
 
     // Skills state variables
+    const [skillNameInputText, setSkillNameInputText] = useState(''); // State for the skill name input
+    const [skillLevelRadio, setSkillLevelRadio] = useState('beginner'); // State for the skill level radio buttons
+    const [skills, setSkills] = useState([]); // State for the skills array
+    const [skillsId, setSkillsId] = useState(0); // State for the skills id
+
     // Contact state variables
     // Hobbies state variables
 
@@ -123,7 +128,7 @@ function CVEditor(props) {
         setStudiesDescriptionInputText('');
     }
 
-    // Experience input change handlers
+    // Experience fields change handlers
     const handleCompanyInputChange = (event) => {
         setCompanyInputText(event.target.value);
     }
@@ -152,6 +157,22 @@ function CVEditor(props) {
         setJobStartDateSelect('');
         setJobEndDateSelect('');
         setJobDescriptionInputText('');
+    }
+
+    // Skills fields change handlers
+    const handleSkillNameInputChange = (event) => {
+        setSkillNameInputText(event.target.value);
+    }
+
+    const handleSkillLevelRadioChange = (event) => {
+        setSkillLevelRadio(event.target.value);
+    }
+
+    const handleAddSkillClick = () => {
+        setSkills([...skills, {id: skillsId, name: skillNameInputText, level: skillLevelRadio}]);
+        setSkillsId(skillsId + 1);
+        setSkillNameInputText('');
+        setSkillLevelRadio('Beginner');
     }
 
     return (
@@ -206,6 +227,13 @@ function CVEditor(props) {
                 onJobDescriptionChange={handleJobDescriptionInputChange} 
                 jobs={jobs} 
                 onAddJobClick={handleAddJobClick} 
+                // Skills props
+                skillNameInputText={skillNameInputText} 
+                onSkillNameChange={handleSkillNameInputChange} 
+                skillLevelRadio={skillLevelRadio} 
+                onSkillLevelChange={handleSkillLevelRadioChange} 
+                skills={skills} 
+                onAddSkillClick={handleAddSkillClick} 
             />
             <CVPreview 
                 // General information props
@@ -233,6 +261,10 @@ function CVEditor(props) {
                 jobEndDatePreviewText={jobEndDateSelect} 
                 jobDescriptionPreviewText={jobDescriptionInputText} 
                 jobs={jobs} 
+                // Skills props
+                skills={skills} 
+                skillNamePreviewText={skillNameInputText} 
+                skillLevelPreviewText={skillLevelRadio} 
             />
         </div>
     )
