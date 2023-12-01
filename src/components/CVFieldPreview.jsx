@@ -17,35 +17,24 @@ function formatDate(fecha) {
 function CVFieldPreview(props) {
     
     if (props.id == 'gi-birth-preview') {
-        if (props.value == '') {
             return (
                 <div className='field'>
-                    <p>{props.value}</p>
+                    {props.value == '' ? <p>{props.value}</p> : <p>{formatDate(props.value)}</p>}
                 </div>
             )
-        } else {
-            const formattedDate = formatDate(props.value);
-        
-            return (
-                <div className='field'>
-                    <p>{formattedDate}</p>
-                </div>
-            )
-        }
     } else if (props.id == 'gi-photo-preview') {
-        if (!props.value) {
-            return (
-                <div className='field'>
-                    <p>No photo selected</p>
-                </div>
-            )
-        } else {
-            return (
-                <div className='field'>
-                    <img src={props.value} alt='Profile photo' />
-                </div>
-            )
-        }
+        return (
+            <div className='field'>
+                {!props.value ? <p>No photo selected</p> : <img src={props.value} alt='Profile photo' />}
+            </div>
+        )
+    } else if (props.id == 'x-preview' || props.id == 'instagram-preview' || props.id == 'linkedin-preview' || props.id == 'github-preview' || props.id == 'youtube-preview' || props.id == 'dribbble-preview' || props.id == 'behance-preview' || props.id == 'twitch-preview') {
+        return (
+            <div className='field'>
+                {props.value != '' && <img src={props.imageURL} />}
+                <p>{props.value}</p>
+            </div>
+        )
     } else {
         return (
             <div className='field'>
@@ -57,7 +46,8 @@ function CVFieldPreview(props) {
 
 CVFieldPreview.propTypes = {
     value: PropTypes.string,
-    id: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
+    imageURL: PropTypes.string
 }
 
 export default CVFieldPreview

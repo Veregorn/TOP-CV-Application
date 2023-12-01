@@ -33,7 +33,16 @@ function PreviewSection({
     // Skills props
     skillNamePreviewText,
     skillLevelPreviewText,
-    skills
+    skills,
+    // Contact props
+    xPreviewText,
+    instagramPreviewText,
+    linkedinPreviewText,
+    githubPreviewText,
+    youtubePreviewText,
+    dribbblePreviewText,
+    behancePreviewText,
+    twitchPreviewText
  }) {
 
     const sectionFields = fields.map((field) => {
@@ -220,6 +229,92 @@ function PreviewSection({
                     value={skillLevelPreviewText} 
                 />
             )
+        // Contact fields
+        } else if (field.id == 'x') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    value={xPreviewText} 
+                    imageURL={field.imageURL} 
+                />
+            )
+        } else if (field.id == 'instagram') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    value={instagramPreviewText} 
+                    imageURL={field.imageURL} 
+                />
+            )
+        } else if (field.id == 'linkedin') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    value={linkedinPreviewText} 
+                    imageURL={field.imageURL} 
+                />
+            )
+        }
+        else if (field.id == 'github') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    value={githubPreviewText} 
+                    imageURL={field.imageURL} 
+                />
+            )
+        }
+        else if (field.id == 'youtube') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    value={youtubePreviewText} 
+                    imageURL={field.imageURL} 
+                />
+            )
+        }
+        else if (field.id == 'dribbble') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    value={dribbblePreviewText} 
+                    imageURL={field.imageURL} 
+                />
+            )
+        }
+        else if (field.id == 'behance') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    value={behancePreviewText} 
+                    imageURL={field.imageURL} 
+                />
+            )
+        }
+        else if (field.id == 'twitch') {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    value={twitchPreviewText} 
+                    imageURL={field.imageURL} 
+                />
+            )
+        }
+        else {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                />
+            )
         }
     })
         
@@ -307,10 +402,10 @@ PreviewSection.propTypes = {
     title: PropTypes.string.isRequired,
     fields: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
+        label: PropTypes.string,
         type: PropTypes.string,
         placeholder: PropTypes.string,
-        required: PropTypes.bool.isRequired
+        required: PropTypes.bool
     })).isRequired,
     // General information props
     namePreviewText: PropTypes.string,
@@ -358,7 +453,16 @@ PreviewSection.propTypes = {
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         level: PropTypes.string.isRequired
-    }))
+    })),
+    // Contact props
+    xPreviewText: PropTypes.string,
+    instagramPreviewText: PropTypes.string,
+    linkedinPreviewText: PropTypes.string,
+    githubPreviewText: PropTypes.string,
+    youtubePreviewText: PropTypes.string,
+    dribbblePreviewText: PropTypes.string,
+    behancePreviewText: PropTypes.string,
+    twitchPreviewText: PropTypes.string
 }
 
 export default PreviewSection

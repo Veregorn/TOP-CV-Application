@@ -59,8 +59,40 @@ function CVForm({
     skillNameInputText,
     onSkillNameChange,
     skillLevelRadio,
-    onSkillLevelChange
+    onSkillLevelChange,
     // Contact
+    xInputText,
+    onXChange,
+    xInputEnabled,
+    onXCheckboxChange,
+    instagramInputText,
+    onInstagramChange,
+    instagramInputEnabled,
+    onInstagramCheckboxChange,
+    linkedinInputText,
+    onLinkedinChange,
+    linkedinInputEnabled,
+    onLinkedinCheckboxChange,
+    githubInputText,
+    onGithubChange,
+    githubInputEnabled,
+    onGithubCheckboxChange,
+    youtubeInputText,
+    onYoutubeChange,
+    youtubeInputEnabled,
+    onYoutubeCheckboxChange,
+    dribbbleInputText,
+    onDribbbleChange,
+    dribbbleInputEnabled,
+    onDribbbleCheckboxChange,
+    behanceInputText,
+    onBehanceChange,
+    behanceInputEnabled,
+    onBehanceCheckboxChange,
+    twitchInputText,
+    onTwitchChange,
+    twitchInputEnabled,
+    onTwitchCheckboxChange
     // Hobbies
 }) {
     
@@ -157,6 +189,48 @@ function CVForm({
                     onSkillLevelChange={onSkillLevelChange} 
                 />
             )
+        } else if (section.id == 'contact') {
+            return (
+                <FormSection 
+                    key={section.id + ('-form')} 
+                    title={section.longTitle} 
+                    className={index == cuSection ? 'section current' : 'section'} 
+                    fields={section.fields} 
+                    xInputText={xInputText} 
+                    onXChange={onXChange} 
+                    xInputEnabled={xInputEnabled} 
+                    onXCheckboxChange={onXCheckboxChange} 
+                    instagramInputText={instagramInputText} 
+                    onInstagramChange={onInstagramChange} 
+                    instagramInputEnabled={instagramInputEnabled} 
+                    onInstagramCheckboxChange={onInstagramCheckboxChange} 
+                    linkedinInputText={linkedinInputText} 
+                    onLinkedinChange={onLinkedinChange} 
+                    linkedinInputEnabled={linkedinInputEnabled} 
+                    onLinkedinCheckboxChange={onLinkedinCheckboxChange} 
+                    githubInputText={githubInputText} 
+                    onGithubChange={onGithubChange} 
+                    githubInputEnabled={githubInputEnabled} 
+                    onGithubCheckboxChange={onGithubCheckboxChange} 
+                    youtubeInputText={youtubeInputText} 
+                    onYoutubeChange={onYoutubeChange} 
+                    youtubeInputEnabled={youtubeInputEnabled} 
+                    onYoutubeCheckboxChange={onYoutubeCheckboxChange} 
+                    dribbbleInputText={dribbbleInputText} 
+                    onDribbbleChange={onDribbbleChange} 
+                    dribbbleInputEnabled={dribbbleInputEnabled} 
+                    onDribbbleCheckboxChange={onDribbbleCheckboxChange} 
+                    behanceInputText={behanceInputText} 
+                    onBehanceChange={onBehanceChange} 
+                    behanceInputEnabled={behanceInputEnabled} 
+                    onBehanceCheckboxChange={onBehanceCheckboxChange} 
+                    twitchInputText={twitchInputText} 
+                    onTwitchChange={onTwitchChange} 
+                    twitchInputEnabled={twitchInputEnabled} 
+                    onTwitchCheckboxChange={onTwitchCheckboxChange} 
+                    onNextClick={onNextClick} 
+                />
+            )
         } else {
             return (
                 <FormSection 
@@ -233,8 +307,40 @@ CVForm.propTypes = {
     skillNameInputText: PropTypes.string.isRequired,
     onSkillNameChange: PropTypes.func.isRequired,
     skillLevelRadio: PropTypes.string.isRequired,
-    onSkillLevelChange: PropTypes.func.isRequired
+    onSkillLevelChange: PropTypes.func.isRequired,
     // Contact prop types
+    xInputText: PropTypes.string.isRequired,
+    onXChange: PropTypes.func.isRequired,
+    xInputEnabled: PropTypes.bool.isRequired,
+    onXCheckboxChange: PropTypes.func.isRequired,
+    instagramInputText: PropTypes.string.isRequired,
+    onInstagramChange: PropTypes.func.isRequired,
+    instagramInputEnabled: PropTypes.bool.isRequired,
+    onInstagramCheckboxChange: PropTypes.func.isRequired,
+    linkedinInputText: PropTypes.string.isRequired,
+    onLinkedinChange: PropTypes.func.isRequired,
+    linkedinInputEnabled: PropTypes.bool.isRequired,
+    onLinkedinCheckboxChange: PropTypes.func.isRequired,
+    githubInputText: PropTypes.string.isRequired,
+    onGithubChange: PropTypes.func.isRequired,
+    githubInputEnabled: PropTypes.bool.isRequired,
+    onGithubCheckboxChange: PropTypes.func.isRequired,
+    youtubeInputText: PropTypes.string.isRequired,
+    onYoutubeChange: PropTypes.func.isRequired,
+    youtubeInputEnabled: PropTypes.bool.isRequired,
+    onYoutubeCheckboxChange: PropTypes.func.isRequired,
+    dribbbleInputText: PropTypes.string.isRequired,
+    onDribbbleChange: PropTypes.func.isRequired,
+    dribbbleInputEnabled: PropTypes.bool.isRequired,
+    onDribbbleCheckboxChange: PropTypes.func.isRequired,
+    behanceInputText: PropTypes.string.isRequired,
+    onBehanceChange: PropTypes.func.isRequired,
+    behanceInputEnabled: PropTypes.bool.isRequired,
+    onBehanceCheckboxChange: PropTypes.func.isRequired,
+    twitchInputText: PropTypes.string.isRequired,
+    onTwitchChange: PropTypes.func.isRequired,
+    twitchInputEnabled: PropTypes.bool.isRequired,
+    onTwitchCheckboxChange: PropTypes.func.isRequired
     // Hobbies prop types
 }
 

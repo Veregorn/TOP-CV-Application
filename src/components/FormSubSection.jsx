@@ -20,7 +20,8 @@ function FormSubSection(props) {
                         placeholder={field.placeholder}
                         required={field.required}
                         value={props.schoolInputText}
-                        onChange={props.onSchoolChange}
+                        onChange={props.onSchoolChange} 
+                        disabled={false} 
                     />
                 </div>
             )
@@ -34,7 +35,8 @@ function FormSubSection(props) {
                         placeholder={field.placeholder}
                         required={field.required}
                         value={props.studiesTitleInputText}
-                        onChange={props.onStudiesTitleChange}
+                        onChange={props.onStudiesTitleChange} 
+                        disabled={false} 
                     />
                 </div>
             )
@@ -84,7 +86,8 @@ function FormSubSection(props) {
                         placeholder={field.placeholder}
                         required={field.required}
                         value={props.studiesDescriptionInputText}
-                        onChange={props.onStudiesDescriptionChange}
+                        onChange={props.onStudiesDescriptionChange} 
+                        disabled={false} 
                     />
                 </div>
             )
@@ -98,7 +101,8 @@ function FormSubSection(props) {
                         placeholder={field.placeholder}
                         required={field.required}
                         value={props.companyInputText}
-                        onChange={props.onCompanyChange}
+                        onChange={props.onCompanyChange} 
+                        disabled={false} 
                     />
                 </div>
             )
@@ -112,7 +116,8 @@ function FormSubSection(props) {
                         placeholder={field.placeholder}
                         required={field.required}
                         value={props.jobPositionInputText}
-                        onChange={props.onJobPositionChange}
+                        onChange={props.onJobPositionChange} 
+                        disabled={false} 
                     />
                 </div>
             )
@@ -177,7 +182,8 @@ function FormSubSection(props) {
                         placeholder={field.placeholder}
                         required={field.required}
                         value={props.skillNameInputText}
-                        onChange={props.onSkillNameChange}
+                        onChange={props.onSkillNameChange} 
+                        disabled={false} 
                     />
                 </div>
             )

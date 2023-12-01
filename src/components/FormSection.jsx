@@ -21,6 +21,7 @@ function FormSection(props) {
                             required={field.required}
                             value={props.nameInputText}
                             onChange={props.onNameChange}
+                            disabled={false} 
                         />
                     </div>
                 )
@@ -35,6 +36,7 @@ function FormSection(props) {
                             required={field.required}
                             value={props.emailInputText} 
                             onChange={props.onEmailChange} 
+                            disabled={false} 
                         />
                     </div>
                 )
@@ -49,6 +51,7 @@ function FormSection(props) {
                             required={field.required}
                             value={props.phoneInputText} 
                             onChange={props.onPhoneChange} 
+                            disabled={false} 
                         />
                     </div>
                 )
@@ -63,6 +66,7 @@ function FormSection(props) {
                             required={field.required}
                             value={props.addressInputText} 
                             onChange={props.onAddressChange} 
+                            disabled={false} 
                         />
                     </div>
                 )
@@ -77,6 +81,7 @@ function FormSection(props) {
                             required={field.required}
                             value={props.postalCodeInputText} 
                             onChange={props.onPostalCodeChange} 
+                            disabled={false} 
                         />
                     </div>
                 )
@@ -91,6 +96,7 @@ function FormSection(props) {
                             required={field.required}
                             value={props.cityInputText} 
                             onChange={props.onCityChange} 
+                            disabled={false} 
                         />
                     </div>
                 )
@@ -105,6 +111,7 @@ function FormSection(props) {
                             required={field.required}
                             value={props.countryInputText} 
                             onChange={props.onCountryChange} 
+                            disabled={false} 
                         />
                     </div>
                 )
@@ -118,6 +125,7 @@ function FormSection(props) {
                             required={field.required}
                             value={props.birthDateInputText} 
                             onChange={props.onBirthDateChange} 
+                            disabled={false} 
                         />
                     </div>
                 )
@@ -132,6 +140,7 @@ function FormSection(props) {
                             required={field.required}
                             value={props.genderInputText} 
                             onChange={props.onGenderChange} 
+                            disabled={false} 
                         />
                     </div>
                 )
@@ -145,6 +154,7 @@ function FormSection(props) {
                             accept='image/*'
                             required={field.required}
                             onChange={props.onPhotoChange} 
+                            disabled={false} 
                         />
                     </div>
                 )
@@ -280,7 +290,147 @@ function FormSection(props) {
         )
 
     } else if (props.title == 'Contact') {
-        console.log('Contact')
+        
+        const fields = props.fields.map((field) => {
+            if (field.id == 'x') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onXCheckboxChange} />
+                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.inputType} 
+                            placeholder={field.placeholder} 
+                            required={false}
+                            disabled={!props.xInputEnabled} 
+                            value={props.xInputText} 
+                            onChange={props.onXChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'instagram') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onInstagramCheckboxChange} />
+                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.inputType} 
+                            placeholder={field.placeholder} 
+                            required={false}
+                            disabled={!props.instagramInputEnabled} 
+                            value={props.instagramInputText} 
+                            onChange={props.onInstagramChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'linkedin') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onLinkedinCheckboxChange} />
+                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.inputType} 
+                            placeholder={field.placeholder} 
+                            required={false}
+                            disabled={!props.linkedinInputEnabled} 
+                            value={props.linkedinInputText} 
+                            onChange={props.onLinkedinChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'github') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onGithubCheckboxChange} />
+                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.inputType} 
+                            placeholder={field.placeholder} 
+                            required={false}
+                            disabled={!props.githubInputEnabled} 
+                            value={props.githubInputText} 
+                            onChange={props.onGithubChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'youtube') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onYoutubeCheckboxChange} />
+                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.inputType} 
+                            placeholder={field.placeholder} 
+                            required={false}
+                            disabled={!props.youtubeInputEnabled} 
+                            value={props.youtubeInputText} 
+                            onChange={props.onYoutubeChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'dribbble') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onDribbbleCheckboxChange} />
+                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.inputType} 
+                            placeholder={field.placeholder} 
+                            required={false}
+                            disabled={!props.dribbbleInputEnabled} 
+                            value={props.dribbbleInputText} 
+                            onChange={props.onDribbbleChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'behance') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onBehanceCheckboxChange} />
+                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.inputType} 
+                            placeholder={field.placeholder} 
+                            required={false}
+                            disabled={!props.behanceInputEnabled} 
+                            value={props.behanceInputText} 
+                            onChange={props.onBehanceChange} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'twitch') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onTwitchCheckboxChange} />
+                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <Input 
+                            id={field.id + ('-input')} 
+                            type={field.inputType} 
+                            placeholder={field.placeholder} 
+                            required={false}
+                            disabled={!props.twitchInputEnabled} 
+                            value={props.twitchInputText} 
+                            onChange={props.onTwitchChange} 
+                        />
+                    </div>
+                )
+            }
+        })
+
+        return (
+            <div className={props.className}>
+                <h2>{props.title}</h2>
+                {fields}
+                <Button text='Next >' onClick={props.onNextClick}/>
+            </div>
+        )
+
     } else if (props.title == 'Hobbies') {
         console.log('Hobbies')
     }
@@ -292,10 +442,10 @@ FormSection.propTypes = {
     className: PropTypes.string.isRequired,
     fields: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
-        label: PropTypes.string.isRequired,
+        label: PropTypes.string,
         type: PropTypes.string,
         placeholder: PropTypes.string,
-        required: PropTypes.bool.isRequired
+        required: PropTypes.bool
     })).isRequired,
     onNextClick: PropTypes.func,
     // General Info prop types
@@ -368,7 +518,40 @@ FormSection.propTypes = {
         name: PropTypes.string.isRequired,
         level: PropTypes.string.isRequired
     })),
-    onAddSkillClick: PropTypes.func
+    onAddSkillClick: PropTypes.func,
+    // Contact prop types
+    xInputText: PropTypes.string,
+    onXChange: PropTypes.func,
+    xInputEnabled: PropTypes.bool,
+    onXCheckboxChange: PropTypes.func,
+    instagramInputText: PropTypes.string,
+    onInstagramChange: PropTypes.func,
+    instagramInputEnabled: PropTypes.bool,
+    onInstagramCheckboxChange: PropTypes.func,
+    linkedinInputText: PropTypes.string,
+    onLinkedinChange: PropTypes.func,
+    linkedinInputEnabled: PropTypes.bool,
+    onLinkedinCheckboxChange: PropTypes.func,
+    githubInputText: PropTypes.string,
+    onGithubChange: PropTypes.func,
+    githubInputEnabled: PropTypes.bool,
+    onGithubCheckboxChange: PropTypes.func,
+    youtubeInputText: PropTypes.string,
+    onYoutubeChange: PropTypes.func,
+    youtubeInputEnabled: PropTypes.bool,
+    onYoutubeCheckboxChange: PropTypes.func,
+    dribbbleInputText: PropTypes.string,
+    onDribbbleChange: PropTypes.func,
+    dribbbleInputEnabled: PropTypes.bool,
+    onDribbbleCheckboxChange: PropTypes.func,
+    behanceInputText: PropTypes.string,
+    onBehanceChange: PropTypes.func,
+    behanceInputEnabled: PropTypes.bool,
+    onBehanceCheckboxChange: PropTypes.func,
+    twitchInputText: PropTypes.string,
+    onTwitchChange: PropTypes.func,
+    twitchInputEnabled: PropTypes.bool,
+    onTwitchCheckboxChange: PropTypes.func
 }
 
 export default FormSection

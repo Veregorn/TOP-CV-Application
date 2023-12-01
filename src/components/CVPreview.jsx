@@ -32,8 +32,16 @@ function CVPreview({
     // Skills props
     skillNamePreviewText,
     skillLevelPreviewText,
-    skills
+    skills,
     // Contact props
+    xPreviewText,
+    instagramPreviewText,
+    linkedinPreviewText,
+    githubPreviewText,
+    youtubePreviewText,
+    dribbblePreviewText,
+    behancePreviewText,
+    twitchPreviewText
     // Hobbies props
 }) {
     
@@ -97,6 +105,22 @@ function CVPreview({
                     skills={skills} 
                 />
             )
+        } else if (section.id == 'contact') {
+            return (
+                <PreviewSection
+                    key={section.id + ('-preview')} 
+                    title={section.longTitle} 
+                    fields={section.fields} 
+                    xPreviewText={xPreviewText} 
+                    instagramPreviewText={instagramPreviewText} 
+                    linkedinPreviewText={linkedinPreviewText} 
+                    githubPreviewText={githubPreviewText} 
+                    youtubePreviewText={youtubePreviewText} 
+                    dribbblePreviewText={dribbblePreviewText} 
+                    behancePreviewText={behancePreviewText} 
+                    twitchPreviewText={twitchPreviewText} 
+                />
+            )
         } else {
             return (
                 <PreviewSection 
@@ -145,7 +169,16 @@ CVPreview.propTypes = {
     // Skills props
     skillNamePreviewText: PropTypes.string.isRequired,
     skillLevelPreviewText: PropTypes.string.isRequired,
-    skills: PropTypes.array.isRequired
+    skills: PropTypes.array.isRequired,
+    // Contact props
+    xPreviewText: PropTypes.string.isRequired,
+    instagramPreviewText: PropTypes.string.isRequired,
+    linkedinPreviewText: PropTypes.string.isRequired,
+    githubPreviewText: PropTypes.string.isRequired,
+    youtubePreviewText: PropTypes.string.isRequired,
+    dribbblePreviewText: PropTypes.string.isRequired,
+    behancePreviewText: PropTypes.string.isRequired,
+    twitchPreviewText: PropTypes.string.isRequired
 }
 
 export default CVPreview

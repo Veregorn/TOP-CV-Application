@@ -218,39 +218,68 @@ const SECTION_DATA = [
         longTitle: 'Contact',
         fields: [
             {
-                id: 'ct-name',
-                label: 'Name',
-                type: 'text',
-                placeholder: 'Enter your name',
-                required: true,
+                id: 'x',
+                imageURL: '/images/x-icon.png',
+                imageAlt: 'X',
+                type: 'input',
+                inputType: 'text',
+                placeholder: 'Enter your X user name'
             },
             {
-                id: 'ct-email',
-                label: 'Email',
-                type: 'email',
-                placeholder: 'Enter your email',
-                required: true,
+                id: 'instagram',
+                imageURL: '/images/instagram-icon.png',
+                imageAlt: 'Instagram',
+                type: 'input',
+                inputType: 'text',
+                placeholder: 'Enter your Instagram user name'
             },
             {
-                id: 'ct-phone',
-                label: 'Phone',
-                type: 'tel',
-                placeholder: 'Enter your phone number',
-                required: true,
+                id: 'linkedin',
+                imageURL: '/images/linkedin-icon.png',
+                imageAlt: 'LinkedIn',
+                type: 'input',
+                inputType: 'text',
+                placeholder: 'Enter your LinkedIn user name'
             },
             {
-                id: 'ct-address',
-                label: 'Address',
-                type: 'text',
-                placeholder: 'Enter your address',
-                required: true,
+                id: 'github',
+                imageURL: '/images/github-icon.png',
+                imageAlt: 'GitHub',
+                type: 'input',
+                inputType: 'text',
+                placeholder: 'Enter your GitHub user name'
             },
             {
-                id: 'ct-website',
-                label: 'Website',
-                type: 'url',
-                placeholder: 'Enter your website',
-                required: false,
+                id: 'youtube',
+                imageURL: '/images/youtube-icon.png',
+                imageAlt: 'YouTube',
+                type: 'input',
+                inputType: 'text',
+                placeholder: 'Enter your YouTube user name'
+            },
+            {
+                id: 'dribbble',
+                imageURL: '/images/dribbble-icon.png',
+                imageAlt: 'Dribbble',
+                type: 'input',
+                inputType: 'text',
+                placeholder: 'Enter your Dribbble user name'
+            },
+            {
+                id: 'behance',
+                imageURL: '/images/behance-icon.png',
+                imageAlt: 'Behance',
+                type: 'input',
+                inputType: 'text',
+                placeholder: 'Enter your Behance user name'
+            },
+            {
+                id: 'twitch',
+                imageURL: '/images/twitch-icon.png',
+                imageAlt: 'Twitch',
+                type: 'input',
+                inputType: 'text',
+                placeholder: 'Enter your Twitch user name'
             }
         ]
     },

@@ -45,6 +45,23 @@ function CVEditor(props) {
     const [skillsId, setSkillsId] = useState(0); // State for the skills id
 
     // Contact state variables
+    const [xInputText, setXInputText] = useState(''); // State for the X input
+    const [xInputEnabled, setXInputEnabled] = useState(false); // State for the X input enabled/disabled
+    const [instagramInputText, setInstagramInputText] = useState(''); // State for the Instagram input
+    const [instagramInputEnabled, setInstagramInputEnabled] = useState(false); // State for the Instagram input enabled/disabled
+    const [linkedinInputText, setLinkedinInputText] = useState(''); // State for the LinkedIn input
+    const [linkedinInputEnabled, setLinkedinInputEnabled] = useState(false); // State for the LinkedIn input enabled/disabled
+    const [githubInputText, setGithubInputText] = useState(''); // State for the GitHub input
+    const [githubInputEnabled, setGithubInputEnabled] = useState(false); // State for the GitHub input enabled/disabled
+    const [youtubeInputText, setYoutubeInputText] = useState(''); // State for the YouTube input
+    const [youtubeInputEnabled, setYoutubeInputEnabled] = useState(false); // State for the YouTube input enabled/disabled
+    const [dribbbleInputText, setDribbbleInputText] = useState(''); // State for the Dribbble input
+    const [dribbbleInputEnabled, setDribbbleInputEnabled] = useState(false); // State for the Dribbble input enabled/disabled
+    const [behanceInputText, setBehanceInputText] = useState(''); // State for the Behance input
+    const [behanceInputEnabled, setBehanceInputEnabled] = useState(false); // State for the Behance input enabled/disabled
+    const [twitchInputText, setTwitchInputText] = useState(''); // State for the Twitch input
+    const [twitchInputEnabled, setTwitchInputEnabled] = useState(false); // State for the Twitch input enabled/disabled
+
     // Hobbies state variables
 
     // General information fields change handlers
@@ -175,6 +192,79 @@ function CVEditor(props) {
         setSkillLevelRadio('Beginner');
     }
 
+    // Contact fields change handlers
+    const handleXInputChange = (event) => {
+        setXInputText(event.target.value);
+    }
+
+    const handleXCheckboxChange = (event) => {
+        setXInputEnabled(event.target.checked);
+        setXInputText('');
+    }
+
+    const handleInstagramInputChange = (event) => {
+        setInstagramInputText(event.target.value);
+    }
+
+    const handleInstagramCheckboxChange = (event) => {
+        setInstagramInputEnabled(event.target.checked);
+        setInstagramInputText('');
+    }
+
+    const handleLinkedinInputChange = (event) => {
+        setLinkedinInputText(event.target.value);
+    }
+
+    const handleLinkedinCheckboxChange = (event) => {
+        setLinkedinInputEnabled(event.target.checked);
+        setLinkedinInputText('');
+    }
+
+    const handleGithubInputChange = (event) => {
+        setGithubInputText(event.target.value);
+    }
+
+    const handleGithubCheckboxChange = (event) => {
+        setGithubInputEnabled(event.target.checked);
+        setGithubInputText('');
+    }
+
+    const handleYoutubeInputChange = (event) => {
+        setYoutubeInputText(event.target.value);
+    }
+
+    const handleYoutubeCheckboxChange = (event) => {
+        setYoutubeInputEnabled(event.target.checked);
+        setYoutubeInputText('');
+    }
+
+    const handleDribbbleInputChange = (event) => {
+        setDribbbleInputText(event.target.value);
+    }
+
+    const handleDribbbleCheckboxChange = (event) => {
+        setDribbbleInputEnabled(event.target.checked);
+        setDribbbleInputText('');
+    }
+
+    const handleBehanceInputChange = (event) => {
+        setBehanceInputText(event.target.value);
+    }
+
+    const handleBehanceCheckboxChange = (event) => {
+        setBehanceInputEnabled(event.target.checked);
+        setBehanceInputText('');
+    }
+
+    const handleTwitchInputChange = (event) => {
+        setTwitchInputText(event.target.value);
+    }
+
+    const handleTwitchCheckboxChange = (event) => {
+        setTwitchInputEnabled(event.target.checked);
+        setTwitchInputText('');
+    }
+
     return (
         <div className='book-style'>
             <CVForm 
@@ -234,6 +324,39 @@ function CVEditor(props) {
                 onSkillLevelChange={handleSkillLevelRadioChange} 
                 skills={skills} 
                 onAddSkillClick={handleAddSkillClick} 
+                // Contact props
+                xInputText={xInputText}
+                onXChange={handleXInputChange} 
+                xInputEnabled={xInputEnabled} 
+                onXCheckboxChange={handleXCheckboxChange} 
+                instagramInputText={instagramInputText} 
+                onInstagramChange={handleInstagramInputChange} 
+                instagramInputEnabled={instagramInputEnabled} 
+                onInstagramCheckboxChange={handleInstagramCheckboxChange} 
+                linkedinInputText={linkedinInputText} 
+                onLinkedinChange={handleLinkedinInputChange} 
+                linkedinInputEnabled={linkedinInputEnabled} 
+                onLinkedinCheckboxChange={handleLinkedinCheckboxChange} 
+                githubInputText={githubInputText} 
+                onGithubChange={handleGithubInputChange} 
+                githubInputEnabled={githubInputEnabled} 
+                onGithubCheckboxChange={handleGithubCheckboxChange} 
+                youtubeInputText={youtubeInputText} 
+                onYoutubeChange={handleYoutubeInputChange} 
+                youtubeInputEnabled={youtubeInputEnabled} 
+                onYoutubeCheckboxChange={handleYoutubeCheckboxChange} 
+                dribbbleInputText={dribbbleInputText} 
+                onDribbbleChange={handleDribbbleInputChange} 
+                dribbbleInputEnabled={dribbbleInputEnabled} 
+                onDribbbleCheckboxChange={handleDribbbleCheckboxChange} 
+                behanceInputText={behanceInputText} 
+                onBehanceChange={handleBehanceInputChange} 
+                behanceInputEnabled={behanceInputEnabled} 
+                onBehanceCheckboxChange={handleBehanceCheckboxChange} 
+                twitchInputText={twitchInputText} 
+                onTwitchChange={handleTwitchInputChange} 
+                twitchInputEnabled={twitchInputEnabled} 
+                onTwitchCheckboxChange={handleTwitchCheckboxChange} 
             />
             <CVPreview 
                 // General information props
@@ -265,6 +388,15 @@ function CVEditor(props) {
                 skills={skills} 
                 skillNamePreviewText={skillNameInputText} 
                 skillLevelPreviewText={skillLevelRadio} 
+                // Contact props
+                xPreviewText={xInputText} 
+                instagramPreviewText={instagramInputText} 
+                linkedinPreviewText={linkedinInputText} 
+                githubPreviewText={githubInputText} 
+                youtubePreviewText={youtubeInputText} 
+                dribbblePreviewText={dribbbleInputText} 
+                behancePreviewText={behanceInputText} 
+                twitchPreviewText={twitchInputText} 
             />
         </div>
     )

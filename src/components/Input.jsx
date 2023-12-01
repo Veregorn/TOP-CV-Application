@@ -21,6 +21,7 @@ function Input(props) {
                 required={props.required} 
                 value={props.value} 
                 onChange={props.onChange} 
+                disabled={props.disabled} 
             />
         )
     }
@@ -33,7 +34,8 @@ Input.propTypes = {
     required: PropTypes.bool.isRequired,
     value: PropTypes.string,
     onChange: PropTypes.func,
-    accept: PropTypes.string
+    accept: PropTypes.string,
+    disabled: PropTypes.bool
 }
 
 export default Input
