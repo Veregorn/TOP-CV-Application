@@ -289,39 +289,130 @@ const SECTION_DATA = [
         longTitle: 'Hobbies',
         fields: [
             {
-                id: 'ho-name',
-                label: 'Name',
-                type: 'text',
-                placeholder: 'Enter your name',
-                required: true,
+                id: 'traveling',
+                imageURL: '/images/traveling-icon.png',
+                imageAlt: 'Traveling',
+                type: 'input',
+                inputType: 'checkbox'
             },
             {
-                id: 'ho-email',
-                label: 'Email',
-                type: 'email',
-                placeholder: 'Enter your email',
-                required: true,
+                id: 'music',
+                imageURL: '/images/music-icon.png',
+                imageAlt: 'Music',
+                type: 'input',
+                inputType: 'checkbox'
             },
             {
-                id: 'ho-phone',
-                label: 'Phone',
-                type: 'tel',
-                placeholder: 'Enter your phone number',
-                required: true,
+                id: 'reading',
+                imageURL: '/images/reading-icon.png',
+                imageAlt: 'Reading',
+                type: 'input',
+                inputType: 'checkbox'
             },
             {
-                id: 'ho-address',
-                label: 'Address',
-                type: 'text',
-                placeholder: 'Enter your address',
-                required: true,
+                id: 'gaming',
+                imageURL: '/images/gaming-icon.png',
+                imageAlt: 'Gaming',
+                type: 'input',
+                inputType: 'checkbox'
             },
             {
-                id: 'ho-website',
-                label: 'Website',
-                type: 'url',
-                placeholder: 'Enter your website',
-                required: false,
+                id: 'bicycling',
+                imageURL: '/images/bicycling-icon.png',
+                imageAlt: 'Bicycling',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'running',
+                imageURL: '/images/running-icon.png',
+                imageAlt: 'Running',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'cooking',
+                imageURL: '/images/cooking-icon.png',
+                imageAlt: 'Cooking',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'shopping',
+                imageURL: '/images/shopping-icon.png',
+                imageAlt: 'Shopping',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'dancing',
+                imageURL: '/images/dancing-icon.png',
+                imageAlt: 'Dancing',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'swimming',
+                imageURL: '/images/swimming-icon.png',
+                imageAlt: 'Swimming',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'painting',
+                imageURL: '/images/painting-icon.png',
+                imageAlt: 'Painting',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'photography',
+                imageURL: '/images/photography-icon.png',
+                imageAlt: 'Photography',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'fishing',
+                imageURL: '/images/fishing-icon.png',
+                imageAlt: 'Fishing',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'hiking',
+                imageURL: '/images/hiking-icon.png',
+                imageAlt: 'Hiking',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'yoga',
+                imageURL: '/images/yoga-icon.png',
+                imageAlt: 'Yoga',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'surfing',
+                imageURL: '/images/surfing-icon.png',
+                imageAlt: 'Surfing',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'skiing',
+                imageURL: '/images/skiing-icon.png',
+                imageAlt: 'Skiing',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'gym',
+                imageURL: '/images/gym-icon.png',
+                imageAlt: 'Gym',
+                type: 'input',
+                inputType: 'checkbox'
             }
         ]
     }

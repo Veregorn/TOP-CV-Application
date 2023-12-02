@@ -63,6 +63,24 @@ function CVEditor(props) {
     const [twitchInputEnabled, setTwitchInputEnabled] = useState(false); // State for the Twitch input enabled/disabled
 
     // Hobbies state variables
+    const [travelingInputChecked, setTravelingInputChecked] = useState(false); // State for the traveling input checked/unchecked
+    const [musicInputChecked, setMusicInputChecked] = useState(false); // State for the music input checked/unchecked
+    const [readingInputChecked, setReadingInputChecked] = useState(false); // State for the reading input checked/unchecked
+    const [gamingInputChecked, setGamingInputChecked] = useState(false); // State for the gaming input checked/unchecked
+    const [bicyclingInputChecked, setBicyclingInputChecked] = useState(false); // State for the bicycling input checked/unchecked
+    const [runningInputChecked, setRunningInputChecked] = useState(false); // State for the running input checked/unchecked
+    const [cookingInputChecked, setCookingInputChecked] = useState(false); // State for the cooking input checked/unchecked
+    const [shoppingInputChecked, setShoppingInputChecked] = useState(false); // State for the shopping input checked/unchecked
+    const [dancingInputChecked, setDancingInputChecked] = useState(false); // State for the dancing input checked/unchecked
+    const [swimmingInputChecked, setSwimmingInputChecked] = useState(false); // State for the swimming input checked/unchecked
+    const [paintingInputChecked, setPaintingInputChecked] = useState(false); // State for the painting input checked/unchecked
+    const [photographyInputChecked, setPhotographyInputChecked] = useState(false); // State for the photography input checked/unchecked
+    const [fishingInputChecked, setFishingInputChecked] = useState(false); // State for the fishing input checked/unchecked
+    const [hikingInputChecked, setHikingInputChecked] = useState(false); // State for the hiking input checked/unchecked
+    const [yogaInputChecked, setYogaInputChecked] = useState(false); // State for the yoga input checked/unchecked
+    const [surfingInputChecked, setSurfingInputChecked] = useState(false); // State for the surfing input checked/unchecked
+    const [skiingInputChecked, setSkiingInputChecked] = useState(false); // State for the skiing input checked/unchecked
+    const [gymInputChecked, setGymInputChecked] = useState(false); // State for the gym input checked/unchecked
 
     // General information fields change handlers
     const handleNameInputChange = (event) => {
@@ -265,6 +283,79 @@ function CVEditor(props) {
         setTwitchInputText('');
     }
 
+    // Hobbies fields change handlers
+    const handleTravelingCheckboxChange = (event) => {
+        setTravelingInputChecked(event.target.checked);
+    }
+
+    const handleMusicCheckboxChange = (event) => {
+        setMusicInputChecked(event.target.checked);
+    }
+
+    const handleReadingCheckboxChange = (event) => {
+        setReadingInputChecked(event.target.checked);
+    }
+
+    const handleGamingCheckboxChange = (event) => {
+        setGamingInputChecked(event.target.checked);
+    }
+
+    const handleBicyclingCheckboxChange = (event) => {
+        setBicyclingInputChecked(event.target.checked);
+    }
+
+    const handleRunningCheckboxChange = (event) => {
+        setRunningInputChecked(event.target.checked);
+    }
+
+    const handleCookingCheckboxChange = (event) => {
+        setCookingInputChecked(event.target.checked);
+    }
+
+    const handleShoppingCheckboxChange = (event) => {
+        setShoppingInputChecked(event.target.checked);
+    }
+
+    const handleDancingCheckboxChange = (event) => {
+        setDancingInputChecked(event.target.checked);
+    }
+
+    const handleSwimmingCheckboxChange = (event) => {
+        setSwimmingInputChecked(event.target.checked);
+    }
+
+    const handlePaintingCheckboxChange = (event) => {
+        setPaintingInputChecked(event.target.checked);
+    }
+
+    const handlePhotographyCheckboxChange = (event) => {
+        setPhotographyInputChecked(event.target.checked);
+    }
+
+    const handleFishingCheckboxChange = (event) => {
+        setFishingInputChecked(event.target.checked);
+    }
+
+    const handleHikingCheckboxChange = (event) => {
+        setHikingInputChecked(event.target.checked);
+    }
+
+    const handleYogaCheckboxChange = (event) => {
+        setYogaInputChecked(event.target.checked);
+    }
+
+    const handleSurfingCheckboxChange = (event) => {
+        setSurfingInputChecked(event.target.checked);
+    }
+
+    const handleSkiingCheckboxChange = (event) => {
+        setSkiingInputChecked(event.target.checked);
+    }
+
+    const handleGymCheckboxChange = (event) => {
+        setGymInputChecked(event.target.checked);
+    }
+
     return (
         <div className='book-style'>
             <CVForm 
@@ -357,6 +448,43 @@ function CVEditor(props) {
                 onTwitchChange={handleTwitchInputChange} 
                 twitchInputEnabled={twitchInputEnabled} 
                 onTwitchCheckboxChange={handleTwitchCheckboxChange} 
+                // Hobbies props
+                travelingInputChecked={travelingInputChecked} 
+                onTravelingCheckboxChange={handleTravelingCheckboxChange} 
+                musicInputChecked={musicInputChecked} 
+                onMusicCheckboxChange={handleMusicCheckboxChange} 
+                readingInputChecked={readingInputChecked} 
+                onReadingCheckboxChange={handleReadingCheckboxChange} 
+                gamingInputChecked={gamingInputChecked} 
+                onGamingCheckboxChange={handleGamingCheckboxChange} 
+                bicyclingInputChecked={bicyclingInputChecked} 
+                onBicyclingCheckboxChange={handleBicyclingCheckboxChange} 
+                runningInputChecked={runningInputChecked} 
+                onRunningCheckboxChange={handleRunningCheckboxChange} 
+                cookingInputChecked={cookingInputChecked} 
+                onCookingCheckboxChange={handleCookingCheckboxChange} 
+                shoppingInputChecked={shoppingInputChecked} 
+                onShoppingCheckboxChange={handleShoppingCheckboxChange} 
+                dancingInputChecked={dancingInputChecked} 
+                onDancingCheckboxChange={handleDancingCheckboxChange} 
+                swimmingInputChecked={swimmingInputChecked} 
+                onSwimmingCheckboxChange={handleSwimmingCheckboxChange} 
+                paintingInputChecked={paintingInputChecked} 
+                onPaintingCheckboxChange={handlePaintingCheckboxChange} 
+                photographyInputChecked={photographyInputChecked} 
+                onPhotographyCheckboxChange={handlePhotographyCheckboxChange} 
+                fishingInputChecked={fishingInputChecked} 
+                onFishingCheckboxChange={handleFishingCheckboxChange} 
+                hikingInputChecked={hikingInputChecked} 
+                onHikingCheckboxChange={handleHikingCheckboxChange} 
+                yogaInputChecked={yogaInputChecked} 
+                onYogaCheckboxChange={handleYogaCheckboxChange} 
+                surfingInputChecked={surfingInputChecked} 
+                onSurfingCheckboxChange={handleSurfingCheckboxChange} 
+                skiingInputChecked={skiingInputChecked} 
+                onSkiingCheckboxChange={handleSkiingCheckboxChange} 
+                gymInputChecked={gymInputChecked} 
+                onGymCheckboxChange={handleGymCheckboxChange} 
             />
             <CVPreview 
                 // General information props
@@ -397,6 +525,25 @@ function CVEditor(props) {
                 dribbblePreviewText={dribbbleInputText} 
                 behancePreviewText={behanceInputText} 
                 twitchPreviewText={twitchInputText} 
+                // Hobbies props
+                travelingPreviewChecked={travelingInputChecked} 
+                musicPreviewChecked={musicInputChecked} 
+                readingPreviewChecked={readingInputChecked} 
+                gamingPreviewChecked={gamingInputChecked} 
+                bicyclingPreviewChecked={bicyclingInputChecked} 
+                runningPreviewChecked={runningInputChecked} 
+                cookingPreviewChecked={cookingInputChecked} 
+                shoppingPreviewChecked={shoppingInputChecked} 
+                dancingPreviewChecked={dancingInputChecked} 
+                swimmingPreviewChecked={swimmingInputChecked} 
+                paintingPreviewChecked={paintingInputChecked} 
+                photographyPreviewChecked={photographyInputChecked} 
+                fishingPreviewChecked={fishingInputChecked} 
+                hikingPreviewChecked={hikingInputChecked} 
+                yogaPreviewChecked={yogaInputChecked} 
+                surfingPreviewChecked={surfingInputChecked} 
+                skiingPreviewChecked={skiingInputChecked} 
+                gymPreviewChecked={gymInputChecked} 
             />
         </div>
     )
