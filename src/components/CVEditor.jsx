@@ -361,6 +361,7 @@ function CVEditor(props) {
             <CVForm 
                 cuSection={props.cuSection} 
                 onNextClick={props.onNextClick} 
+                onSaveClick={props.onSaveClick} 
                 // General information props
                 nameInputText={nameInputText} 
                 onNameChange={handleNameInputChange} 
@@ -551,7 +552,8 @@ function CVEditor(props) {
 
 CVEditor.propTypes = {
     cuSection: PropTypes.number.isRequired,
-    onNextClick: PropTypes.func.isRequired
+    onNextClick: PropTypes.func.isRequired,
+    onSaveClick: PropTypes.func.isRequired
 }
 
 export default CVEditor

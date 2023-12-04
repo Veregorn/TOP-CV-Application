@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 function CVForm({ 
     cuSection,
     onNextClick,
+    onSaveClick,
     // General Info
     nameInputText, 
     onNameChange, 
@@ -92,8 +93,44 @@ function CVForm({
     twitchInputText,
     onTwitchChange,
     twitchInputEnabled,
-    onTwitchCheckboxChange
+    onTwitchCheckboxChange,
     // Hobbies
+    travelingInputChecked,
+    onTravelingCheckboxChange,
+    musicInputChecked,
+    onMusicCheckboxChange,
+    readingInputChecked,
+    onReadingCheckboxChange,
+    gamingInputChecked,
+    onGamingCheckboxChange,
+    bicyclingInputChecked,
+    onBicyclingCheckboxChange,
+    runningInputChecked,
+    onRunningCheckboxChange,
+    cookingInputChecked,
+    onCookingCheckboxChange,
+    shoppingInputChecked,
+    onShoppingCheckboxChange,
+    dancingInputChecked,
+    onDancingCheckboxChange,
+    swimmingInputChecked,
+    onSwimmingCheckboxChange,
+    paintingInputChecked,
+    onPaintingCheckboxChange,
+    photographyInputChecked,
+    onPhotographyCheckboxChange,
+    fishingInputChecked,
+    onFishingCheckboxChange,
+    hikingInputChecked,
+    onHikingCheckboxChange,
+    yogaInputChecked,
+    onYogaCheckboxChange,
+    surfingInputChecked,
+    onSurfingCheckboxChange,
+    skiingInputChecked,
+    onSkiingCheckboxChange,
+    gymInputChecked,
+    onGymCheckboxChange
 }) {
     
     const sections = SECTION_DATA.map((section, index) => {
@@ -231,14 +268,50 @@ function CVForm({
                     onNextClick={onNextClick} 
                 />
             )
-        } else {
+        } else if (section.id == 'hobbies') {
             return (
                 <FormSection 
                     key={section.id + ('-form')} 
                     title={section.longTitle} 
-                    className={index == 0 ? 'form-section current' : 'form-section'} 
+                    className={index == cuSection ? 'section current' : 'section'} 
                     fields={section.fields} 
-                    onNextClick={onNextClick} 
+                    travelingInputChecked={travelingInputChecked} 
+                    onTravelingCheckboxChange={onTravelingCheckboxChange} 
+                    musicInputChecked={musicInputChecked} 
+                    onMusicCheckboxChange={onMusicCheckboxChange} 
+                    readingInputChecked={readingInputChecked} 
+                    onReadingCheckboxChange={onReadingCheckboxChange} 
+                    gamingInputChecked={gamingInputChecked} 
+                    onGamingCheckboxChange={onGamingCheckboxChange} 
+                    bicyclingInputChecked={bicyclingInputChecked} 
+                    onBicyclingCheckboxChange={onBicyclingCheckboxChange} 
+                    runningInputChecked={runningInputChecked} 
+                    onRunningCheckboxChange={onRunningCheckboxChange} 
+                    cookingInputChecked={cookingInputChecked} 
+                    onCookingCheckboxChange={onCookingCheckboxChange} 
+                    shoppingInputChecked={shoppingInputChecked} 
+                    onShoppingCheckboxChange={onShoppingCheckboxChange} 
+                    dancingInputChecked={dancingInputChecked} 
+                    onDancingCheckboxChange={onDancingCheckboxChange} 
+                    swimmingInputChecked={swimmingInputChecked} 
+                    onSwimmingCheckboxChange={onSwimmingCheckboxChange} 
+                    paintingInputChecked={paintingInputChecked} 
+                    onPaintingCheckboxChange={onPaintingCheckboxChange} 
+                    photographyInputChecked={photographyInputChecked} 
+                    onPhotographyCheckboxChange={onPhotographyCheckboxChange} 
+                    fishingInputChecked={fishingInputChecked} 
+                    onFishingCheckboxChange={onFishingCheckboxChange} 
+                    hikingInputChecked={hikingInputChecked} 
+                    onHikingCheckboxChange={onHikingCheckboxChange} 
+                    yogaInputChecked={yogaInputChecked} 
+                    onYogaCheckboxChange={onYogaCheckboxChange} 
+                    surfingInputChecked={surfingInputChecked} 
+                    onSurfingCheckboxChange={onSurfingCheckboxChange} 
+                    skiingInputChecked={skiingInputChecked} 
+                    onSkiingCheckboxChange={onSkiingCheckboxChange} 
+                    gymInputChecked={gymInputChecked} 
+                    onGymCheckboxChange={onGymCheckboxChange} 
+                    onSaveClick={onSaveClick} 
                 />
             )
         }
@@ -254,6 +327,7 @@ function CVForm({
 CVForm.propTypes = {
     cuSection: PropTypes.number.isRequired,
     onNextClick: PropTypes.func.isRequired,
+    onSaveClick: PropTypes.func.isRequired,
     // General Info prop types
     nameInputText: PropTypes.string.isRequired,
     onNameChange: PropTypes.func.isRequired,
@@ -340,8 +414,44 @@ CVForm.propTypes = {
     twitchInputText: PropTypes.string.isRequired,
     onTwitchChange: PropTypes.func.isRequired,
     twitchInputEnabled: PropTypes.bool.isRequired,
-    onTwitchCheckboxChange: PropTypes.func.isRequired
+    onTwitchCheckboxChange: PropTypes.func.isRequired,
     // Hobbies prop types
+    travelingInputChecked: PropTypes.bool.isRequired,
+    onTravelingCheckboxChange: PropTypes.func.isRequired,
+    musicInputChecked: PropTypes.bool.isRequired,
+    onMusicCheckboxChange: PropTypes.func.isRequired,
+    readingInputChecked: PropTypes.bool.isRequired,
+    onReadingCheckboxChange: PropTypes.func.isRequired,
+    gamingInputChecked: PropTypes.bool.isRequired,
+    onGamingCheckboxChange: PropTypes.func.isRequired,
+    bicyclingInputChecked: PropTypes.bool.isRequired,
+    onBicyclingCheckboxChange: PropTypes.func.isRequired,
+    runningInputChecked: PropTypes.bool.isRequired,
+    onRunningCheckboxChange: PropTypes.func.isRequired,
+    cookingInputChecked: PropTypes.bool.isRequired,
+    onCookingCheckboxChange: PropTypes.func.isRequired,
+    shoppingInputChecked: PropTypes.bool.isRequired,
+    onShoppingCheckboxChange: PropTypes.func.isRequired,
+    dancingInputChecked: PropTypes.bool.isRequired,
+    onDancingCheckboxChange: PropTypes.func.isRequired,
+    swimmingInputChecked: PropTypes.bool.isRequired,
+    onSwimmingCheckboxChange: PropTypes.func.isRequired,
+    paintingInputChecked: PropTypes.bool.isRequired,
+    onPaintingCheckboxChange: PropTypes.func.isRequired,
+    photographyInputChecked: PropTypes.bool.isRequired,
+    onPhotographyCheckboxChange: PropTypes.func.isRequired,
+    fishingInputChecked: PropTypes.bool.isRequired,
+    onFishingCheckboxChange: PropTypes.func.isRequired,
+    hikingInputChecked: PropTypes.bool.isRequired,
+    onHikingCheckboxChange: PropTypes.func.isRequired,
+    yogaInputChecked: PropTypes.bool.isRequired,
+    onYogaCheckboxChange: PropTypes.func.isRequired,
+    surfingInputChecked: PropTypes.bool.isRequired,
+    onSurfingCheckboxChange: PropTypes.func.isRequired,
+    skiingInputChecked: PropTypes.bool.isRequired,
+    onSkiingCheckboxChange: PropTypes.func.isRequired,
+    gymInputChecked: PropTypes.bool.isRequired,
+    onGymCheckboxChange: PropTypes.func.isRequired
 }
 
 export default CVForm

@@ -42,7 +42,26 @@ function PreviewSection({
     youtubePreviewText,
     dribbblePreviewText,
     behancePreviewText,
-    twitchPreviewText
+    twitchPreviewText,
+    // Hobbies props
+    travelingPreviewChecked,
+    musicPreviewChecked,
+    readingPreviewChecked,
+    gamingPreviewChecked,
+    bicyclingPreviewChecked,
+    runningPreviewChecked,
+    cookingPreviewChecked,
+    shoppingPreviewChecked,
+    dancingPreviewChecked,
+    swimmingPreviewChecked,
+    paintingPreviewChecked,
+    photographyPreviewChecked,
+    fishingPreviewChecked,
+    hikingPreviewChecked,
+    yogaPreviewChecked,
+    surfingPreviewChecked,
+    skiingPreviewChecked,
+    gymPreviewChecked
  }) {
 
     const sectionFields = fields.map((field) => {
@@ -308,11 +327,184 @@ function PreviewSection({
                 />
             )
         }
-        else {
+        // Hobbies fields
+        else if (field.id == 'traveling' && travelingPreviewChecked) {
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')}  
                     id={field.id + ('-preview')} 
+                    imageURL={field.imageURL} 
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'music' && musicPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    imageURL={field.imageURL} 
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'reading' && readingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL} 
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'gaming' && gamingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL} 
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'bicycling' && bicyclingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL} 
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'running' && runningPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL} 
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'cooking' && cookingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL} 
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'shopping' && shoppingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL} 
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'dancing' && dancingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL} 
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'swimming' && swimmingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL}
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'painting' && paintingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL}
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'photography' && photographyPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL}
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'fishing' && fishingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL}
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'hiking' && hikingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL}
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'yoga' && yogaPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')}
+                    imageURL={field.imageURL}
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'surfing' && surfingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    imageURL={field.imageURL}
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'skiing' && skiingPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    imageURL={field.imageURL}
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'gym' && gymPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    imageURL={field.imageURL}
+                    value={field.imageAlt} 
                 />
             )
         }
@@ -462,7 +654,26 @@ PreviewSection.propTypes = {
     youtubePreviewText: PropTypes.string,
     dribbblePreviewText: PropTypes.string,
     behancePreviewText: PropTypes.string,
-    twitchPreviewText: PropTypes.string
+    twitchPreviewText: PropTypes.string,
+    // Hobbies props
+    travelingPreviewChecked: PropTypes.bool,
+    musicPreviewChecked: PropTypes.bool,
+    readingPreviewChecked: PropTypes.bool,
+    gamingPreviewChecked: PropTypes.bool,
+    bicyclingPreviewChecked: PropTypes.bool,
+    runningPreviewChecked: PropTypes.bool,
+    cookingPreviewChecked: PropTypes.bool,
+    shoppingPreviewChecked: PropTypes.bool,
+    dancingPreviewChecked: PropTypes.bool,
+    swimmingPreviewChecked: PropTypes.bool,
+    paintingPreviewChecked: PropTypes.bool,
+    photographyPreviewChecked: PropTypes.bool,
+    fishingPreviewChecked: PropTypes.bool,
+    hikingPreviewChecked: PropTypes.bool,
+    yogaPreviewChecked: PropTypes.bool,
+    surfingPreviewChecked: PropTypes.bool,
+    skiingPreviewChecked: PropTypes.bool,
+    gymPreviewChecked: PropTypes.bool
 }
 
 export default PreviewSection

@@ -41,8 +41,26 @@ function CVPreview({
     youtubePreviewText,
     dribbblePreviewText,
     behancePreviewText,
-    twitchPreviewText
+    twitchPreviewText,
     // Hobbies props
+    travelingPreviewChecked,
+    musicPreviewChecked,
+    readingPreviewChecked,
+    gamingPreviewChecked,
+    bicyclingPreviewChecked,
+    runningPreviewChecked,
+    cookingPreviewChecked,
+    shoppingPreviewChecked,
+    dancingPreviewChecked,
+    swimmingPreviewChecked,
+    paintingPreviewChecked,
+    photographyPreviewChecked,
+    fishingPreviewChecked,
+    hikingPreviewChecked,
+    yogaPreviewChecked,
+    surfingPreviewChecked,
+    skiingPreviewChecked,
+    gymPreviewChecked
 }) {
     
     const sections = SECTION_DATA.map((section) => {
@@ -121,12 +139,30 @@ function CVPreview({
                     twitchPreviewText={twitchPreviewText} 
                 />
             )
-        } else {
+        } else if (section.id == 'hobbies') {
             return (
                 <PreviewSection 
                     key={section.id + ('-preview')} 
                     title={section.longTitle} 
                     fields={section.fields} 
+                    travelingPreviewChecked={travelingPreviewChecked} 
+                    musicPreviewChecked={musicPreviewChecked} 
+                    readingPreviewChecked={readingPreviewChecked} 
+                    gamingPreviewChecked={gamingPreviewChecked} 
+                    bicyclingPreviewChecked={bicyclingPreviewChecked} 
+                    runningPreviewChecked={runningPreviewChecked} 
+                    cookingPreviewChecked={cookingPreviewChecked} 
+                    shoppingPreviewChecked={shoppingPreviewChecked} 
+                    dancingPreviewChecked={dancingPreviewChecked} 
+                    swimmingPreviewChecked={swimmingPreviewChecked} 
+                    paintingPreviewChecked={paintingPreviewChecked} 
+                    photographyPreviewChecked={photographyPreviewChecked} 
+                    fishingPreviewChecked={fishingPreviewChecked} 
+                    hikingPreviewChecked={hikingPreviewChecked} 
+                    yogaPreviewChecked={yogaPreviewChecked} 
+                    surfingPreviewChecked={surfingPreviewChecked} 
+                    skiingPreviewChecked={skiingPreviewChecked} 
+                    gymPreviewChecked={gymPreviewChecked} 
                 />
             )
         }
@@ -178,7 +214,26 @@ CVPreview.propTypes = {
     youtubePreviewText: PropTypes.string.isRequired,
     dribbblePreviewText: PropTypes.string.isRequired,
     behancePreviewText: PropTypes.string.isRequired,
-    twitchPreviewText: PropTypes.string.isRequired
+    twitchPreviewText: PropTypes.string.isRequired,
+    // Hobbies props
+    travelingPreviewChecked: PropTypes.bool.isRequired,
+    musicPreviewChecked: PropTypes.bool.isRequired,
+    readingPreviewChecked: PropTypes.bool.isRequired,
+    gamingPreviewChecked: PropTypes.bool.isRequired,
+    bicyclingPreviewChecked: PropTypes.bool.isRequired,
+    runningPreviewChecked: PropTypes.bool.isRequired,
+    cookingPreviewChecked: PropTypes.bool.isRequired,
+    shoppingPreviewChecked: PropTypes.bool.isRequired,
+    dancingPreviewChecked: PropTypes.bool.isRequired,
+    swimmingPreviewChecked: PropTypes.bool.isRequired,
+    paintingPreviewChecked: PropTypes.bool.isRequired,
+    photographyPreviewChecked: PropTypes.bool.isRequired,
+    fishingPreviewChecked: PropTypes.bool.isRequired,
+    hikingPreviewChecked: PropTypes.bool.isRequired,
+    yogaPreviewChecked: PropTypes.bool.isRequired,
+    surfingPreviewChecked: PropTypes.bool.isRequired,
+    skiingPreviewChecked: PropTypes.bool.isRequired,
+    gymPreviewChecked: PropTypes.bool.isRequired
 }
 
 export default CVPreview
