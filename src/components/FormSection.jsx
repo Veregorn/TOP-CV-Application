@@ -210,6 +210,7 @@ function FormSection(props) {
                     onStudiesDescriptionChange={props.onStudiesDescriptionChange} 
                 />
                 <Button text='+ More studies' onClick={props.onAddStudiesClick}/>
+                <Button text='< Previous' onClick={props.onPreviousClick}/>
                 <Button text='Next >' onClick={props.onNextClick}/>
             </div>
         )
@@ -253,6 +254,7 @@ function FormSection(props) {
                     onJobDescriptionChange={props.onJobDescriptionChange} 
                 />
                 <Button text='+ More jobs' onClick={props.onAddJobClick}/>
+                <Button text='< Previous' onClick={props.onPreviousClick}/>
                 <Button text='Next >' onClick={props.onNextClick}/>
             </div>
         )
@@ -285,6 +287,7 @@ function FormSection(props) {
                     onSkillLevelChange={props.onSkillLevelChange} 
                 />
                 <Button text='+ More skills' onClick={props.onAddSkillClick}/>
+                <Button text='< Previous' onClick={props.onPreviousClick}/>
                 <Button text='Next >' onClick={props.onNextClick}/>
             </div>
         )
@@ -427,6 +430,7 @@ function FormSection(props) {
             <div className={props.className}>
                 <h2>{props.title}</h2>
                 {fields}
+                <Button text='< Previous' onClick={props.onPreviousClick}/>
                 <Button text='Next >' onClick={props.onNextClick}/>
             </div>
         )
@@ -585,6 +589,7 @@ function FormSection(props) {
                 <div className={props.className}>
                     <h2>{props.title}</h2>
                     {fields}
+                    <Button text='< Previous' onClick={props.onPreviousClick}/>
                     <Button text='Save' onClick={props.onSaveClick}/>
                 </div>
             )
@@ -602,6 +607,7 @@ FormSection.propTypes = {
         placeholder: PropTypes.string,
         required: PropTypes.bool
     })).isRequired,
+    onPreviousClick: PropTypes.func,
     onNextClick: PropTypes.func,
     onSaveClick: PropTypes.func,
     // General Info prop types

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 function CVForm({ 
     cuSection,
+    onPreviousClick,
     onNextClick,
     onSaveClick,
     // General Info
@@ -184,6 +185,7 @@ function CVForm({
                     studiesDescriptionInputText={studiesDescriptionInputText} 
                     onStudiesDescriptionChange={onStudiesDescriptionChange} 
                     studies={studies} 
+                    onPreviousClick={onPreviousClick} 
                     onNextClick={onNextClick} 
                     onAddStudiesClick={onAddStudiesClick} 
                 />
@@ -206,6 +208,7 @@ function CVForm({
                     jobDescriptionInputText={jobDescriptionInputText} 
                     onJobDescriptionChange={onJobDescriptionChange} 
                     jobs={jobs} 
+                    onPreviousClick={onPreviousClick} 
                     onNextClick={onNextClick} 
                     onAddJobClick={onAddJobClick} 
                 />
@@ -218,6 +221,7 @@ function CVForm({
                     className={index == cuSection ? 'section current' : 'section'} 
                     fields={section.fields} 
                     skills={skills} 
+                    onPreviousClick={onPreviousClick} 
                     onNextClick={onNextClick} 
                     onAddSkillClick={onAddSkillClick} 
                     skillNameInputText={skillNameInputText} 
@@ -265,6 +269,7 @@ function CVForm({
                     onTwitchChange={onTwitchChange} 
                     twitchInputEnabled={twitchInputEnabled} 
                     onTwitchCheckboxChange={onTwitchCheckboxChange} 
+                    onPreviousClick={onPreviousClick} 
                     onNextClick={onNextClick} 
                 />
             )
@@ -311,6 +316,7 @@ function CVForm({
                     onSkiingCheckboxChange={onSkiingCheckboxChange} 
                     gymInputChecked={gymInputChecked} 
                     onGymCheckboxChange={onGymCheckboxChange} 
+                    onPreviousClick={onPreviousClick} 
                     onSaveClick={onSaveClick} 
                 />
             )
@@ -326,6 +332,7 @@ function CVForm({
 
 CVForm.propTypes = {
     cuSection: PropTypes.number.isRequired,
+    onPreviousClick: PropTypes.func.isRequired,
     onNextClick: PropTypes.func.isRequired,
     onSaveClick: PropTypes.func.isRequired,
     // General Info prop types

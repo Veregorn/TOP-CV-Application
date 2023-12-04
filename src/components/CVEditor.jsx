@@ -360,6 +360,7 @@ function CVEditor(props) {
         <div className='book-style'>
             <CVForm 
                 cuSection={props.cuSection} 
+                onPreviousClick={props.onPreviousClick} 
                 onNextClick={props.onNextClick} 
                 onSaveClick={props.onSaveClick} 
                 // General information props
@@ -553,7 +554,8 @@ function CVEditor(props) {
 CVEditor.propTypes = {
     cuSection: PropTypes.number.isRequired,
     onNextClick: PropTypes.func.isRequired,
-    onSaveClick: PropTypes.func.isRequired
+    onSaveClick: PropTypes.func.isRequired,
+    onPreviousClick: PropTypes.func.isRequired
 }
 
 export default CVEditor
