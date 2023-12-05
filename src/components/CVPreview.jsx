@@ -2,8 +2,12 @@ import '../styles/CVPreview.css'
 import PreviewSection from './PreviewSection'
 import PropTypes from 'prop-types'
 import SECTION_DATA from '../assets/data'
+import Button from './Button'
 
 function CVPreview({ 
+    editButtonVisibility,
+    saveButtonVisibility,
+    onEditClick,
     // General information props
     namePreviewText, 
     emailPreviewText,
@@ -171,12 +175,17 @@ function CVPreview({
     return (
         <div className='preview'>
             {sections}
+            <Button text='Edit' visibility={editButtonVisibility} onClick={onEditClick}/>
+            <Button text='Save' visibility={saveButtonVisibility} onClick={console.log('Save button clicked')}/>
         </div>
     )
     
 }
 
 CVPreview.propTypes = {
+    editButtonVisibility: PropTypes.string.isRequired,
+    saveButtonVisibility: PropTypes.string.isRequired,
+    onEditClick: PropTypes.func.isRequired,
     // General information props
     namePreviewText: PropTypes.string.isRequired,
     emailPreviewText: PropTypes.string.isRequired,

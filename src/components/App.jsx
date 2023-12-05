@@ -9,28 +9,12 @@ function App() {
   // State for the current section
   const [currentSection, setCurrentSection] = useState(0);
 
-  // State for CV data
-  const [cvData, setCVData] = useState({
-    personalInfo: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phoneNumber: '',
-      address: '',
-      city: '',
-      state: '',
-      zipCode: '',
-      country: '',
-      linkedIn: '',
-      github: '',
-      website: '',
-      profilePicture: ''
-    },
-    education: [],
-    experience: [],
-    skills: [],
-    projects: []
-  });
+  // State for the visibility of the form div
+  const [formDivVisibility, setFormDivVisibility] = useState('flex');
+
+  // State for the visibility of 'Edit' and 'Save' buttons
+  const [editButtonVisibility, setEditButtonVisibility] = useState('none');
+  const [saveButtonVisibility, setSaveButtonVisibility] = useState('none');
 
   // Function to handle the next button click
   const handleNextClick = () => {
@@ -44,8 +28,18 @@ function App() {
 
   // Function to handle the Save button click
   const handleFinishClick = () => {
-    setCVData(cvData);
     setCurrentSection(currentSection + 1);
+    setFormDivVisibility('none');
+    setEditButtonVisibility('flex');
+    setSaveButtonVisibility('flex');
+  }
+
+  // Function to handle the Edit button click
+  const handleEditClick = () => {
+    setCurrentSection(0);
+    setFormDivVisibility('flex');
+    setEditButtonVisibility('none');
+    setSaveButtonVisibility('none');
   }
 
   return (
@@ -54,9 +48,13 @@ function App() {
       <NavBar cuSection={currentSection} />
       <CVEditor 
         cuSection={currentSection} 
+        formDivVisibility={formDivVisibility} 
+        editButtonVisibility={editButtonVisibility} 
+        saveButtonVisibility={saveButtonVisibility} 
         onPreviousClick={handlePreviousClick} 
         onNextClick={handleNextClick} 
         onFinishClick={handleFinishClick} 
+        onEditClick={handleEditClick} 
       />
     </div>
   )

@@ -360,9 +360,12 @@ function CVEditor(props) {
         <div className='book-style'>
             <CVForm 
                 cuSection={props.cuSection} 
+                formDivVisibility={props.formDivVisibility} 
                 onPreviousClick={props.onPreviousClick} 
                 onNextClick={props.onNextClick} 
                 onFinishClick={props.onFinishClick} 
+                editButtonVisibility={props.editButtonVisibility} 
+                saveButtonVisibility={props.saveButtonVisibility} 
                 // General information props
                 nameInputText={nameInputText} 
                 onNameChange={handleNameInputChange} 
@@ -489,6 +492,9 @@ function CVEditor(props) {
                 onGymCheckboxChange={handleGymCheckboxChange} 
             />
             <CVPreview 
+                editButtonVisibility={props.editButtonVisibility} 
+                saveButtonVisibility={props.saveButtonVisibility} 
+                onEditClick={props.onEditClick} 
                 // General information props
                 namePreviewText={nameInputText} 
                 emailPreviewText={emailInputText} 
@@ -555,7 +561,11 @@ CVEditor.propTypes = {
     cuSection: PropTypes.number.isRequired,
     onNextClick: PropTypes.func.isRequired,
     onFinishClick: PropTypes.func.isRequired,
-    onPreviousClick: PropTypes.func.isRequired
+    onPreviousClick: PropTypes.func.isRequired,
+    formDivVisibility: PropTypes.string.isRequired,
+    editButtonVisibility: PropTypes.string.isRequired,
+    saveButtonVisibility: PropTypes.string.isRequired,
+    onEditClick: PropTypes.func.isRequired
 }
 
 export default CVEditor

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 function CVForm({ 
     cuSection,
+    formDivVisibility,
     onPreviousClick,
     onNextClick,
     onFinishClick,
@@ -324,7 +325,7 @@ function CVForm({
     })
 
     return (
-        <div className='form'>
+        <div className='form' style={{display: formDivVisibility}}>
             {sections}
         </div>
     )
@@ -335,6 +336,7 @@ CVForm.propTypes = {
     onPreviousClick: PropTypes.func.isRequired,
     onNextClick: PropTypes.func.isRequired,
     onFinishClick: PropTypes.func.isRequired,
+    formDivVisibility: PropTypes.string.isRequired,
     // General Info prop types
     nameInputText: PropTypes.string.isRequired,
     onNameChange: PropTypes.func.isRequired,
