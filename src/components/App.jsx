@@ -43,8 +43,9 @@ function App() {
   }
 
   // Function to handle the Save button click
-  const handleSaveClick = () => {
+  const handleFinishClick = () => {
     setCVData(cvData);
+    setCurrentSection(currentSection + 1);
   }
 
   return (
@@ -55,7 +56,7 @@ function App() {
         cuSection={currentSection} 
         onPreviousClick={handlePreviousClick} 
         onNextClick={handleNextClick} 
-        onSaveClick={handleSaveClick} 
+        onFinishClick={handleFinishClick} 
       />
     </div>
   )

@@ -7,7 +7,7 @@ function CVForm({
     cuSection,
     onPreviousClick,
     onNextClick,
-    onSaveClick,
+    onFinishClick,
     // General Info
     nameInputText, 
     onNameChange, 
@@ -317,7 +317,7 @@ function CVForm({
                     gymInputChecked={gymInputChecked} 
                     onGymCheckboxChange={onGymCheckboxChange} 
                     onPreviousClick={onPreviousClick} 
-                    onSaveClick={onSaveClick} 
+                    onFinishClick={onFinishClick} 
                 />
             )
         }
@@ -334,7 +334,7 @@ CVForm.propTypes = {
     cuSection: PropTypes.number.isRequired,
     onPreviousClick: PropTypes.func.isRequired,
     onNextClick: PropTypes.func.isRequired,
-    onSaveClick: PropTypes.func.isRequired,
+    onFinishClick: PropTypes.func.isRequired,
     // General Info prop types
     nameInputText: PropTypes.string.isRequired,
     onNameChange: PropTypes.func.isRequired,

@@ -590,7 +590,7 @@ function FormSection(props) {
                     <h2>{props.title}</h2>
                     {fields}
                     <Button text='< Previous' onClick={props.onPreviousClick}/>
-                    <Button text='Save' onClick={props.onSaveClick}/>
+                    <Button text='Finish' onClick={props.onFinishClick}/>
                 </div>
             )
     }
@@ -609,7 +609,7 @@ FormSection.propTypes = {
     })).isRequired,
     onPreviousClick: PropTypes.func,
     onNextClick: PropTypes.func,
-    onSaveClick: PropTypes.func,
+    onFinishClick: PropTypes.func,
     // General Info prop types
     nameInputText: PropTypes.string,
     onNameChange: PropTypes.func,
