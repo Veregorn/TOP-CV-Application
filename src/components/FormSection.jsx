@@ -175,20 +175,15 @@ function FormSection(props) {
 
         const subSections = props.studies.map((study) => {
             return (
-                <FormSubSection 
-                    key={('ed-sub-section') + String(study.id)} 
-                    fields={props.fields} 
-                    schoolInputText={study.school} 
-                    onSchoolChange={props.onSchoolChange} 
-                    studiesTitleInputText={study.title} 
-                    onStudiesTitleChange={props.onStudiesTitleChange} 
-                    studiesStartDateSelect={study.startDate} 
-                    onStudiesStartDateChange={props.onStudiesStartDateChange} 
-                    studiesEndDateSelect={study.endDate} 
-                    onStudiesEndDateChange={props.onStudiesEndDateChange} 
-                    studiesDescriptionInputText={study.description} 
-                    onStudiesDescriptionChange={props.onStudiesDescriptionChange} 
-                />
+                <div key={('ed-sub-section') + String(study.id)} className='form-ed-saved-sub-section'>
+                    <p>School Name: {study.school}</p>
+                    <p>Study Title: {study.title}</p>
+                    <p>Start Date: {study.startDate}</p>
+                    <p>End Date: {study.endDate}</p>
+                    <p>Description: {study.description}</p>
+                    <Button text='Delete' onClick={() => props.onDeleteStudiesClick(study.id)}/>
+                    <Button text='Edit' onClick={() => props.onEditStudiesClick(study.id)}/>
+                </div>
             )
         })
         
@@ -196,19 +191,24 @@ function FormSection(props) {
             <div className={props.className}>
                 <h2>{props.title}</h2>
                 {subSections}
-                <FormSubSection 
-                    fields={props.fields} 
-                    schoolInputText={props.schoolInputText} 
-                    onSchoolChange={props.onSchoolChange} 
-                    studiesTitleInputText={props.studiesTitleInputText} 
-                    onStudiesTitleChange={props.onStudiesTitleChange} 
-                    studiesStartDateSelect={props.studiesStartDateSelect} 
-                    onStudiesStartDateChange={props.onStudiesStartDateChange} 
-                    studiesEndDateSelect={props.studiesEndDateSelect} 
-                    onStudiesEndDateChange={props.onStudiesEndDateChange} 
-                    studiesDescriptionInputText={props.studiesDescriptionInputText} 
-                    onStudiesDescriptionChange={props.onStudiesDescriptionChange} 
-                />
+                {props.moreStudiesClicked &&
+                    <div className='form-ed-not-saved-sub-section'>
+                        <FormSubSection 
+                            fields={props.fields} 
+                            schoolInputText={props.schoolInputText} 
+                            onSchoolChange={props.onSchoolChange} 
+                            studiesTitleInputText={props.studiesTitleInputText} 
+                            onStudiesTitleChange={props.onStudiesTitleChange} 
+                            studiesStartDateSelect={props.studiesStartDateSelect} 
+                            onStudiesStartDateChange={props.onStudiesStartDateChange} 
+                            studiesEndDateSelect={props.studiesEndDateSelect} 
+                            onStudiesEndDateChange={props.onStudiesEndDateChange} 
+                            studiesDescriptionInputText={props.studiesDescriptionInputText} 
+                            onStudiesDescriptionChange={props.onStudiesDescriptionChange} 
+                        />
+                        <Button text='Save' onClick={props.onSaveStudiesClick}/>
+                    </div>
+                }
                 <Button text='+ More studies' onClick={props.onAddStudiesClick}/>
                 <Button text='< Previous' onClick={props.onPreviousClick}/>
                 <Button text='Next >' onClick={props.onNextClick}/>
@@ -650,6 +650,10 @@ FormSection.propTypes = {
         description: PropTypes.string.isRequired
     })),
     onAddStudiesClick: PropTypes.func,
+    onDeleteStudiesClick: PropTypes.func,
+    onEditStudiesClick: PropTypes.func,
+    onSaveStudiesClick: PropTypes.func,
+    moreStudiesClicked: PropTypes.bool,
     // Practical Experience prop types
     companyInputText: PropTypes.string,
     onCompanyChange: PropTypes.func,

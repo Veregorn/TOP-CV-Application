@@ -28,6 +28,7 @@ function CVEditor(props) {
     const [studiesDescriptionInputText, setStudiesDescriptionInputText] = useState(''); // State for the studies description input
     const [studies, setStudies] = useState([]); // State for the studies array
     const [studiesId, setStudiesId] = useState(0); // State for the studies id
+    const [moreStudiesClicked, setMoreStudiesClicked] = useState(false); // State for the more studies button clicked
     
     // Experience state variables
     const [companyInputText, setCompanyInputText] = useState(''); // State for the company input
@@ -272,6 +273,10 @@ function CVEditor(props) {
     }
 
     const handleAddStudiesClick = () => {
+        setMoreStudiesClicked(true);
+    }
+
+    const onSaveStudiesClick = () => {
         setStudies([...studies, {id: studiesId, school: schoolInputText, title: studiesTitleInputText, startDate: studiesStartDateSelect, endDate: studiesEndDateSelect, description: studiesDescriptionInputText}]);
         setStudiesId(studiesId + 1);
         setSchoolInputText('');
@@ -279,6 +284,12 @@ function CVEditor(props) {
         setStudiesStartDateSelect('');
         setStudiesEndDateSelect('');
         setStudiesDescriptionInputText('');
+        setMoreStudiesClicked(false);
+    }
+
+    const handleDeleteStudiesClick = (id) => {
+        const newStudies = studies.filter(study => study.id != id);
+        setStudies(newStudies);
     }
 
     // Experience fields change handlers
@@ -518,6 +529,9 @@ function CVEditor(props) {
                 onStudiesDescriptionChange={handleStudiesDescriptionInputChange} 
                 studies={studies} 
                 onAddStudiesClick={handleAddStudiesClick} 
+                moreStudiesClicked={moreStudiesClicked} 
+                onSaveStudiesClick={onSaveStudiesClick} 
+                onDeleteStudiesClick={handleDeleteStudiesClick} 
                 // Experience props
                 companyInputText={companyInputText} 
                 onCompanyChange={handleCompanyInputChange} 

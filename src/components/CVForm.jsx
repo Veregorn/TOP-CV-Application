@@ -43,6 +43,9 @@ function CVForm({
     onStudiesDescriptionChange,
     studies,
     onAddStudiesClick,
+    moreStudiesClicked,
+    onSaveStudiesClick,
+    onDeleteStudiesClick,
     // Experience
     companyInputText,
     onCompanyChange,
@@ -189,6 +192,9 @@ function CVForm({
                     onPreviousClick={onPreviousClick} 
                     onNextClick={onNextClick} 
                     onAddStudiesClick={onAddStudiesClick} 
+                    moreStudiesClicked={moreStudiesClicked} 
+                    onSaveStudiesClick={onSaveStudiesClick} 
+                    onDeleteStudiesClick={onDeleteStudiesClick} 
                 />
             )
         } else if (section.id == 'practicalExp') {
@@ -371,6 +377,9 @@ CVForm.propTypes = {
     onStudiesDescriptionChange: PropTypes.func.isRequired,
     studies: PropTypes.array.isRequired,
     onAddStudiesClick: PropTypes.func.isRequired,
+    moreStudiesClicked: PropTypes.bool.isRequired,
+    onSaveStudiesClick: PropTypes.func.isRequired,
+    onDeleteStudiesClick: PropTypes.func.isRequired,
     // Experience prop types
     companyInputText: PropTypes.string.isRequired,
     onCompanyChange: PropTypes.func.isRequired,
