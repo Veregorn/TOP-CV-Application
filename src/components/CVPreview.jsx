@@ -8,6 +8,9 @@ function CVPreview({
     editButtonVisibility,
     saveButtonVisibility,
     onEditClick,
+    onSaveClick,
+    documentSaved,
+    editionFinished,
     // General information props
     namePreviewText, 
     emailPreviewText,
@@ -100,6 +103,7 @@ function CVPreview({
                     studiesEndDatePreviewText={studiesEndDatePreviewText} 
                     studiesDescriptionPreviewText={studiesDescriptionPreviewText} 
                     studies={studies} 
+                    editionFinished={editionFinished} 
                 />
             )
         } else if (section.id == 'practicalExp') {
@@ -114,6 +118,7 @@ function CVPreview({
                     jobEndDatePreviewText={jobEndDatePreviewText} 
                     jobDescriptionPreviewText={jobDescriptionPreviewText} 
                     jobs={jobs} 
+                    editionFinished={editionFinished} 
                 />
             )
         } else if (section.id == 'skills') {
@@ -125,6 +130,7 @@ function CVPreview({
                     skillNamePreviewText={skillNamePreviewText} 
                     skillLevelPreviewText={skillLevelPreviewText} 
                     skills={skills} 
+                    editionFinished={editionFinished} 
                 />
             )
         } else if (section.id == 'contact') {
@@ -172,13 +178,21 @@ function CVPreview({
         }
     })
 
-    return (
-        <div className='preview'>
-            {sections}
-            <Button text='Edit' visibility={editButtonVisibility} onClick={onEditClick}/>
-            <Button text='Save' visibility={saveButtonVisibility} onClick={console.log('Save button clicked')}/>
-        </div>
-    )
+    if (documentSaved) {
+        return (
+            <div className='preview'>
+                <p>Your CV has been saved in your default downloads folder as a JSON file!</p>
+            </div>
+        )
+    } else {
+        return (
+            <div className='preview'>
+                {sections}
+                <Button text='Edit' visibility={editButtonVisibility} onClick={onEditClick}/>
+                <Button text='Save' visibility={saveButtonVisibility} onClick={onSaveClick}/>
+            </div>
+        )
+    }
     
 }
 
@@ -186,6 +200,9 @@ CVPreview.propTypes = {
     editButtonVisibility: PropTypes.string.isRequired,
     saveButtonVisibility: PropTypes.string.isRequired,
     onEditClick: PropTypes.func.isRequired,
+    onSaveClick: PropTypes.func.isRequired,
+    documentSaved: PropTypes.bool.isRequired,
+    editionFinished: PropTypes.bool.isRequired,
     // General information props
     namePreviewText: PropTypes.string.isRequired,
     emailPreviewText: PropTypes.string.isRequired,

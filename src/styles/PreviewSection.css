@@ -2,7 +2,7 @@
     padding: 20px;
 }
 
-.study-preview {
+.study-preview, .job-preview, .skill-preview {
     display: flex;
     flex-direction: column;
     align-items: center;

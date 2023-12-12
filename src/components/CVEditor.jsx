@@ -82,6 +82,124 @@ function CVEditor(props) {
     const [skiingInputChecked, setSkiingInputChecked] = useState(false); // State for the skiing input checked/unchecked
     const [gymInputChecked, setGymInputChecked] = useState(false); // State for the gym input checked/unchecked
 
+    // State variable that controls if the state has been saved
+    const [stateSaved, setStateSaved] = useState(false);
+
+    // State variable that controls if the document has been saved
+    const [documentSaved, setDocumentSaved] = useState(false);
+
+    // This is an intermediate step to save the CV data. It ensures that the last elements are added to the arrays in sections
+    if (props.editionFinished && !stateSaved) {
+        // Last elements have to be added to arrays in sections 
+        // 'Education', 'Experience' and 'Skills' before saving the CV data
+        // because the update of the state variables is asynchronous we need to do this saving the value first in a variable
+        // and then updating the state variable with the new value
+        // otherwise the last element will not be saved
+        const newStudies = [...studies, {
+            id: studiesId, 
+            school: schoolInputText, 
+            title: studiesTitleInputText, 
+            startDate: studiesStartDateSelect, 
+            endDate: studiesEndDateSelect, 
+            description: studiesDescriptionInputText
+        }];
+        setStudies(newStudies);
+        setStudiesId(studiesId + 1);
+        
+        const newJobs = [...jobs, {
+            id: jobsId,
+            company: companyInputText,
+            position: jobPositionInputText,
+            startDate: jobStartDateSelect,
+            endDate: jobEndDateSelect,
+            description: jobDescriptionInputText
+        }];
+        setJobs(newJobs);
+        setJobsId(jobsId + 1);
+
+        const newSkills = [...skills, {
+            id: skillsId,
+            name: skillNameInputText,
+            level: skillLevelRadio
+        }];
+        setSkills(newSkills);
+        setSkillsId(skillsId + 1);
+
+        // Set the setStateSaved state variable to true
+        setStateSaved(true);
+    }
+
+    // Save button click handler
+    const handleSaveClick = () => {
+            // Create the CV data object
+            const cvData = {
+                // General information data
+                name: nameInputText,
+                email: emailInputText,
+                phone: phoneInputText,
+                address: addressInputText,
+                postalCode: postalCodeInputText,
+                city: cityInputText,
+                country: countryInputText,
+                birthDate: birthDateInputText,
+                gender: genderInputText,
+                photo: photo,
+                // Education data
+                studies: studies,
+                // Experience data
+                jobs: jobs,
+                // Skills data
+                skills: skills,
+                // Contact data
+                x: xInputText,
+                instagram: instagramInputText,
+                linkedin: linkedinInputText,
+                github: githubInputText,
+                youtube: youtubeInputText,
+                dribbble: dribbbleInputText,
+                behance: behanceInputText,
+                twitch: twitchInputText,
+                // Hobbies data
+                traveling: travelingInputChecked,
+                music: musicInputChecked,
+                reading: readingInputChecked,
+                gaming: gamingInputChecked,
+                bicycling: bicyclingInputChecked,
+                running: runningInputChecked,
+                cooking: cookingInputChecked,
+                shopping: shoppingInputChecked,
+                dancing: dancingInputChecked,
+                swimming: swimmingInputChecked,
+                painting: paintingInputChecked,
+                photography: photographyInputChecked,
+                fishing: fishingInputChecked,
+                hiking: hikingInputChecked,
+                yoga: yogaInputChecked,
+                surfing: surfingInputChecked,
+                skiing: skiingInputChecked,
+                gym: gymInputChecked
+            }
+
+            // Convert the CV data object to JSON
+            const cvDataJSON = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(cvData));
+
+            // Create the download link
+            const downloadLink = document.createElement('a');
+            downloadLink.setAttribute('href', cvDataJSON);
+            downloadLink.setAttribute('download', 'cv-data.json');
+            downloadLink.style.display = 'none';
+            document.body.appendChild(downloadLink);
+
+            // Click the download link
+            downloadLink.click();
+
+            // Remove the download link
+            document.body.removeChild(downloadLink);
+
+            // Set the setDocumentSaved state variable to true
+            setDocumentSaved(true);
+    }
+
     // General information fields change handlers
     const handleNameInputChange = (event) => {
         setNameInputText(event.target.value);
@@ -495,6 +613,9 @@ function CVEditor(props) {
                 editButtonVisibility={props.editButtonVisibility} 
                 saveButtonVisibility={props.saveButtonVisibility} 
                 onEditClick={props.onEditClick} 
+                onSaveClick={handleSaveClick} 
+                documentSaved={documentSaved} 
+                editionFinished={props.editionFinished} 
                 // General information props
                 namePreviewText={nameInputText} 
                 emailPreviewText={emailInputText} 
@@ -565,7 +686,8 @@ CVEditor.propTypes = {
     formDivVisibility: PropTypes.string.isRequired,
     editButtonVisibility: PropTypes.string.isRequired,
     saveButtonVisibility: PropTypes.string.isRequired,
-    onEditClick: PropTypes.func.isRequired
+    onEditClick: PropTypes.func.isRequired,
+    editionFinished: PropTypes.bool.isRequired
 }
 
 export default CVEditor

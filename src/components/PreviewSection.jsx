@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 function PreviewSection({ 
     title, 
     fields,
+    editionFinished,
     // General information props
     namePreviewText, 
     emailPreviewText,
@@ -582,10 +583,10 @@ function PreviewSection({
     return (
         <div className='preview-section'>
             <h3>{title}</h3>
-            {sectionFields}
             {studies && studiesFields}
             {jobs && jobsFields}
             {skills && skillsFields}
+            {!editionFinished && sectionFields}
         </div>
     )
 }
@@ -599,6 +600,7 @@ PreviewSection.propTypes = {
         placeholder: PropTypes.string,
         required: PropTypes.bool
     })).isRequired,
+    editionFinished: PropTypes.bool,
     // General information props
     namePreviewText: PropTypes.string,
     emailPreviewText: PropTypes.string,
