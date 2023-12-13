@@ -10,7 +10,6 @@ function CVPreview({
     onEditClick,
     onSaveClick,
     documentSaved,
-    editionFinished,
     // General information props
     namePreviewText, 
     emailPreviewText,
@@ -103,7 +102,6 @@ function CVPreview({
                     studiesEndDatePreviewText={studiesEndDatePreviewText} 
                     studiesDescriptionPreviewText={studiesDescriptionPreviewText} 
                     studies={studies} 
-                    editionFinished={editionFinished} 
                 />
             )
         } else if (section.id == 'practicalExp') {
@@ -118,7 +116,6 @@ function CVPreview({
                     jobEndDatePreviewText={jobEndDatePreviewText} 
                     jobDescriptionPreviewText={jobDescriptionPreviewText} 
                     jobs={jobs} 
-                    editionFinished={editionFinished} 
                 />
             )
         } else if (section.id == 'skills') {
@@ -130,7 +127,6 @@ function CVPreview({
                     skillNamePreviewText={skillNamePreviewText} 
                     skillLevelPreviewText={skillLevelPreviewText} 
                     skills={skills} 
-                    editionFinished={editionFinished} 
                 />
             )
         } else if (section.id == 'contact') {
@@ -202,7 +198,6 @@ CVPreview.propTypes = {
     onEditClick: PropTypes.func.isRequired,
     onSaveClick: PropTypes.func.isRequired,
     documentSaved: PropTypes.bool.isRequired,
-    editionFinished: PropTypes.bool.isRequired,
     // General information props
     namePreviewText: PropTypes.string.isRequired,
     emailPreviewText: PropTypes.string.isRequired,

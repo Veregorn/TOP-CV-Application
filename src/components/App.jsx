@@ -16,9 +16,6 @@ function App() {
   const [editButtonVisibility, setEditButtonVisibility] = useState('none');
   const [saveButtonVisibility, setSaveButtonVisibility] = useState('none');
 
-  // State variable that controls if the edition has been finished
-  const [editionFinished, setEditionFinished] = useState(false);
-
   // Function to handle the next button click
   const handleNextClick = () => {
       setCurrentSection(currentSection + 1);
@@ -35,7 +32,6 @@ function App() {
     setFormDivVisibility('none');
     setEditButtonVisibility('flex');
     setSaveButtonVisibility('flex');
-    setEditionFinished(true);
   }
 
   // Function to handle the Edit button click
@@ -44,7 +40,6 @@ function App() {
     setFormDivVisibility('flex');
     setEditButtonVisibility('none');
     setSaveButtonVisibility('none');
-    setEditionFinished(false);
   }
 
   return (
@@ -60,7 +55,6 @@ function App() {
         onNextClick={handleNextClick} 
         onFinishClick={handleFinishClick} 
         onEditClick={handleEditClick} 
-        editionFinished={editionFinished} 
       />
     </div>
   )

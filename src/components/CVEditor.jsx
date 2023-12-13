@@ -42,7 +42,7 @@ function CVEditor(props) {
 
     // Skills state variables
     const [skillNameInputText, setSkillNameInputText] = useState(''); // State for the skill name input
-    const [skillLevelRadio, setSkillLevelRadio] = useState('beginner'); // State for the skill level radio buttons
+    const [skillLevelRadio, setSkillLevelRadio] = useState(''); // State for the skill level radio buttons
     const [skills, setSkills] = useState([]); // State for the skills array
     const [skillsId, setSkillsId] = useState(0); // State for the skills id
     const [moreSkillsClicked, setMoreSkillsClicked] = useState(false); // State for the more skills button clicked
@@ -85,52 +85,8 @@ function CVEditor(props) {
     const [skiingInputChecked, setSkiingInputChecked] = useState(false); // State for the skiing input checked/unchecked
     const [gymInputChecked, setGymInputChecked] = useState(false); // State for the gym input checked/unchecked
 
-    // State variable that controls if the state has been saved
-    const [stateSaved, setStateSaved] = useState(false);
-
     // State variable that controls if the document has been saved
     const [documentSaved, setDocumentSaved] = useState(false);
-
-    // This is an intermediate step to save the CV data. It ensures that the last elements are added to the arrays in sections
-    if (props.editionFinished && !stateSaved) {
-        // Last elements have to be added to arrays in sections 
-        // 'Education', 'Experience' and 'Skills' before saving the CV data
-        // because the update of the state variables is asynchronous we need to do this saving the value first in a variable
-        // and then updating the state variable with the new value
-        // otherwise the last element will not be saved
-        const newStudies = [...studies, {
-            id: studiesId, 
-            school: schoolInputText, 
-            title: studiesTitleInputText, 
-            startDate: studiesStartDateSelect, 
-            endDate: studiesEndDateSelect, 
-            description: studiesDescriptionInputText
-        }];
-        setStudies(newStudies);
-        setStudiesId(studiesId + 1);
-        
-        const newJobs = [...jobs, {
-            id: jobsId,
-            company: companyInputText,
-            position: jobPositionInputText,
-            startDate: jobStartDateSelect,
-            endDate: jobEndDateSelect,
-            description: jobDescriptionInputText
-        }];
-        setJobs(newJobs);
-        setJobsId(jobsId + 1);
-
-        const newSkills = [...skills, {
-            id: skillsId,
-            name: skillNameInputText,
-            level: skillLevelRadio
-        }];
-        setSkills(newSkills);
-        setSkillsId(skillsId + 1);
-
-        // Set the setStateSaved state variable to true
-        setStateSaved(true);
-    }
 
     // Save button click handler
     const handleSaveClick = () => {
@@ -380,7 +336,7 @@ function CVEditor(props) {
         setSkills(newSkills);
         setSkillsId(skillsId + 1);
         setSkillNameInputText('');
-        setSkillLevelRadio('beginner');
+        setSkillLevelRadio('');
         setMoreSkillsClicked(false);
     }
 
@@ -696,7 +652,6 @@ function CVEditor(props) {
                 onEditClick={props.onEditClick} 
                 onSaveClick={handleSaveClick} 
                 documentSaved={documentSaved} 
-                editionFinished={props.editionFinished} 
                 // General information props
                 namePreviewText={nameInputText} 
                 emailPreviewText={emailInputText} 
@@ -767,8 +722,7 @@ CVEditor.propTypes = {
     formDivVisibility: PropTypes.string.isRequired,
     editButtonVisibility: PropTypes.string.isRequired,
     saveButtonVisibility: PropTypes.string.isRequired,
-    onEditClick: PropTypes.func.isRequired,
-    editionFinished: PropTypes.bool.isRequired
+    onEditClick: PropTypes.func.isRequired
 }
 
 export default CVEditor
