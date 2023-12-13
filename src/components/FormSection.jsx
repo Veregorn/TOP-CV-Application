@@ -219,20 +219,15 @@ function FormSection(props) {
         
         const subSections = props.jobs.map((job) => {
             return (
-                <FormSubSection 
-                    key={('exp-sub-section') + String(job.id)} 
-                    fields={props.fields} 
-                    companyInputText={job.company} 
-                    onCompanyChange={props.onCompanyChange} 
-                    jobPositionInputText={job.position} 
-                    onJobPositionChange={props.onJobPositionChange} 
-                    jobStartDateSelect={job.startDate} 
-                    onJobStartDateChange={props.onJobStartDateChange} 
-                    jobEndDateSelect={job.endDate} 
-                    onJobEndDateChange={props.onJobEndDateChange} 
-                    jobDescriptionInputText={job.description} 
-                    onJobDescriptionChange={props.onJobDescriptionChange} 
-                />
+                <div key={('exp-sub-section') + String(job.id)} className='form-exp-saved-sub-section'>
+                    <p>Company Name: {job.company}</p>
+                    <p>Job Position: {job.position}</p>
+                    <p>Start Date: {job.startDate}</p>
+                    <p>End Date: {job.endDate}</p>
+                    <p>Description: {job.description}</p>
+                    <Button text='Delete' onClick={() => props.onDeleteJobClick(job.id)}/>
+                    <Button text='Edit' onClick={() => props.onEditJobClick(job.id)}/>
+                </div>
             )
         })
 
@@ -240,19 +235,24 @@ function FormSection(props) {
             <div className={props.className}>
                 <h2>{props.title}</h2>
                 {subSections}
-                <FormSubSection 
-                    fields={props.fields} 
-                    companyInputText={props.companyInputText} 
-                    onCompanyChange={props.onCompanyChange} 
-                    jobPositionInputText={props.jobPositionInputText} 
-                    onJobPositionChange={props.onJobPositionChange} 
-                    jobStartDateSelect={props.jobStartDateSelect} 
-                    onJobStartDateChange={props.onJobStartDateChange} 
-                    jobEndDateSelect={props.jobEndDateSelect} 
-                    onJobEndDateChange={props.onJobEndDateChange} 
-                    jobDescriptionInputText={props.jobDescriptionInputText} 
-                    onJobDescriptionChange={props.onJobDescriptionChange} 
-                />
+                {props.moreJobsClicked && 
+                    <div className='form-exp-not-saved-sub-section'>
+                        <FormSubSection 
+                            fields={props.fields} 
+                            companyInputText={props.companyInputText} 
+                            onCompanyChange={props.onCompanyChange} 
+                            jobPositionInputText={props.jobPositionInputText} 
+                            onJobPositionChange={props.onJobPositionChange} 
+                            jobStartDateSelect={props.jobStartDateSelect} 
+                            onJobStartDateChange={props.onJobStartDateChange} 
+                            jobEndDateSelect={props.jobEndDateSelect} 
+                            onJobEndDateChange={props.onJobEndDateChange} 
+                            jobDescriptionInputText={props.jobDescriptionInputText} 
+                            onJobDescriptionChange={props.onJobDescriptionChange} 
+                        />
+                        <Button text='Save' onClick={props.onSaveJobClick}/>
+                    </div>
+                }
                 <Button text='+ More jobs' onClick={props.onAddJobClick}/>
                 <Button text='< Previous' onClick={props.onPreviousClick}/>
                 <Button text='Next >' onClick={props.onNextClick}/>
@@ -261,17 +261,14 @@ function FormSection(props) {
 
     } else if (props.title == 'Skills') {
         
-        const subSections = props.skills.map((skill, index) => {
+        const subSections = props.skills.map((skill) => {
             return (
-                <FormSubSection 
-                    key={('sk-sub-section') + String(skill.id)} 
-                    index={index} 
-                    fields={props.fields} 
-                    skillNameInputText={skill.name} 
-                    onSkillNameChange={props.onSkillNameChange} 
-                    skillLevelRadio={skill.level} 
-                    onSkillLevelChange={props.onSkillLevelChange} 
-                />
+                <div key={('skills-sub-section') + String(skill.id)} className='form-skills-saved-sub-section'>
+                    <p>Skill Name: {skill.name}</p>
+                    <p>Skill Level: {skill.level}</p>
+                    <Button text='Delete' onClick={() => props.onDeleteSkillClick(skill.id)}/>
+                    <Button text='Edit' onClick={() => props.onEditSkillClick(skill.id)}/>
+                </div>
             )
         })
 
@@ -279,13 +276,18 @@ function FormSection(props) {
             <div className={props.className}>
                 <h2>{props.title}</h2>
                 {subSections}
-                <FormSubSection 
-                    fields={props.fields} 
-                    skillNameInputText={props.skillNameInputText} 
-                    onSkillNameChange={props.onSkillNameChange} 
-                    skillLevelRadio={props.skillLevelRadio} 
-                    onSkillLevelChange={props.onSkillLevelChange} 
-                />
+                {props.moreSkillsClicked &&
+                    <div className='form-skills-not-saved-sub-section'>
+                        <FormSubSection 
+                            fields={props.fields} 
+                            skillNameInputText={props.skillNameInputText} 
+                            onSkillNameChange={props.onSkillNameChange} 
+                            skillLevelRadio={props.skillLevelRadio} 
+                            onSkillLevelChange={props.onSkillLevelChange} 
+                        />
+                        <Button text='Save' onClick={props.onSaveSkillClick}/>
+                    </div>
+                }
                 <Button text='+ More skills' onClick={props.onAddSkillClick}/>
                 <Button text='< Previous' onClick={props.onPreviousClick}/>
                 <Button text='Next >' onClick={props.onNextClick}/>
@@ -674,6 +676,10 @@ FormSection.propTypes = {
         description: PropTypes.string.isRequired
     })),
     onAddJobClick: PropTypes.func,
+    onDeleteJobClick: PropTypes.func,
+    onEditJobClick: PropTypes.func,
+    onSaveJobClick: PropTypes.func,
+    moreJobsClicked: PropTypes.bool,
     // Skills prop types
     skillNameInputText: PropTypes.string,
     onSkillNameChange: PropTypes.func,
@@ -685,6 +691,10 @@ FormSection.propTypes = {
         level: PropTypes.string.isRequired
     })),
     onAddSkillClick: PropTypes.func,
+    onDeleteSkillClick: PropTypes.func,
+    onEditSkillClick: PropTypes.func,
+    onSaveSkillClick: PropTypes.func,
+    moreSkillsClicked: PropTypes.bool,
     // Contact prop types
     xInputText: PropTypes.string,
     onXChange: PropTypes.func,

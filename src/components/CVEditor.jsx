@@ -38,12 +38,14 @@ function CVEditor(props) {
     const [jobDescriptionInputText, setJobDescriptionInputText] = useState(''); // State for the job description input
     const [jobs, setJobs] = useState([]); // State for the jobs array
     const [jobsId, setJobsId] = useState(0); // State for the jobs id
+    const [moreJobsClicked, setMoreJobsClicked] = useState(false); // State for the more jobs button clicked
 
     // Skills state variables
     const [skillNameInputText, setSkillNameInputText] = useState(''); // State for the skill name input
     const [skillLevelRadio, setSkillLevelRadio] = useState('beginner'); // State for the skill level radio buttons
     const [skills, setSkills] = useState([]); // State for the skills array
     const [skillsId, setSkillsId] = useState(0); // State for the skills id
+    const [moreSkillsClicked, setMoreSkillsClicked] = useState(false); // State for the more skills button clicked
 
     // Contact state variables
     const [xInputText, setXInputText] = useState(''); // State for the X input
@@ -277,7 +279,9 @@ function CVEditor(props) {
     }
 
     const onSaveStudiesClick = () => {
-        setStudies([...studies, {id: studiesId, school: schoolInputText, title: studiesTitleInputText, startDate: studiesStartDateSelect, endDate: studiesEndDateSelect, description: studiesDescriptionInputText}]);
+        const newStudies = [...studies, {id: studiesId, school: schoolInputText, title: studiesTitleInputText, startDate: studiesStartDateSelect, endDate: studiesEndDateSelect, description: studiesDescriptionInputText}];
+        newStudies.sort((a, b) => a.startDate - b.startDate);
+        setStudies(newStudies);
         setStudiesId(studiesId + 1);
         setSchoolInputText('');
         setStudiesTitleInputText('');
@@ -290,6 +294,17 @@ function CVEditor(props) {
     const handleDeleteStudiesClick = (id) => {
         const newStudies = studies.filter(study => study.id != id);
         setStudies(newStudies);
+    }
+
+    const handleEditStudiesClick = (id) => {
+        const study = studies.find(study => study.id == id);
+        setSchoolInputText(study.school);
+        setStudiesTitleInputText(study.title);
+        setStudiesStartDateSelect(study.startDate);
+        setStudiesEndDateSelect(study.endDate);
+        setStudiesDescriptionInputText(study.description);
+        setMoreStudiesClicked(true);
+        handleDeleteStudiesClick(id);
     }
 
     // Experience fields change handlers
@@ -314,13 +329,36 @@ function CVEditor(props) {
     }
 
     const handleAddJobClick = () => {
-        setJobs([...jobs, {id: jobsId, company: companyInputText, position: jobPositionInputText, startDate: jobStartDateSelect, endDate: jobEndDateSelect, description: jobDescriptionInputText}]);
+        setMoreJobsClicked(true);
+    }
+
+    const onSaveJobsClick = () => {
+        const newJobs = [...jobs, {id: jobsId, company: companyInputText, position: jobPositionInputText, startDate: jobStartDateSelect, endDate: jobEndDateSelect, description: jobDescriptionInputText}];
+        newJobs.sort((a, b) => a.startDate - b.startDate);
+        setJobs(newJobs);
         setJobsId(jobsId + 1);
         setCompanyInputText('');
         setJobPositionInputText('');
         setJobStartDateSelect('');
         setJobEndDateSelect('');
         setJobDescriptionInputText('');
+        setMoreJobsClicked(false);
+    }
+
+    const handleDeleteJobClick = (id) => {
+        const newJobs = jobs.filter(job => job.id != id);
+        setJobs(newJobs);
+    }
+
+    const handleEditJobClick = (id) => {
+        const job = jobs.find(job => job.id == id);
+        setCompanyInputText(job.company);
+        setJobPositionInputText(job.position);
+        setJobStartDateSelect(job.startDate);
+        setJobEndDateSelect(job.endDate);
+        setJobDescriptionInputText(job.description);
+        setMoreJobsClicked(true);
+        handleDeleteJobClick(id);
     }
 
     // Skills fields change handlers
@@ -333,10 +371,30 @@ function CVEditor(props) {
     }
 
     const handleAddSkillClick = () => {
-        setSkills([...skills, {id: skillsId, name: skillNameInputText, level: skillLevelRadio}]);
+        setMoreSkillsClicked(true);
+    }
+
+    const onSaveSkillClick = () => {
+        const newSkills = [...skills, {id: skillsId, name: skillNameInputText, level: skillLevelRadio}];
+        newSkills.sort((a, b) => a.name.localeCompare(b.name));
+        setSkills(newSkills);
         setSkillsId(skillsId + 1);
         setSkillNameInputText('');
-        setSkillLevelRadio('Beginner');
+        setSkillLevelRadio('beginner');
+        setMoreSkillsClicked(false);
+    }
+
+    const handleDeleteSkillClick = (id) => {
+        const newSkills = skills.filter(skill => skill.id != id);
+        setSkills(newSkills);
+    }
+
+    const handleEditSkillClick = (id) => {
+        const skill = skills.find(skill => skill.id == id);
+        setSkillNameInputText(skill.name);
+        setSkillLevelRadio(skill.level);
+        setMoreSkillsClicked(true);
+        handleDeleteSkillClick(id);
     }
 
     // Contact fields change handlers
@@ -532,6 +590,7 @@ function CVEditor(props) {
                 moreStudiesClicked={moreStudiesClicked} 
                 onSaveStudiesClick={onSaveStudiesClick} 
                 onDeleteStudiesClick={handleDeleteStudiesClick} 
+                onEditStudiesClick={handleEditStudiesClick} 
                 // Experience props
                 companyInputText={companyInputText} 
                 onCompanyChange={handleCompanyInputChange} 
@@ -545,6 +604,10 @@ function CVEditor(props) {
                 onJobDescriptionChange={handleJobDescriptionInputChange} 
                 jobs={jobs} 
                 onAddJobClick={handleAddJobClick} 
+                moreJobsClicked={moreJobsClicked} 
+                onSaveJobClick={onSaveJobsClick} 
+                onDeleteJobClick={handleDeleteJobClick} 
+                onEditJobClick={handleEditJobClick} 
                 // Skills props
                 skillNameInputText={skillNameInputText} 
                 onSkillNameChange={handleSkillNameInputChange} 
@@ -552,6 +615,10 @@ function CVEditor(props) {
                 onSkillLevelChange={handleSkillLevelRadioChange} 
                 skills={skills} 
                 onAddSkillClick={handleAddSkillClick} 
+                moreSkillsClicked={moreSkillsClicked} 
+                onSaveSkillClick={onSaveSkillClick} 
+                onDeleteSkillClick={handleDeleteSkillClick} 
+                onEditSkillClick={handleEditSkillClick} 
                 // Contact props
                 xInputText={xInputText}
                 onXChange={handleXInputChange} 

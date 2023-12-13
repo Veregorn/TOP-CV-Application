@@ -46,6 +46,7 @@ function CVForm({
     moreStudiesClicked,
     onSaveStudiesClick,
     onDeleteStudiesClick,
+    onEditStudiesClick,
     // Experience
     companyInputText,
     onCompanyChange,
@@ -59,13 +60,21 @@ function CVForm({
     onJobDescriptionChange,
     jobs,
     onAddJobClick,
+    moreJobsClicked,
+    onSaveJobClick,
+    onDeleteJobClick,
+    onEditJobClick,
     // Skills
-    skills,
-    onAddSkillClick,
     skillNameInputText,
     onSkillNameChange,
     skillLevelRadio,
     onSkillLevelChange,
+    skills,
+    onAddSkillClick,
+    moreSkillsClicked,
+    onSaveSkillClick,
+    onDeleteSkillClick,
+    onEditSkillClick,
     // Contact
     xInputText,
     onXChange,
@@ -195,6 +204,7 @@ function CVForm({
                     moreStudiesClicked={moreStudiesClicked} 
                     onSaveStudiesClick={onSaveStudiesClick} 
                     onDeleteStudiesClick={onDeleteStudiesClick} 
+                    onEditStudiesClick={onEditStudiesClick} 
                 />
             )
         } else if (section.id == 'practicalExp') {
@@ -218,6 +228,10 @@ function CVForm({
                     onPreviousClick={onPreviousClick} 
                     onNextClick={onNextClick} 
                     onAddJobClick={onAddJobClick} 
+                    moreJobsClicked={moreJobsClicked} 
+                    onSaveJobClick={onSaveJobClick} 
+                    onDeleteJobClick={onDeleteJobClick} 
+                    onEditJobClick={onEditJobClick} 
                 />
             )
         } else if (section.id == 'skills') {
@@ -227,14 +241,18 @@ function CVForm({
                     title={section.longTitle} 
                     className={index == cuSection ? 'section current' : 'section'} 
                     fields={section.fields} 
-                    skills={skills} 
-                    onPreviousClick={onPreviousClick} 
-                    onNextClick={onNextClick} 
-                    onAddSkillClick={onAddSkillClick} 
                     skillNameInputText={skillNameInputText} 
                     onSkillNameChange={onSkillNameChange} 
                     skillLevelRadio={skillLevelRadio} 
                     onSkillLevelChange={onSkillLevelChange} 
+                    skills={skills} 
+                    onPreviousClick={onPreviousClick} 
+                    onNextClick={onNextClick} 
+                    onAddSkillClick={onAddSkillClick} 
+                    moreSkillsClicked={moreSkillsClicked} 
+                    onSaveSkillClick={onSaveSkillClick} 
+                    onDeleteSkillClick={onDeleteSkillClick} 
+                    onEditSkillClick={onEditSkillClick} 
                 />
             )
         } else if (section.id == 'contact') {
@@ -380,6 +398,7 @@ CVForm.propTypes = {
     moreStudiesClicked: PropTypes.bool.isRequired,
     onSaveStudiesClick: PropTypes.func.isRequired,
     onDeleteStudiesClick: PropTypes.func.isRequired,
+    onEditStudiesClick: PropTypes.func.isRequired,
     // Experience prop types
     companyInputText: PropTypes.string.isRequired,
     onCompanyChange: PropTypes.func.isRequired,
@@ -393,13 +412,21 @@ CVForm.propTypes = {
     onJobDescriptionChange: PropTypes.func.isRequired,
     jobs: PropTypes.array.isRequired,
     onAddJobClick: PropTypes.func.isRequired,
+    moreJobsClicked: PropTypes.bool.isRequired,
+    onSaveJobClick: PropTypes.func.isRequired,
+    onDeleteJobClick: PropTypes.func.isRequired,
+    onEditJobClick: PropTypes.func.isRequired,
     // Skills prop types
-    skills: PropTypes.array.isRequired,
-    onAddSkillClick: PropTypes.func.isRequired,
     skillNameInputText: PropTypes.string.isRequired,
     onSkillNameChange: PropTypes.func.isRequired,
     skillLevelRadio: PropTypes.string.isRequired,
     onSkillLevelChange: PropTypes.func.isRequired,
+    skills: PropTypes.array.isRequired,
+    onAddSkillClick: PropTypes.func.isRequired,
+    moreSkillsClicked: PropTypes.bool.isRequired,
+    onSaveSkillClick: PropTypes.func.isRequired,
+    onDeleteSkillClick: PropTypes.func.isRequired,
+    onEditSkillClick: PropTypes.func.isRequired,
     // Contact prop types
     xInputText: PropTypes.string.isRequired,
     onXChange: PropTypes.func.isRequired,
