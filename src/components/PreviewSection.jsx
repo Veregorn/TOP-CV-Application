@@ -255,6 +255,7 @@ function PreviewSection({
                     key={field.id + ('-preview')}  
                     id={field.id + ('-preview')} 
                     value={xPreviewText} 
+                    serviceURL='www.twitter.com' 
                     imageURL={field.imageURL} 
                 />
             )
@@ -264,6 +265,7 @@ function PreviewSection({
                     key={field.id + ('-preview')}  
                     id={field.id + ('-preview')} 
                     value={instagramPreviewText} 
+                    serviceURL='www.instagram.com' 
                     imageURL={field.imageURL} 
                 />
             )
@@ -273,6 +275,7 @@ function PreviewSection({
                     key={field.id + ('-preview')}  
                     id={field.id + ('-preview')} 
                     value={linkedinPreviewText} 
+                    serviceURL='www.linkedin.com/in' 
                     imageURL={field.imageURL} 
                 />
             )
@@ -283,6 +286,7 @@ function PreviewSection({
                     key={field.id + ('-preview')}  
                     id={field.id + ('-preview')} 
                     value={githubPreviewText} 
+                    serviceURL='www.github.com' 
                     imageURL={field.imageURL} 
                 />
             )
@@ -293,6 +297,7 @@ function PreviewSection({
                     key={field.id + ('-preview')}  
                     id={field.id + ('-preview')} 
                     value={youtubePreviewText} 
+                    serviceURL='www.youtube.com' 
                     imageURL={field.imageURL} 
                 />
             )
@@ -303,6 +308,7 @@ function PreviewSection({
                     key={field.id + ('-preview')}  
                     id={field.id + ('-preview')} 
                     value={dribbblePreviewText} 
+                    serviceURL='www.dribbble.com'
                     imageURL={field.imageURL} 
                 />
             )
@@ -313,6 +319,7 @@ function PreviewSection({
                     key={field.id + ('-preview')}  
                     id={field.id + ('-preview')} 
                     value={behancePreviewText} 
+                    serviceURL='www.behance.com' 
                     imageURL={field.imageURL} 
                 />
             )
@@ -323,6 +330,7 @@ function PreviewSection({
                     key={field.id + ('-preview')}  
                     id={field.id + ('-preview')} 
                     value={twitchPreviewText} 
+                    serviceURL='www.twitch.tv' 
                     imageURL={field.imageURL} 
                 />
             )
