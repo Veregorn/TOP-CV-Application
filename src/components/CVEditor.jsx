@@ -3,6 +3,8 @@ import CVForm from './CVForm'
 import CVPreview from './CVPreview'
 import { useState } from 'react'
 import PropTypes from 'prop-types'
+import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer'
+import ReactPDF from '@react-pdf/renderer'
 
 function CVEditor(props) {
 
@@ -88,6 +90,23 @@ function CVEditor(props) {
     // State variable that controls if the document has been saved
     const [documentSaved, setDocumentSaved] = useState(false);
 
+    // PDF button click handler
+    const handlePDFClick = () => {
+        // Create the document component
+        const CVDocument = () => (
+            <Document>
+                <Page size='A4'>
+                    <View>
+                        <Text>{nameInputText}</Text>
+                    </View>
+                </Page>
+            </Document>
+        )
+
+        // Save it to a file
+        ReactPDF.render(<CVDocument />, `${window.location.pathname}/example.pdf`);
+    }
+    
     // Save button click handler
     const handleSaveClick = () => {
             // Create the CV data object
@@ -649,8 +668,10 @@ function CVEditor(props) {
             <CVPreview 
                 editButtonVisibility={props.editButtonVisibility} 
                 saveButtonVisibility={props.saveButtonVisibility} 
+                pdfButtonVisibility={props.pdfButtonVisibility} 
                 onEditClick={props.onEditClick} 
                 onSaveClick={handleSaveClick} 
+                onPDFClick={handlePDFClick} 
                 documentSaved={documentSaved} 
                 // General information props
                 namePreviewText={nameInputText} 
@@ -722,6 +743,7 @@ CVEditor.propTypes = {
     formDivVisibility: PropTypes.string.isRequired,
     editButtonVisibility: PropTypes.string.isRequired,
     saveButtonVisibility: PropTypes.string.isRequired,
+    pdfButtonVisibility: PropTypes.string.isRequired,
     onEditClick: PropTypes.func.isRequired
 }
 

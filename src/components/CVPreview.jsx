@@ -7,8 +7,10 @@ import Button from './Button'
 function CVPreview({ 
     editButtonVisibility,
     saveButtonVisibility,
+    pdfButtonVisibility,
     onEditClick,
     onSaveClick,
+    onPDFClick,
     documentSaved,
     // General information props
     namePreviewText, 
@@ -185,7 +187,8 @@ function CVPreview({
             <div className='preview'>
                 {sections}
                 <Button text='Edit' visibility={editButtonVisibility} onClick={onEditClick}/>
-                <Button text='Save' visibility={saveButtonVisibility} onClick={onSaveClick}/>
+                <Button text='Save JSON' visibility={saveButtonVisibility} onClick={onSaveClick}/>
+                <Button text='Generate PDF' visibility={pdfButtonVisibility} onClick={onPDFClick}/>
             </div>
         )
     }
@@ -195,8 +198,10 @@ function CVPreview({
 CVPreview.propTypes = {
     editButtonVisibility: PropTypes.string.isRequired,
     saveButtonVisibility: PropTypes.string.isRequired,
+    pdfButtonVisibility: PropTypes.string.isRequired,
     onEditClick: PropTypes.func.isRequired,
     onSaveClick: PropTypes.func.isRequired,
+    onPDFClick: PropTypes.func.isRequired,
     documentSaved: PropTypes.bool.isRequired,
     // General information props
     namePreviewText: PropTypes.string.isRequired,

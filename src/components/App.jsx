@@ -12,9 +12,10 @@ function App() {
   // State for the visibility of the form div
   const [formDivVisibility, setFormDivVisibility] = useState('flex');
 
-  // State for the visibility of 'Edit' and 'Save' buttons
+  // State for the visibility of 'Edit' 'Save JSON' and 'Generate PDF' buttons
   const [editButtonVisibility, setEditButtonVisibility] = useState('none');
   const [saveButtonVisibility, setSaveButtonVisibility] = useState('none');
+  const [pdfButtonVisibility, setPdfButtonVisibility] = useState('none');
 
   // Function to handle the next button click
   const handleNextClick = () => {
@@ -32,6 +33,7 @@ function App() {
     setFormDivVisibility('none');
     setEditButtonVisibility('flex');
     setSaveButtonVisibility('flex');
+    setPdfButtonVisibility('flex');
   }
 
   // Function to handle the Edit button click
@@ -40,6 +42,7 @@ function App() {
     setFormDivVisibility('flex');
     setEditButtonVisibility('none');
     setSaveButtonVisibility('none');
+    setPdfButtonVisibility('none');
   }
 
   return (
@@ -51,6 +54,7 @@ function App() {
         formDivVisibility={formDivVisibility} 
         editButtonVisibility={editButtonVisibility} 
         saveButtonVisibility={saveButtonVisibility} 
+        pdfButtonVisibility={pdfButtonVisibility} 
         onPreviousClick={handlePreviousClick} 
         onNextClick={handleNextClick} 
         onFinishClick={handleFinishClick} 
