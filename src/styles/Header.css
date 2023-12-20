@@ -3,7 +3,8 @@
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
-  background-color: #fff;
+  background-color: #fafbf9;
   padding: 20px;
   box-sizing: border-box; /* To avoid useless scroll bars */
+  border-bottom: 1px solid #ef6038;
 }

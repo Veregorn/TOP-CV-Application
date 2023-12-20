@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Input from './Input'
 import Select from './Select'
 import Label from './Label'
-import Textarea from './Textarea'
 import Radio from './Radio'
 
 function FormSubSection(props) {
@@ -161,14 +160,14 @@ function FormSubSection(props) {
             return (
                 <div key={('form-') + field.id} className='form-field'>
                     <Label text={field.label} for={field.id + ('-input')} />
-                    <Textarea 
-                        id={field.id + ('-textarea')} 
-                        rows={10} 
-                        cols={50} 
+                    <Input 
+                        id={field.id + ('-input')} 
+                        type={field.inputType} 
                         placeholder={field.placeholder} 
                         required={field.required} 
                         value={props.jobDescriptionInputText} 
                         onChange={props.onJobDescriptionChange} 
+                        disabled={false} 
                     />
                 </div>
             )

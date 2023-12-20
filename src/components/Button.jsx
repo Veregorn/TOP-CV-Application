@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 function Button(props) {
     if (props.visibility) {
         return (
-            <button className='button' onClick={props.onClick} style={{display: props.visibility}}>{props.text}</button>
+            <button className={props.classes} onClick={props.onClick} style={{display: props.visibility}}>{props.text}</button>
         )
     } else {
         return (
-            <button className='button' onClick={props.onClick}>{props.text}</button>
+            <button className={props.classes} onClick={props.onClick}>{props.text}</button>
         )
     }
 }
@@ -16,7 +16,8 @@ function Button(props) {
 Button.propTypes = {
     text: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
-    visibility: PropTypes.string
+    visibility: PropTypes.string,
+    classes: PropTypes.string
 }
 
 export default Button

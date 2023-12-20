@@ -5,20 +5,22 @@ function Radio(props) {
     return (
         <fieldset>
             <legend>{props.legend}</legend>
-            {props.options.map((option, index) => (
-                <div key={index} className='radio'>
-                    <input 
-                        id={props.id + ('-') + option.value + ('-') + index} 
-                        type='radio' 
-                        name={props.name} 
-                        value={option.value} 
-                        onChange={props.onChange} 
-                        required={props.required} 
-                        checked={props.value == option.value} 
-                    />
-                    <label htmlFor={props.id + ('-') + option.value + ('-') + index}>{option.label}</label>
-                </div>
-            ))}
+            <div  className='radio-container'>
+                {props.options.map((option, index) => (
+                    <div key={index} className='radio'>
+                        <input 
+                            id={props.id + ('-') + option.value + ('-') + index} 
+                            type='radio' 
+                            name={props.name} 
+                            value={option.value} 
+                            onChange={props.onChange} 
+                            required={props.required} 
+                            checked={props.value == option.value} 
+                        />
+                        <label htmlFor={props.id + ('-') + option.value + ('-') + index}>{option.label}</label>
+                    </div>
+                ))}
+            </div>
         </fieldset>
     )
 }

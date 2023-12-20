@@ -115,20 +115,6 @@ function FormSection(props) {
                         />
                     </div>
                 )
-            } else if (field.id == 'gi-birth') {
-                return (
-                    <div key={('form-') + field.id} className='form-field'>
-                        <Label text={field.label} for={field.id + ('-input')} />
-                        <Input 
-                            id={field.id + ('-input')}
-                            type={field.inputType} 
-                            required={field.required}
-                            value={props.birthDateInputText} 
-                            onChange={props.onBirthDateChange} 
-                            disabled={false} 
-                        />
-                    </div>
-                )
             } else if (field.id == 'gi-gender') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
@@ -140,6 +126,20 @@ function FormSection(props) {
                             required={field.required}
                             value={props.genderInputText} 
                             onChange={props.onGenderChange} 
+                            disabled={false} 
+                        />
+                    </div>
+                )
+            } else if (field.id == 'gi-birth') {
+                return (
+                    <div key={('form-') + field.id} className='form-field'>
+                        <Label text={field.label} for={field.id + ('-input')} />
+                        <Input 
+                            id={field.id + ('-input')}
+                            type={field.inputType} 
+                            required={field.required}
+                            value={props.birthDateInputText} 
+                            onChange={props.onBirthDateChange} 
                             disabled={false} 
                         />
                     </div>
@@ -164,9 +164,11 @@ function FormSection(props) {
         return (
             
             <div className={props.className}>
-                <h2>{props.title}</h2>
-                {fields}
-                <Button text='Next >' onClick={props.onNextClick}/>
+                <h2 className='form-section-title'>{props.title}</h2>
+                <div className='fields-container'>
+                    {fields}
+                </div>
+                <Button text='Next >' classes='nav-button' onClick={props.onNextClick}/>
             </div>
 
         )
@@ -176,11 +178,11 @@ function FormSection(props) {
         const subSections = props.studies.map((study) => {
             return (
                 <div key={('ed-sub-section') + String(study.id)} className='form-ed-saved-sub-section'>
-                    <p>School Name: {study.school}</p>
-                    <p>Study Title: {study.title}</p>
-                    <p>Start Date: {study.startDate}</p>
-                    <p>End Date: {study.endDate}</p>
-                    <p>Description: {study.description}</p>
+                    <p><strong>School Name: </strong>{study.school}</p>
+                    <p><strong>Study Title: </strong>{study.title}</p>
+                    <p><strong>Start Date: </strong>{study.startDate}</p>
+                    <p><strong>End Date: </strong>{study.endDate}</p>
+                    <p><strong>Description: </strong>{study.description}</p>
                     <Button text='Delete' onClick={() => props.onDeleteStudiesClick(study.id)}/>
                     <Button text='Edit' onClick={() => props.onEditStudiesClick(study.id)}/>
                 </div>
@@ -189,29 +191,31 @@ function FormSection(props) {
         
         return (
             <div className={props.className}>
-                <h2>{props.title}</h2>
-                {subSections}
-                {props.moreStudiesClicked &&
-                    <div className='form-ed-not-saved-sub-section'>
-                        <FormSubSection 
-                            fields={props.fields} 
-                            schoolInputText={props.schoolInputText} 
-                            onSchoolChange={props.onSchoolChange} 
-                            studiesTitleInputText={props.studiesTitleInputText} 
-                            onStudiesTitleChange={props.onStudiesTitleChange} 
-                            studiesStartDateSelect={props.studiesStartDateSelect} 
-                            onStudiesStartDateChange={props.onStudiesStartDateChange} 
-                            studiesEndDateSelect={props.studiesEndDateSelect} 
-                            onStudiesEndDateChange={props.onStudiesEndDateChange} 
-                            studiesDescriptionInputText={props.studiesDescriptionInputText} 
-                            onStudiesDescriptionChange={props.onStudiesDescriptionChange} 
-                        />
-                        <Button text='Save' onClick={props.onSaveStudiesClick}/>
-                    </div>
-                }
-                <Button text='+ More studies' onClick={props.onAddStudiesClick}/>
-                <Button text='< Previous' onClick={props.onPreviousClick}/>
-                <Button text='Next >' onClick={props.onNextClick}/>
+                <h2 className='form-section-title'>{props.title}</h2>
+                <div className='fields-container'>
+                    {subSections}
+                    {props.moreStudiesClicked &&
+                        <div className='form-ed-not-saved-sub-section'>
+                            <FormSubSection 
+                                fields={props.fields} 
+                                schoolInputText={props.schoolInputText} 
+                                onSchoolChange={props.onSchoolChange} 
+                                studiesTitleInputText={props.studiesTitleInputText} 
+                                onStudiesTitleChange={props.onStudiesTitleChange} 
+                                studiesStartDateSelect={props.studiesStartDateSelect} 
+                                onStudiesStartDateChange={props.onStudiesStartDateChange} 
+                                studiesEndDateSelect={props.studiesEndDateSelect} 
+                                onStudiesEndDateChange={props.onStudiesEndDateChange} 
+                                studiesDescriptionInputText={props.studiesDescriptionInputText} 
+                                onStudiesDescriptionChange={props.onStudiesDescriptionChange} 
+                            />
+                            <Button text='Save' classes='save-button' onClick={props.onSaveStudiesClick}/>
+                        </div>
+                    }
+                </div>
+                <Button text='+ More studies' classes='more' onClick={props.onAddStudiesClick}/>
+                <Button text='< Previous' classes='nav-button' onClick={props.onPreviousClick}/>
+                <Button text='Next >' classes='nav-button' onClick={props.onNextClick}/>
             </div>
         )
 
@@ -220,11 +224,11 @@ function FormSection(props) {
         const subSections = props.jobs.map((job) => {
             return (
                 <div key={('exp-sub-section') + String(job.id)} className='form-exp-saved-sub-section'>
-                    <p>Company Name: {job.company}</p>
-                    <p>Job Position: {job.position}</p>
-                    <p>Start Date: {job.startDate}</p>
-                    <p>End Date: {job.endDate}</p>
-                    <p>Description: {job.description}</p>
+                    <p><strong>Company Name: </strong>{job.company}</p>
+                    <p><strong>Job Position: </strong>{job.position}</p>
+                    <p><strong>Start Date: </strong>{job.startDate}</p>
+                    <p><strong>End Date: </strong>{job.endDate}</p>
+                    <p><strong>Description: </strong>{job.description}</p>
                     <Button text='Delete' onClick={() => props.onDeleteJobClick(job.id)}/>
                     <Button text='Edit' onClick={() => props.onEditJobClick(job.id)}/>
                 </div>
@@ -233,29 +237,31 @@ function FormSection(props) {
 
         return (
             <div className={props.className}>
-                <h2>{props.title}</h2>
-                {subSections}
-                {props.moreJobsClicked && 
-                    <div className='form-exp-not-saved-sub-section'>
-                        <FormSubSection 
-                            fields={props.fields} 
-                            companyInputText={props.companyInputText} 
-                            onCompanyChange={props.onCompanyChange} 
-                            jobPositionInputText={props.jobPositionInputText} 
-                            onJobPositionChange={props.onJobPositionChange} 
-                            jobStartDateSelect={props.jobStartDateSelect} 
-                            onJobStartDateChange={props.onJobStartDateChange} 
-                            jobEndDateSelect={props.jobEndDateSelect} 
-                            onJobEndDateChange={props.onJobEndDateChange} 
-                            jobDescriptionInputText={props.jobDescriptionInputText} 
-                            onJobDescriptionChange={props.onJobDescriptionChange} 
-                        />
-                        <Button text='Save' onClick={props.onSaveJobClick}/>
-                    </div>
-                }
-                <Button text='+ More jobs' onClick={props.onAddJobClick}/>
-                <Button text='< Previous' onClick={props.onPreviousClick}/>
-                <Button text='Next >' onClick={props.onNextClick}/>
+                <h2 className='form-section-title'>{props.title}</h2>
+                <div className='fields-container'>
+                    {subSections}
+                    {props.moreJobsClicked && 
+                        <div className='form-exp-not-saved-sub-section'>
+                            <FormSubSection 
+                                fields={props.fields} 
+                                companyInputText={props.companyInputText} 
+                                onCompanyChange={props.onCompanyChange} 
+                                jobPositionInputText={props.jobPositionInputText} 
+                                onJobPositionChange={props.onJobPositionChange} 
+                                jobStartDateSelect={props.jobStartDateSelect} 
+                                onJobStartDateChange={props.onJobStartDateChange} 
+                                jobEndDateSelect={props.jobEndDateSelect} 
+                                onJobEndDateChange={props.onJobEndDateChange} 
+                                jobDescriptionInputText={props.jobDescriptionInputText} 
+                                onJobDescriptionChange={props.onJobDescriptionChange} 
+                            />
+                            <Button text='Save' classes='save-button' onClick={props.onSaveJobClick}/>
+                        </div>
+                    }
+                </div>
+                <Button text='+ More jobs' classes='more' onClick={props.onAddJobClick}/>
+                <Button text='< Previous' classes='nav-button' onClick={props.onPreviousClick}/>
+                <Button text='Next >' classes='nav-button' onClick={props.onNextClick}/>
             </div>
         )
 
@@ -264,8 +270,8 @@ function FormSection(props) {
         const subSections = props.skills.map((skill) => {
             return (
                 <div key={('skills-sub-section') + String(skill.id)} className='form-skills-saved-sub-section'>
-                    <p>Skill Name: {skill.name}</p>
-                    <p>Skill Level: {skill.level}</p>
+                    <p><strong>Skill Name: </strong>{skill.name}</p>
+                    <p><strong>Skill Level: </strong>{skill.level}</p>
                     <Button text='Delete' onClick={() => props.onDeleteSkillClick(skill.id)}/>
                     <Button text='Edit' onClick={() => props.onEditSkillClick(skill.id)}/>
                 </div>
@@ -274,23 +280,25 @@ function FormSection(props) {
 
         return (
             <div className={props.className}>
-                <h2>{props.title}</h2>
-                {subSections}
-                {props.moreSkillsClicked &&
-                    <div className='form-skills-not-saved-sub-section'>
-                        <FormSubSection 
-                            fields={props.fields} 
-                            skillNameInputText={props.skillNameInputText} 
-                            onSkillNameChange={props.onSkillNameChange} 
-                            skillLevelRadio={props.skillLevelRadio} 
-                            onSkillLevelChange={props.onSkillLevelChange} 
-                        />
-                        <Button text='Save' onClick={props.onSaveSkillClick}/>
-                    </div>
-                }
-                <Button text='+ More skills' onClick={props.onAddSkillClick}/>
-                <Button text='< Previous' onClick={props.onPreviousClick}/>
-                <Button text='Next >' onClick={props.onNextClick}/>
+                <h2 className='form-section-title'>{props.title}</h2>
+                <div className='fields-container'>
+                    {subSections}
+                    {props.moreSkillsClicked &&
+                        <div className='form-skills-not-saved-sub-section'>
+                            <FormSubSection 
+                                fields={props.fields} 
+                                skillNameInputText={props.skillNameInputText} 
+                                onSkillNameChange={props.onSkillNameChange} 
+                                skillLevelRadio={props.skillLevelRadio} 
+                                onSkillLevelChange={props.onSkillLevelChange} 
+                            />
+                            <Button text='Save' classes='save-button' onClick={props.onSaveSkillClick}/>
+                        </div>
+                    }
+                </div>
+                <Button text='+ More skills' classes='more' onClick={props.onAddSkillClick}/>
+                <Button text='< Previous' classes='nav-button' onClick={props.onPreviousClick}/>
+                <Button text='Next >' classes='nav-button' onClick={props.onNextClick}/>
             </div>
         )
 
@@ -301,7 +309,7 @@ function FormSection(props) {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
                         <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onXCheckboxChange} />
-                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <img className='social-img' src={field.imageURL} alt={field.imageAlt} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -317,7 +325,7 @@ function FormSection(props) {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
                         <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onInstagramCheckboxChange} />
-                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <img className='social-img' src={field.imageURL} alt={field.imageAlt} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -333,7 +341,7 @@ function FormSection(props) {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
                         <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onLinkedinCheckboxChange} />
-                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <img className='social-img' src={field.imageURL} alt={field.imageAlt} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -349,7 +357,7 @@ function FormSection(props) {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
                         <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onGithubCheckboxChange} />
-                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <img className='social-img' src={field.imageURL} alt={field.imageAlt} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -365,7 +373,7 @@ function FormSection(props) {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
                         <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onYoutubeCheckboxChange} />
-                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <img className='social-img' src={field.imageURL} alt={field.imageAlt} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -381,7 +389,7 @@ function FormSection(props) {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
                         <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onDribbbleCheckboxChange} />
-                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <img className='social-img' src={field.imageURL} alt={field.imageAlt} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -397,7 +405,7 @@ function FormSection(props) {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
                         <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onBehanceCheckboxChange} />
-                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <img className='social-img' src={field.imageURL} alt={field.imageAlt} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -413,7 +421,7 @@ function FormSection(props) {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
                         <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onTwitchCheckboxChange} />
-                        <img src={field.imageURL} alt={field.imageAlt} />
+                        <img className='social-img' src={field.imageURL} alt={field.imageAlt} />
                         <Input 
                             id={field.id + ('-input')} 
                             type={field.inputType} 
@@ -430,10 +438,10 @@ function FormSection(props) {
 
         return (
             <div className={props.className}>
-                <h2>{props.title}</h2>
+                <h2 className='form-section-title'>{props.title}</h2>
                 {fields}
-                <Button text='< Previous' onClick={props.onPreviousClick}/>
-                <Button text='Next >' onClick={props.onNextClick}/>
+                <Button text='< Previous' classes='nav-button' onClick={props.onPreviousClick}/>
+                <Button text='Next >' classes='nav-button' onClick={props.onNextClick}/>
             </div>
         )
 
@@ -589,9 +597,11 @@ function FormSection(props) {
 
             return (
                 <div className={props.className}>
-                    <h2>{props.title}</h2>
-                    {fields}
-                    <Button text='< Previous' onClick={props.onPreviousClick}/>
+                    <h2 className='form-section-title'>{props.title}</h2>
+                    <div className='fields-container'>
+                        {fields}
+                    </div>
+                    <Button text='< Previous' classes='nav-button' onClick={props.onPreviousClick}/>
                     <Button text='Finish' onClick={props.onFinishClick}/>
                 </div>
             )

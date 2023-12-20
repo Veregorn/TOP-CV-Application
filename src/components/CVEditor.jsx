@@ -3,13 +3,17 @@ import CVForm from './CVForm'
 import CVPreview from './CVPreview'
 import { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer'
-import ReactPDF from '@react-pdf/renderer'
+import { Page, Text, View, Document, StyleSheet, Image, Svg, Rect } from '@react-pdf/renderer'
+import { PDFViewer } from '@react-pdf/renderer'
+import { createRoot } from 'react-dom/client'
 
 function CVEditor(props) {
 
     // Ideally, state variables would be generated dynamically from the SECTION_DATA array, but I don't know how to do that yet
     
+    // State for the visibility of preview div
+    const [previewDivVisibility, setPreviewDivVisibility] = useState('flex');
+
     // General information state variables
     const [nameInputText, setNameInputText] = useState(''); // State for the name input
     const [emailInputText, setEmailInputText] = useState(''); // State for the email input
@@ -92,19 +96,95 @@ function CVEditor(props) {
 
     // PDF button click handler
     const handlePDFClick = () => {
+
+        // Create the styles
+        const styles = StyleSheet.create({
+            page: {
+                flexDirection: 'row',
+                backgroundColor: '#FFFFFF'
+            },
+            leftColumn: {
+                flexDirection: 'column',
+                width: '60%',
+                backgroundColor: '#FFFFFF'
+            },
+            squareContainer: {
+                height: '50px'
+            },
+            rightColumn: {
+                flexDirection: 'column',
+                width: '40%',
+                backgroundColor: '#dee1e7'
+            },
+            photo: {
+                width: '80px',
+                height: '80px'
+            }
+        })
+
         // Create the document component
         const CVDocument = () => (
             <Document>
-                <Page size='A4'>
+                <Page size='A4' style={styles.page}>
                     <View>
+                        <View style={styles.leftColumn}>
+                            <View style={styles.squareContainer}>
+                                <Svg>
+                                    <Rect x='0' y='0' width='50px' height='50px' fill='#ef6038' />
+                                </Svg>
+                            </View>
+                            <View>
+                                <Text>WORK EXPERIENCE</Text>
+                            </View>
+                            <View>
+                                <Text>EDUCATION</Text>
+                            </View>
+                            <View>
+                                <View>
+                                    <Text>CONTACT</Text>
+                                </View>
+                                <View>
+                                    <Text>HOBBIES</Text>
+                                </View>
+                            </View>
+                            <View>
+                                <Text>SKILLS</Text>
+                            </View>
+                        </View>
+                    </View>
+                    <View style={styles.rightColumn}>
+                        <Image src={photo} style={styles.photo} />
+                        <Text>PERSONAL INFO</Text>
                         <Text>{nameInputText}</Text>
+                        <Text>{emailInputText}</Text>
+                        <Text>{phoneInputText}</Text>
+                        <Text>{addressInputText}</Text>
+                        <Text>{postalCodeInputText}</Text>
+                        <Text>{cityInputText}</Text>
+                        <Text>{countryInputText}</Text>
+                        <Text>{birthDateInputText}</Text>
+                        <Text>{genderInputText}</Text>
                     </View>
                 </Page>
             </Document>
         )
 
-        // Save it to a file
-        ReactPDF.render(<CVDocument />, `${window.location.pathname}/example.pdf`);
+        const App = () => (
+            <PDFViewer>
+                <CVDocument />
+            </PDFViewer>
+        );
+
+        const root = createRoot(document.getElementById('book-style-container'));
+
+        // Render the document component on the existing root
+        root.render(<App />);
+
+        // Set the setDocumentSaved state variable to true
+        setDocumentSaved(true);
+
+        // Set the preview div visibility to none
+        setPreviewDivVisibility('none');
     }
     
     // Save button click handler
@@ -519,7 +599,7 @@ function CVEditor(props) {
     }
 
     return (
-        <div className='book-style'>
+        <div className='book-style' id='book-style-container'>
             <CVForm 
                 cuSection={props.cuSection} 
                 formDivVisibility={props.formDivVisibility} 
@@ -666,6 +746,7 @@ function CVEditor(props) {
                 onGymCheckboxChange={handleGymCheckboxChange} 
             />
             <CVPreview 
+                previewDivVisibility={previewDivVisibility} 
                 editButtonVisibility={props.editButtonVisibility} 
                 saveButtonVisibility={props.saveButtonVisibility} 
                 pdfButtonVisibility={props.pdfButtonVisibility} 

@@ -1,0 +1,13 @@
+button {
+    font-family: 'Kanit-SemiBold', 'Arial', 'sans-serif';
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #22ce94;
+    border-radius: 5px;
+    background-color: #22ce94;
+    color: #fff;
+    cursor: pointer;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

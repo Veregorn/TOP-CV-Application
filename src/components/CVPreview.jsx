@@ -5,6 +5,7 @@ import SECTION_DATA from '../assets/data'
 import Button from './Button'
 
 function CVPreview({ 
+    previewDivVisibility,
     editButtonVisibility,
     saveButtonVisibility,
     pdfButtonVisibility,
@@ -184,7 +185,7 @@ function CVPreview({
         )
     } else {
         return (
-            <div className='preview'>
+            <div className='preview' style={{display: previewDivVisibility}}>
                 {sections}
                 <Button text='Edit' visibility={editButtonVisibility} onClick={onEditClick}/>
                 <Button text='Save JSON' visibility={saveButtonVisibility} onClick={onSaveClick}/>
@@ -196,6 +197,7 @@ function CVPreview({
 }
 
 CVPreview.propTypes = {
+    previewDivVisibility: PropTypes.string.isRequired,
     editButtonVisibility: PropTypes.string.isRequired,
     saveButtonVisibility: PropTypes.string.isRequired,
     pdfButtonVisibility: PropTypes.string.isRequired,

@@ -61,18 +61,18 @@ const SECTION_DATA = [
                 required: true,
             },
             {
-                id: 'gi-birth',
-                label: 'Date of Birth',
-                type: 'input',
-                inputType: 'date',
-                required: true,
-            },
-            {
                 id: 'gi-gender',
                 label: 'Gender',
                 type: 'input',
                 inputType: 'text',
                 placeholder: 'Enter your gender',
+                required: true,
+            },
+            {
+                id: 'gi-birth',
+                label: 'Date of Birth',
+                type: 'input',
+                inputType: 'date',
                 required: true,
             },
             {
@@ -163,8 +163,9 @@ const SECTION_DATA = [
             {
                 id: 'exp-description',
                 label: 'Job Description',
-                type: 'textarea',
-                placeholder: 'Enter a description of your responsibilities',
+                type: 'input',
+                inputType: 'text',
+                placeholder: 'Enter a description',
                 required: false,
             }
         ]

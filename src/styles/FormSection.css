@@ -1,0 +1,190 @@
+@font-face {
+    font-family: 'Kanit Bold';
+    src: url('../assets/fonts/Kanit-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'Kanit SemiBold';
+    src: url(../assets/fonts/Kanit-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Kanit Regular';
+    src: url(../assets/fonts/Kanit-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Kanit Black';
+    src: url(../assets/fonts/Kanit-/Black.ttf);
+}
+
+@font-face {
+    font-family: 'Kanit Light';
+    src: url(../assets/fonts/Kanit-Light.ttf);
+}
+
+.section {
+    width: 90%;
+    padding: 60px 80px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.fields-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.form-section-title {
+    font-family: 'Kanit Bold', 'Arial', 'sans-serif';
+    font-size: 2rem;
+    color: #ef6038;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-field > label {
+    font-family: 'Kanit SemiBold', 'Arial', 'sans-serif';
+    font-size: 1.2rem;
+    color: #2c3f4c;
+    margin-bottom: 10px;
+}
+
+.form-field > input {
+    font-family: 'Kanit Light', 'Arial', 'sans-serif';
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ef6038;
+    border-radius: 5px;
+}
+
+.form-field > textarea {
+    font-family: 'Kanit Light', 'Arial', 'sans-serif';
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ef6038;
+    border-radius: 5px;
+}
+
+.form-field > select {
+    font-family: 'Kanit Light', 'Arial', 'sans-serif';
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ef6038;
+    border-radius: 5px;
+}
+
+.form-field > input:focus, .form-field > textarea:focus, .form-field > select:focus {
+    outline: none;
+    border: 1px solid #22ce94;
+}
+
+.nav-button {
+    font-family: 'Kanit SemiBold', 'Arial', 'sans-serif';
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #22ce94;
+    border-radius: 5px;
+    background-color: #22ce94;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.nav-button:hover {
+    background-color: #fff;
+    color: #22ce94;
+}
+
+.social-img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.more {
+    font-family: 'Kanit SemiBold', 'Arial', 'sans-serif';
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+.more:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Education, PE, Skills Sections */
+
+.form-ed-not-saved-sub-section,
+.form-exp-not-saved-sub-section,
+.form-skills-not-saved-sub-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.save-button {
+    font-family: 'Kanit SemiBold', 'Arial', 'sans-serif';
+    font-size: 1rem;
+    padding: 10px 40px;
+    border: 1px solid #ef6038;
+    border-radius: 5px;
+    background-color: #ef6038;
+    color: #fff;
+    cursor: pointer;
+}
+
+.save-button:hover {
+    background-color: #fff;
+    color: #ef6038;
+}
+
+.form-ed-saved-sub-section strong,
+.form-exp-saved-sub-section strong,
+.form-skills-saved-sub-section strong {
+    font-family: 'Kanit SemiBold', 'Arial', 'sans-serif';
+    font-size: 1.2rem;
+}
+
+.form-ed-saved-sub-section p,
+.form-exp-saved-sub-section p,
+.form-skills-saved-sub-section p {
+    font-family: 'Kanit Light', 'Arial', 'sans-serif';
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.form-ed-saved-sub-section button,
+.form-exp-saved-sub-section button,
+.form-skills-saved-sub-section button {
+    font-family: 'Kanit SemiBold', 'Arial', 'sans-serif';
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.form-ed-saved-sub-section button:hover,
+.form-exp-saved-sub-section button:hover,
+.form-skills-saved-sub-section button:hover {
+    background-color: #fff;
+    color: #000;
+}

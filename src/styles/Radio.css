@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Kanit SemiBold';
+    src: url(../assets/fonts/Kanit-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Kanit Light';
+    src: url(../assets/fonts/Kanit-Light.ttf);
+}
+
+fieldset legend {
+    font-family: 'Kanit SemiBold', 'Arial', 'sans-serif';
+    font-size: 1.2rem;
+    color: #2c3f4c;
+    margin-bottom: 10px;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.radio input[type="radio"] {
+    margin-right: 10px;
+}
+
+.radio label {
+    font-family: 'Kanit Light', 'Arial', 'sans-serif';
+    font-size: 1.2rem;
+    color: #2c3f4c;
+    margin-bottom: 10px;
+}

@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Kanit-Regular';
-    src: url(../assets/fonts/Kanit-Regular.ttf);
+    font-family: 'Kanit-Light';
+    src: url(../assets/fonts/Kanit-Light.ttf);
 }
 
 *, *::after, *::before {
@@ -8,7 +8,7 @@
 }
 
 .cd-multi-steps {
-    font-family: 'Kanit-Regular', 'Arial', 'sans-serif';
+    font-family: 'Kanit-Light', 'Arial', 'sans-serif';
     /* width: 90%; */
     padding: 0.5em 1em;
     margin: 1em auto;
