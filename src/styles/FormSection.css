@@ -106,7 +106,7 @@
 }
 
 .social-img {
-    width: 30px;
+    width: 46px;
     margin-right: 10px;
 }
 
@@ -187,4 +187,46 @@
 .form-skills-saved-sub-section button:hover {
     background-color: #fff;
     color: #000;
+}
+
+/* Contact Section */
+
+.contact {
+    display: flex;
+    flex-direction: row;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 18px;
+}
+
+input[type="text"]:disabled {
+    background-color: #efefef;
+}
+
+.contact > input[type="text"] {
+    width: 180px;
+}
+
+/* Hobbies Section */
+
+.hobbies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.hobbies > img {
+    width: 80px;
+    cursor: pointer;
+}
+
+.hobbies > img:hover {
+    opacity: 0.5;
+}
+
+.hobbies > input[type="checkbox"] {
+    display: none;
 }

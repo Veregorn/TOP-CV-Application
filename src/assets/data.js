@@ -224,7 +224,7 @@ const SECTION_DATA = [
                 imageAlt: 'X',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter your X user name'
+                placeholder: 'X user name'
             },
             {
                 id: 'instagram',
@@ -232,7 +232,7 @@ const SECTION_DATA = [
                 imageAlt: 'Instagram',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter your Instagram user name'
+                placeholder: 'Instagram user name'
             },
             {
                 id: 'linkedin',
@@ -240,7 +240,7 @@ const SECTION_DATA = [
                 imageAlt: 'LinkedIn',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter your LinkedIn user name'
+                placeholder: 'LinkedIn user name'
             },
             {
                 id: 'github',
@@ -248,7 +248,7 @@ const SECTION_DATA = [
                 imageAlt: 'GitHub',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter your GitHub user name'
+                placeholder: 'GitHub user name'
             },
             {
                 id: 'youtube',
@@ -256,7 +256,7 @@ const SECTION_DATA = [
                 imageAlt: 'YouTube',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter your YouTube user name'
+                placeholder: 'YouTube user name'
             },
             {
                 id: 'dribbble',
@@ -264,7 +264,7 @@ const SECTION_DATA = [
                 imageAlt: 'Dribbble',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter your Dribbble user name'
+                placeholder: 'Dribbble user name'
             },
             {
                 id: 'behance',
@@ -272,7 +272,7 @@ const SECTION_DATA = [
                 imageAlt: 'Behance',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter your Behance user name'
+                placeholder: 'Behance user name'
             },
             {
                 id: 'twitch',
@@ -280,7 +280,7 @@ const SECTION_DATA = [
                 imageAlt: 'Twitch',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter your Twitch user name'
+                placeholder: 'Twitch user name'
             }
         ]
     },
@@ -414,7 +414,21 @@ const SECTION_DATA = [
                 imageAlt: 'Gym',
                 type: 'input',
                 inputType: 'checkbox'
-            }
+            },
+            {
+                id: 'movies',
+                imageURL: '/images/movies.png',
+                imageAlt: 'Movies',
+                type: 'input',
+                inputType: 'checkbox'
+            },
+            {
+                id: 'ball-sports',
+                imageURL: '/images/ball-sports.png',
+                imageAlt: 'Ball Sports',
+                type: 'input',
+                inputType: 'checkbox'
+            },
         ]
     }
 ];
