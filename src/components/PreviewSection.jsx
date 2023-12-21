@@ -61,7 +61,9 @@ function PreviewSection({
     yogaPreviewChecked,
     surfingPreviewChecked,
     skiingPreviewChecked,
-    gymPreviewChecked
+    gymPreviewChecked,
+    moviesPreviewChecked,
+    ballSportsPreviewChecked
  }) {
 
     const sectionFields = fields.map((field) => {
@@ -516,6 +518,26 @@ function PreviewSection({
                 />
             )
         }
+        else if (field.id == 'movies' && moviesPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    imageURL={field.imageURL}
+                    value={field.imageAlt} 
+                />
+            )
+        }
+        else if (field.id == 'ball-sports' && ballSportsPreviewChecked) {
+            return (
+                <CVFieldPreview 
+                    key={field.id + ('-preview')}  
+                    id={field.id + ('-preview')} 
+                    imageURL={field.imageURL}
+                    value={field.imageAlt} 
+                />
+            )
+        }
     })
         
     const studiesFields = studies ? studies.map((study) => {
@@ -681,7 +703,9 @@ PreviewSection.propTypes = {
     yogaPreviewChecked: PropTypes.bool,
     surfingPreviewChecked: PropTypes.bool,
     skiingPreviewChecked: PropTypes.bool,
-    gymPreviewChecked: PropTypes.bool
+    gymPreviewChecked: PropTypes.bool,
+    moviesPreviewChecked: PropTypes.bool,
+    ballSportsPreviewChecked: PropTypes.bool
 }
 
 export default PreviewSection

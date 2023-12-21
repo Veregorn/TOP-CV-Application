@@ -69,7 +69,9 @@ function CVPreview({
     yogaPreviewChecked,
     surfingPreviewChecked,
     skiingPreviewChecked,
-    gymPreviewChecked
+    gymPreviewChecked,
+    moviesPreviewChecked,
+    ballSportsPreviewChecked
 }) {
     
     const sections = SECTION_DATA.map((section) => {
@@ -172,6 +174,8 @@ function CVPreview({
                     surfingPreviewChecked={surfingPreviewChecked} 
                     skiingPreviewChecked={skiingPreviewChecked} 
                     gymPreviewChecked={gymPreviewChecked} 
+                    moviesPreviewChecked={moviesPreviewChecked} 
+                    ballSportsPreviewChecked={ballSportsPreviewChecked} 
                 />
             )
         }
@@ -261,7 +265,9 @@ CVPreview.propTypes = {
     yogaPreviewChecked: PropTypes.bool.isRequired,
     surfingPreviewChecked: PropTypes.bool.isRequired,
     skiingPreviewChecked: PropTypes.bool.isRequired,
-    gymPreviewChecked: PropTypes.bool.isRequired
+    gymPreviewChecked: PropTypes.bool.isRequired,
+    moviesPreviewChecked: PropTypes.bool.isRequired,
+    ballSportsPreviewChecked: PropTypes.bool.isRequired
 }
 
 export default CVPreview

@@ -36,10 +36,10 @@ function CVFieldPreview(props) {
                 {props.value != '' && <p>{'/' + props.value}</p>}
             </div>
         )
-    } else if (props.id == 'traveling-preview' || props.id == 'music-preview' || props.id == 'reading-preview' || props.id == 'gaming-preview' || props.id == 'bicycling-preview' || props.id == 'running-preview' || props.id == 'cooking-preview' || props.id == 'shopping-preview' || props.id == 'dancing-preview' || props.id == 'swimming-preview' || props.id == 'painting-preview' || props.id == 'photography-preview' || props.id == 'fishing-preview' || props.id == 'hiking-preview' || props.id == 'yoga-preview' || props.id == 'surfing-preview' || props.id == 'skiing-preview' || props.id == 'gym-preview') {
+    } else if (props.id == 'traveling-preview' || props.id == 'music-preview' || props.id == 'reading-preview' || props.id == 'gaming-preview' || props.id == 'bicycling-preview' || props.id == 'running-preview' || props.id == 'cooking-preview' || props.id == 'shopping-preview' || props.id == 'dancing-preview' || props.id == 'swimming-preview' || props.id == 'painting-preview' || props.id == 'photography-preview' || props.id == 'fishing-preview' || props.id == 'hiking-preview' || props.id == 'yoga-preview' || props.id == 'surfing-preview' || props.id == 'skiing-preview' || props.id == 'gym-preview' || props.id == 'movies-preview' || props.id == 'ball-sports-preview') {
         return (
             <div className='field'>
-                <img src={props.imageURL} alt={props.value} />
+                <img className='hobby-image-preview' src={props.imageURL} alt={props.value} />
                 <p>{props.value}</p>
             </div>
         )

@@ -1,0 +1,20 @@
+/* Styles for Hobbies Section */
+
+.hobbies-image {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hobbies-image:hover {
+  opacity: 0.5;
+}
+
+.hobbies-checkbox {
+    display: none;
+}
+
+/* .hobbies-checkbox:checked + .hobbies-image {
+    transform: rotate(180deg);
+} */

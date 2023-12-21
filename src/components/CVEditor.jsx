@@ -90,6 +90,8 @@ function CVEditor(props) {
     const [surfingInputChecked, setSurfingInputChecked] = useState(false); // State for the surfing input checked/unchecked
     const [skiingInputChecked, setSkiingInputChecked] = useState(false); // State for the skiing input checked/unchecked
     const [gymInputChecked, setGymInputChecked] = useState(false); // State for the gym input checked/unchecked
+    const [moviesInputChecked, setMoviesInputChecked] = useState(false); // State for the movies input checked/unchecked
+    const [ballSportsInputChecked, setBallSportsInputChecked] = useState(false); // State for the ball sports input checked/unchecked
 
     // State variable that controls if the document has been saved
     const [documentSaved, setDocumentSaved] = useState(false);
@@ -235,7 +237,9 @@ function CVEditor(props) {
                 yoga: yogaInputChecked,
                 surfing: surfingInputChecked,
                 skiing: skiingInputChecked,
-                gym: gymInputChecked
+                gym: gymInputChecked,
+                movies: moviesInputChecked,
+                ballSports: ballSportsInputChecked
             }
 
             // Convert the CV data object to JSON
@@ -528,74 +532,222 @@ function CVEditor(props) {
     // Hobbies fields change handlers
     const handleTravelingCheckboxChange = (event) => {
         setTravelingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('traveling-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('traveling-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleMusicCheckboxChange = (event) => {
         setMusicInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('music-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('music-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleReadingCheckboxChange = (event) => {
         setReadingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('reading-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('reading-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleGamingCheckboxChange = (event) => {
         setGamingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('gaming-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('gaming-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleBicyclingCheckboxChange = (event) => {
         setBicyclingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('bicycling-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('bicycling-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleRunningCheckboxChange = (event) => {
         setRunningInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('running-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('running-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleCookingCheckboxChange = (event) => {
         setCookingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('cooking-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('cooking-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleShoppingCheckboxChange = (event) => {
         setShoppingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('shopping-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('shopping-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleDancingCheckboxChange = (event) => {
         setDancingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('dancing-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('dancing-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleSwimmingCheckboxChange = (event) => {
         setSwimmingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('swimming-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('swimming-image');
+            image.style.border = 'none';
+        }
     }
 
     const handlePaintingCheckboxChange = (event) => {
         setPaintingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('painting-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('painting-image');
+            image.style.border = 'none';
+        }
     }
 
     const handlePhotographyCheckboxChange = (event) => {
         setPhotographyInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('photography-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('photography-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleFishingCheckboxChange = (event) => {
         setFishingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('fishing-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('fishing-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleHikingCheckboxChange = (event) => {
         setHikingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('hiking-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('hiking-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleYogaCheckboxChange = (event) => {
         setYogaInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('yoga-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('yoga-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleSurfingCheckboxChange = (event) => {
         setSurfingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('surfing-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('surfing-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleSkiingCheckboxChange = (event) => {
         setSkiingInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('skiing-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('skiing-image');
+            image.style.border = 'none';
+        }
     }
 
     const handleGymCheckboxChange = (event) => {
         setGymInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('gym-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('gym-image');
+            image.style.border = 'none';
+        }
+    }
+
+    const handleMoviesCheckboxChange = (event) => {
+        setMoviesInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('movies-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('movies-image');
+            image.style.border = 'none';
+        }
+    }
+
+    const handleBallSportsCheckboxChange = (event) => {
+        setBallSportsInputChecked(event.target.checked);
+        if (event.target.checked) {
+            const image = document.getElementById('ball-sports-image');
+            image.style.border = '1px solid #22ce94';
+        } else {
+            const image = document.getElementById('ball-sports-image');
+            image.style.border = 'none';
+        }
     }
 
     return (
@@ -744,6 +896,10 @@ function CVEditor(props) {
                 onSkiingCheckboxChange={handleSkiingCheckboxChange} 
                 gymInputChecked={gymInputChecked} 
                 onGymCheckboxChange={handleGymCheckboxChange} 
+                moviesInputChecked={moviesInputChecked} 
+                onMoviesCheckboxChange={handleMoviesCheckboxChange} 
+                ballSportsInputChecked={ballSportsInputChecked} 
+                onBallSportsCheckboxChange={handleBallSportsCheckboxChange} 
             />
             <CVPreview 
                 previewDivVisibility={previewDivVisibility} 
@@ -811,6 +967,8 @@ function CVEditor(props) {
                 surfingPreviewChecked={surfingInputChecked} 
                 skiingPreviewChecked={skiingInputChecked} 
                 gymPreviewChecked={gymInputChecked} 
+                moviesPreviewChecked={moviesInputChecked} 
+                ballSportsPreviewChecked={ballSportsInputChecked} 
             />
         </div>
     )

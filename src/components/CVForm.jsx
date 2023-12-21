@@ -144,7 +144,11 @@ function CVForm({
     skiingInputChecked,
     onSkiingCheckboxChange,
     gymInputChecked,
-    onGymCheckboxChange
+    onGymCheckboxChange,
+    moviesInputChecked,
+    onMoviesCheckboxChange,
+    ballSportsInputChecked,
+    onBallSportsCheckboxChange
 }) {
     
     const sections = SECTION_DATA.map((section, index) => {
@@ -341,6 +345,10 @@ function CVForm({
                     onSkiingCheckboxChange={onSkiingCheckboxChange} 
                     gymInputChecked={gymInputChecked} 
                     onGymCheckboxChange={onGymCheckboxChange} 
+                    moviesInputChecked={moviesInputChecked} 
+                    onMoviesCheckboxChange={onMoviesCheckboxChange} 
+                    ballSportsInputChecked={ballSportsInputChecked} 
+                    onBallSportsCheckboxChange={onBallSportsCheckboxChange} 
                     onPreviousClick={onPreviousClick} 
                     onFinishClick={onFinishClick} 
                 />
@@ -496,7 +504,11 @@ CVForm.propTypes = {
     skiingInputChecked: PropTypes.bool.isRequired,
     onSkiingCheckboxChange: PropTypes.func.isRequired,
     gymInputChecked: PropTypes.bool.isRequired,
-    onGymCheckboxChange: PropTypes.func.isRequired
+    onGymCheckboxChange: PropTypes.func.isRequired,
+    moviesInputChecked: PropTypes.bool.isRequired,
+    onMoviesCheckboxChange: PropTypes.func.isRequired,
+    ballSportsInputChecked: PropTypes.bool.isRequired,
+    onBallSportsCheckboxChange: PropTypes.func.isRequired
 }
 
 export default CVForm

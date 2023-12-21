@@ -453,161 +453,241 @@ function FormSection(props) {
                 if (field.id == 'traveling') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onTravelingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={field.id + ('-checkbox')} />
+                            <Label 
+                                imgId='traveling-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onTravelingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'music') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onMusicCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={field.id + ('-checkbox')} />
+                            <Label 
+                                imgId='music-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onMusicCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'reading') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onReadingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={field.id + ('-checkbox')} />
+                            <Label 
+                                imgId='reading-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onReadingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'gaming') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onGamingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={field.id + ('-checkbox')} />
+                            <Label 
+                                imgId='gaming-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onGamingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'bicycling') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onBicyclingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={field.id + ('-checkbox')} />
+                            <Label 
+                                imgId='bicycling-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onBicyclingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'running') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onRunningCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={field.id + ('-checkbox')} />
+                            <Label 
+                                imgId='running-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onRunningCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'cooking') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onCookingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={field.id + ('-checkbox')} />
+                            <Label 
+                                imgId='cooking-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onCookingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'shopping') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={field.id + ('-checkbox')} onChange={props.onShoppingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={field.id + ('-checkbox')} />
+                            <Label 
+                                imgId='shopping-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onShoppingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'dancing') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={field.id + ('checkbox')} onChange={props.onDancingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={field.id + ('checkbox')} />
+                            <Label 
+                                imgId='dancing-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onDancingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'swimming') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={'swimming-checkbox'} onChange={props.onSwimmingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={'swimming-checkbox'} />
+                            <Label 
+                                imgId='swimming-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onSwimmingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'painting') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={'painting-checkbox'} onChange={props.onPaintingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={'painting-checkbox'} />
+                            <Label 
+                                imgId='painting-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onPaintingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'photography') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={'photography-checkbox'} onChange={props.onPhotographyCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={'photography-checkbox'} />
+                            <Label 
+                                imgId='photography-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onPhotographyCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'fishing') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={'fishing-checkbox'} onChange={props.onFishingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={'fishing-checkbox'} />
+                            <Label 
+                                imgId='fishing-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onFishingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'hiking') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={'hiking-checkbox'} onChange={props.onHikingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={'hiking-checkbox'} />
+                            <Label 
+                                imgId='hiking-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onHikingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'yoga') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={'yoga-checkbox'} onChange={props.onYogaCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={'yoga-checkbox'} />
+                            <Label 
+                                imgId='yoga-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onYogaCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'surfing') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={'surfing-checkbox'} onChange={props.onSurfingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={'surfing-checkbox'} />
+                            <Label 
+                                imgId='surfing-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onSurfingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'skiing') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={'skiing-checkbox'} onChange={props.onSkiingCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={'skiing-checkbox'} />
+                            <Label 
+                                imgId='skiing-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onSkiingCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'gym') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={'gym-checkbox'} onChange={props.onGymCheckboxChange} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={'gym-checkbox'} />
+                            <Label 
+                                imgId='gym-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onGymCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'movies') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={'movies-checkbox'} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={'movies-checkbox'} />
+                            <Label 
+                                imgId='movies-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onMoviesCheckboxChange} 
+                            />
                         </div>
                     )
                 } else if (field.id == 'ball-sports') {
                     return (
                         <div key={('form-') + field.id} className='hobbies form-field'>
-                            <input type='checkbox' id={'ball-sports-checkbox'} />
-                            <img src={field.imageURL} alt={field.imageAlt} />
-                            <Label text={field.imageAlt} for={'ball-sports-checkbox'} />
+                            <Label 
+                                imgId='ball-sports-image' 
+                                src={field.imageURL} 
+                                alt={field.imageAlt} 
+                                for={field.id + ('-checkbox')} 
+                                onChange={props.onBallSportsCheckboxChange} 
+                            />
                         </div>
                     )
                 }
@@ -774,7 +854,9 @@ FormSection.propTypes = {
     onYogaCheckboxChange: PropTypes.func,
     onSurfingCheckboxChange: PropTypes.func,
     onSkiingCheckboxChange: PropTypes.func,
-    onGymCheckboxChange: PropTypes.func
+    onGymCheckboxChange: PropTypes.func,
+    onMoviesCheckboxChange: PropTypes.func,
+    onBallSportsCheckboxChange: PropTypes.func
 }
 
 export default FormSection
