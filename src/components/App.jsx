@@ -9,6 +9,9 @@ function App() {
   // State for the current section
   const [currentSection, setCurrentSection] = useState(0);
 
+  // State for the previous section
+  const [previousSection, setPreviousSection] = useState(0);
+
   // State for the visibility of the form div
   const [formDivVisibility, setFormDivVisibility] = useState('flex');
 
@@ -19,11 +22,13 @@ function App() {
 
   // Function to handle the next button click
   const handleNextClick = () => {
+      setPreviousSection(currentSection);
       setCurrentSection(currentSection + 1);
   }
 
   // Function to handle the previous button click
   const handlePreviousClick = () => {
+      setPreviousSection(currentSection);
       setCurrentSection(currentSection - 1);
   }
 
@@ -50,6 +55,7 @@ function App() {
       <Header />
       <NavBar cuSection={currentSection} />
       <CVEditor 
+        previousSection={previousSection} 
         cuSection={currentSection} 
         formDivVisibility={formDivVisibility} 
         editButtonVisibility={editButtonVisibility} 

@@ -753,6 +753,7 @@ function CVEditor(props) {
     return (
         <div className='book-style' id='book-style-container'>
             <CVForm 
+                previousSection={props.previousSection} 
                 cuSection={props.cuSection} 
                 formDivVisibility={props.formDivVisibility} 
                 onPreviousClick={props.onPreviousClick} 
@@ -975,6 +976,7 @@ function CVEditor(props) {
 }
 
 CVEditor.propTypes = {
+    previousSection: PropTypes.number.isRequired,
     cuSection: PropTypes.number.isRequired,
     onNextClick: PropTypes.func.isRequired,
     onFinishClick: PropTypes.func.isRequired,

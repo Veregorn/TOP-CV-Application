@@ -2,18 +2,57 @@
     flex: 1;
     height: 100%;
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
     justify-content: top;
     background-color: #ef6038;
     padding: 40px;
+    overflow: hidden;
 }
 
-.form > div {
-    display: none;
+.form > div.slide-out-left {
+    /* display: none; */
+    position: absolute;
+    animation: slideOutToLeft 0.5s forwards;
 }
 
-.form > div.current {
+.form > div.slide-out-right {
+    /* display: none; */
+    position: absolute;
+    animation: slideOutToRight 0.5s forwards;
+}
+
+.form > div.slide-in-right {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    animation: slideInFromRight 0.5s forwards;
+}
+
+.form > div.slide-in-left {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    animation: slideInFromLeft 0.5s forwards;
+}
+
+@keyframes slideInFromRight {
+    from { transform: translateX(150%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInFromLeft {
+    from { transform: translateX(-150%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideOutToLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-150%); }
+}
+
+@keyframes slideOutToRight {
+    from { transform: translateX(0); }
+    to { transform: translateX(150%); }
 }

@@ -4,6 +4,7 @@ import SECTION_DATA from '../assets/data'
 import PropTypes from 'prop-types'
 
 function CVForm({ 
+    previousSection,
     cuSection,
     formDivVisibility,
     onPreviousClick,
@@ -153,13 +154,29 @@ function CVForm({
     
     const sections = SECTION_DATA.map((section, index) => {
         
+        let classesToApply = ''
+
+        if (index == cuSection) {
+            if (index > previousSection) {
+                classesToApply = 'section slide-in-right'
+            } else if (index < previousSection) {
+                classesToApply = 'section slide-in-left'
+            } else {
+                classesToApply = 'section'
+            }
+        } else if (index < cuSection) {
+            classesToApply = 'section slide-out-left'
+        } else if (index > cuSection) {
+            classesToApply = 'section slide-out-right'
+        }
+
         // If the section id is 'generalInfo', then we want to pass the nameInputText and onNameChange props to the FormSection component
         if (section.id == 'generalInfo') {
             return (
                 <FormSection 
                     key={section.id + ('-form')} 
                     title={section.longTitle} 
-                    className={index == cuSection ? 'section current' : 'section'} 
+                    className={classesToApply} 
                     fields={section.fields} 
                     nameInputText={nameInputText}
                     onNameChange={onNameChange} 
@@ -189,7 +206,7 @@ function CVForm({
                 <FormSection 
                     key={section.id + ('-form')} 
                     title={section.longTitle} 
-                    className={index == cuSection ? 'section current' : 'section'} 
+                    className={classesToApply} 
                     fields={section.fields} 
                     schoolInputText={schoolInputText} 
                     onSchoolChange={onSchoolChange} 
@@ -216,7 +233,7 @@ function CVForm({
                 <FormSection 
                     key={section.id + ('-form')} 
                     title={section.longTitle} 
-                    className={index == cuSection ? 'section current' : 'section'} 
+                    className={classesToApply} 
                     fields={section.fields} 
                     companyInputText={companyInputText} 
                     onCompanyChange={onCompanyChange} 
@@ -243,7 +260,7 @@ function CVForm({
                 <FormSection 
                     key={section.id + ('-form')} 
                     title={section.longTitle} 
-                    className={index == cuSection ? 'section current' : 'section'} 
+                    className={classesToApply} 
                     fields={section.fields} 
                     skillNameInputText={skillNameInputText} 
                     onSkillNameChange={onSkillNameChange} 
@@ -264,7 +281,7 @@ function CVForm({
                 <FormSection 
                     key={section.id + ('-form')} 
                     title={section.longTitle} 
-                    className={index == cuSection ? 'section current' : 'section'} 
+                    className={classesToApply} 
                     fields={section.fields} 
                     xInputText={xInputText} 
                     onXChange={onXChange} 
@@ -307,7 +324,7 @@ function CVForm({
                 <FormSection 
                     key={section.id + ('-form')} 
                     title={section.longTitle} 
-                    className={index == cuSection ? 'section current' : 'section'} 
+                    className={classesToApply} 
                     fields={section.fields} 
                     travelingInputChecked={travelingInputChecked} 
                     onTravelingCheckboxChange={onTravelingCheckboxChange} 
@@ -364,6 +381,7 @@ function CVForm({
 }
 
 CVForm.propTypes = {
+    previousSection: PropTypes.number.isRequired,
     cuSection: PropTypes.number.isRequired,
     onPreviousClick: PropTypes.func.isRequired,
     onNextClick: PropTypes.func.isRequired,
