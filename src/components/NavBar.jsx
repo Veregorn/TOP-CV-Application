@@ -7,16 +7,16 @@ function NavBar(props) {
     const sections = SECTION_DATA.map((section, index) => {
         if (index < props.cuSection) {
             return (
-                <li key={section.id} className='visited'><button>{section.buttonTitle}</button></li>
+                <li key={section.id} className='visited'><button onClick={() => props.onSectionClick(index)}>{section.buttonTitle}</button></li>
             )
         } else if (index == props.cuSection) {
             return (
-                <li key={section.id} className='current'><button>{section.buttonTitle}</button></li>
+                <li key={section.id} className='current'><button onClick={() => props.onSectionClick(index)}>{section.buttonTitle}</button></li>
             )
         }
         else {
             return (
-                <li key={section.id}><button>{section.buttonTitle}</button></li>
+                <li key={section.id}><button onClick={() => props.onSectionClick(index)}>{section.buttonTitle}</button></li>
             )
         }
     })
@@ -31,7 +31,8 @@ function NavBar(props) {
 }
 
 NavBar.propTypes = {
-    cuSection: PropTypes.number.isRequired
+    cuSection: PropTypes.number.isRequired,
+    onSectionClick: PropTypes.func.isRequired
 }
 
 export default NavBar

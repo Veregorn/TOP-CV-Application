@@ -32,6 +32,12 @@ function App() {
       setCurrentSection(currentSection - 1);
   }
 
+  // Function to handle a section button click
+  const handleSectionClick = (sectionIndex) => {
+      setPreviousSection(currentSection);
+      setCurrentSection(sectionIndex);
+  }
+
   // Function to handle the Save button click
   const handleFinishClick = () => {
     setCurrentSection(currentSection + 1);
@@ -53,7 +59,7 @@ function App() {
   return (
     <div className='app-container'>
       <Header />
-      <NavBar cuSection={currentSection} />
+      <NavBar cuSection={currentSection} onSectionClick={handleSectionClick} />
       <CVEditor 
         previousSection={previousSection} 
         cuSection={currentSection} 
