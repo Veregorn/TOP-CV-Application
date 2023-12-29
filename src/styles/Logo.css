@@ -22,3 +22,7 @@
     font-size: 2.5rem;
     color: #ef6038;
 }
+
+.logo-div a {
+    text-decoration: none;
+}

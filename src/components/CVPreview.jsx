@@ -185,6 +185,7 @@ function CVPreview({
         return (
             <div className='preview'>
                 <p>Your CV has been saved in your default downloads folder as a JSON file!</p>
+                <a href='../index.html'><Button text='Create another CV'/></a>
             </div>
         )
     } else {
