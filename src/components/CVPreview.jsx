@@ -74,28 +74,10 @@ function CVPreview({
     ballSportsPreviewChecked
 }) {
     
-    const sections = SECTION_DATA.map((section) => {
+    const educationSection = SECTION_DATA.map((section) => {
         
         // If the section id is 'generalInfo', then we want to pass the namePreviewText and onNameChange props to the PreviewSection component
-        if (section.id == 'generalInfo') {
-            return (
-                <PreviewSection 
-                    key={section.id + ('-preview')}
-                    title={section.longTitle} 
-                    fields={section.fields} 
-                    namePreviewText={namePreviewText}
-                    emailPreviewText={emailPreviewText}
-                    phonePreviewText={phonePreviewText} 
-                    addressPreviewText={addressPreviewText} 
-                    postalCodeInputText={postalCodeInputText} 
-                    cityPreviewText={cityPreviewText} 
-                    countryPreviewText={countryPreviewText} 
-                    birthDatePreviewText={birthDatePreviewText} 
-                    genderPreviewText={genderPreviewText} 
-                    photoImage={photoImage} 
-                />
-            )
-        } else if (section.id == 'education') {
+        if (section.id == 'education') {
             return (
                 <PreviewSection 
                     key={section.id + ('-preview')} 
@@ -109,7 +91,13 @@ function CVPreview({
                     studies={studies} 
                 />
             )
-        } else if (section.id == 'practicalExp') {
+        }
+
+    })
+
+    const experienceSection = SECTION_DATA.map((section) => {
+        
+        if (section.id == 'practicalExp') {
             return (
                 <PreviewSection 
                     key={section.id + ('-preview')} 
@@ -123,7 +111,13 @@ function CVPreview({
                     jobs={jobs} 
                 />
             )
-        } else if (section.id == 'skills') {
+        }
+        
+    })
+
+    const skillsSection = SECTION_DATA.map((section) => {
+
+        if (section.id == 'skills') {
             return (
                 <PreviewSection 
                     key={section.id + ('-preview')} 
@@ -134,7 +128,13 @@ function CVPreview({
                     skills={skills} 
                 />
             )
-        } else if (section.id == 'contact') {
+        }
+        
+    })
+
+    const contactSection = SECTION_DATA.map((section) => {
+        
+        if (section.id == 'contact') {
             return (
                 <PreviewSection
                     key={section.id + ('-preview')} 
@@ -150,7 +150,13 @@ function CVPreview({
                     twitchPreviewText={twitchPreviewText} 
                 />
             )
-        } else if (section.id == 'hobbies') {
+        }
+        
+    })
+
+    const hobbiesSection = SECTION_DATA.map((section) => {
+
+        if (section.id == 'hobbies') {
             return (
                 <PreviewSection 
                     key={section.id + ('-preview')} 
@@ -179,6 +185,31 @@ function CVPreview({
                 />
             )
         }
+
+    })
+
+    const giSection = SECTION_DATA.map((section) => {
+        
+        if (section.id == 'generalInfo') {
+            return (
+                <PreviewSection 
+                    key={section.id + ('-preview')}
+                    title={section.longTitle} 
+                    fields={section.fields} 
+                    namePreviewText={namePreviewText}
+                    emailPreviewText={emailPreviewText}
+                    phonePreviewText={phonePreviewText} 
+                    addressPreviewText={addressPreviewText} 
+                    postalCodeInputText={postalCodeInputText} 
+                    cityPreviewText={cityPreviewText} 
+                    countryPreviewText={countryPreviewText} 
+                    birthDatePreviewText={birthDatePreviewText} 
+                    genderPreviewText={genderPreviewText} 
+                    photoImage={photoImage} 
+                />
+            )
+        }
+
     })
 
     if (documentSaved) {
@@ -191,10 +222,36 @@ function CVPreview({
     } else {
         return (
             <div className='preview' style={{display: previewDivVisibility}}>
-                {sections}
-                <Button text='Edit' visibility={editButtonVisibility} onClick={onEditClick}/>
-                <Button text='Save JSON' visibility={saveButtonVisibility} onClick={onSaveClick}/>
-                <Button text='Generate PDF' visibility={pdfButtonVisibility} onClick={onPDFClick}/>
+                <div className='preview-body'>
+                    <div className='left-preview'>
+                        <div className='left-top-preview'>
+                            <div className='exp-edu-preview'>
+                                {experienceSection}
+                                {educationSection}
+                            </div>
+                            <div className='contact-hobbies-preview'>
+                                {contactSection}
+                                {hobbiesSection}
+                            </div>
+                        </div>
+                        <div className='left-bottom-preview'>
+                            {skillsSection}
+                        </div>
+                    </div>
+                    <div className='right-preview'>
+                        <div className='right-top-preview'>
+
+                        </div>
+                        <div className='right-bottom-preview'>
+                            {giSection}
+                        </div>
+                    </div>
+                </div>
+                <div className='preview-footer'>
+                    <Button text='Edit' visibility={editButtonVisibility} onClick={onEditClick}/>
+                    <Button text='Save JSON' visibility={saveButtonVisibility} onClick={onSaveClick}/>
+                    <Button text='Generate PDF' visibility={pdfButtonVisibility} onClick={onPDFClick}/>
+                </div>
             </div>
         )
     }

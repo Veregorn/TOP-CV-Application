@@ -1,11 +1,41 @@
+@font-face {
+    font-family: 'Kanit Bold';
+    src: url(../assets/fonts/Kanit-Bold.ttf);
+}
+
 .preview-section {
     padding: 20px;
 }
 
 .study-preview, .job-preview, .skill-preview {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+}
+
+.dates {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.dates p:first-child {
+    margin-right: 10px;
+}
+
+.dates p:last-child::before {
+    content: '-';
+    margin-right: 10px;
+}
+
+.job-info p:first-child {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Kanit Bold', 'Arial', 'sans-serif';
+    margin-right: 10px;
 }

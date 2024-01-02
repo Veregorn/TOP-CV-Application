@@ -45,9 +45,7 @@ function CVFieldPreview(props) {
         )
     } else {
         return (
-            <div className='field'>
-                <p>{props.value}</p>
-            </div>
+            <p>{props.value}</p>
         )
     }
 }

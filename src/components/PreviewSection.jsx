@@ -570,26 +570,30 @@ function PreviewSection({
     const jobsFields = jobs ? jobs.map((job) => {
         return (
             <div key={job.id + ('-preview')} className='job-preview'>
-                <CVFieldPreview 
-                    id={job.id + ('-preview')}
-                    value={job.company} 
-                />
-                <CVFieldPreview 
-                    id={job.id + ('-preview')}
-                    value={job.position} 
-                />
-                <CVFieldPreview 
-                    id={job.id + ('-preview')}
-                    value={job.startDate} 
-                />
-                <CVFieldPreview 
-                    id={job.id + ('-preview')}
-                    value={job.endDate} 
-                />
-                <CVFieldPreview 
-                    id={job.id + ('-preview')}
-                    value={job.description} 
-                />
+                <div className='dates'>
+                    <CVFieldPreview 
+                        id={job.id + ('-preview')}
+                        value={job.startDate} 
+                    />
+                    <CVFieldPreview 
+                        id={job.id + ('-preview')}
+                        value={job.endDate} 
+                    />
+                </div>
+                <div className='job-info'>
+                    <CVFieldPreview 
+                        id={job.id + ('-preview')}
+                        value={job.company} 
+                    />
+                    <CVFieldPreview 
+                        id={job.id + ('-preview')}
+                        value={job.position} 
+                    />
+                    <CVFieldPreview 
+                        id={job.id + ('-preview')}
+                        value={job.description} 
+                    />
+                </div>
             </div>
         )
     }) : null
