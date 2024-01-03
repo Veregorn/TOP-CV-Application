@@ -543,26 +543,31 @@ function PreviewSection({
     const studiesFields = studies ? studies.map((study) => {
         return (
             <div key={study.id + ('-preview')} className='study-preview'>
-                <CVFieldPreview 
-                    id={study.id + ('-preview')}
-                    value={study.school} 
-                />
-                <CVFieldPreview 
-                    id={study.id + ('-preview')}
-                    value={study.title} 
-                />
-                <CVFieldPreview 
-                    id={study.id + ('-preview')}
-                    value={study.startDate} 
-                />
-                <CVFieldPreview 
-                    id={study.id + ('-preview')}
-                    value={study.endDate} 
-                />
-                <CVFieldPreview 
-                    id={study.id + ('-preview')}
-                    value={study.description} 
-                />
+                <div className='dates'>
+                    <CVFieldPreview 
+                        id={study.id + ('-preview')}
+                        value={study.startDate} 
+                    />
+                    <CVFieldPreview 
+                        id={study.id + ('-preview')}
+                        value={study.endDate} 
+                    />
+                </div>
+                <div className='study-info'>
+                    <CVFieldPreview 
+                        id={study.id + ('-preview')}
+                        value={study.school} 
+                    />
+                    <CVFieldPreview 
+                        id={study.id + ('-preview')}
+                        value={study.title} 
+                    />
+                    
+                    <CVFieldPreview 
+                        id={study.id + ('-preview')}
+                        value={study.description} 
+                    />
+                </div>
             </div>
         )
     }) : null

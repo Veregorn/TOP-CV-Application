@@ -3,6 +3,11 @@
     src: url(../assets/fonts/Kanit-Bold.ttf);
 }
 
+@font-face {
+    font-family: 'Kanit Regular';
+    src: url(../assets/fonts/Kanit-Regular.ttf);
+}
+
 .preview-section {
     padding: 20px;
 }
@@ -12,7 +17,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
 }
 
 .dates {
@@ -21,6 +25,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-right: 20px;
 }
 
 .dates p:first-child {
@@ -32,10 +37,44 @@
     margin-right: 10px;
 }
 
-.job-info p:first-child {
+.job-info, .study-info {
+    border-left: 1px solid #8c8e90;
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: top;
+    justify-content: center;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.job-info p, .study-info p {
     text-transform: uppercase;
+    font-size: 14px;
+    color: #8c8e90;
+}
+
+.job-info p:first-child, .study-info p:first-child {
     font-size: 18px;
     font-weight: 400;
     font-family: 'Kanit Bold', 'Arial', 'sans-serif';
-    margin-right: 10px;
+    margin-bottom: 3px;
+    color: black;
+}
+
+.job-info p:first-child::before, .study-info p:first-child::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: #000;
+    position: absolute;
+    margin-left: -27px;
+}
+
+.job-info p:last-child, .study-info p:last-child {
+    text-transform: none;
+    font-weight: 300;
+    font-family: 'Kanit Regular', 'Arial', 'sans-serif';
+    margin-top: 8px;
+    color: #000;
 }
