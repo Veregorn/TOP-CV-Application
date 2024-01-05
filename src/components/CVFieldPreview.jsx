@@ -29,17 +29,19 @@ function CVFieldPreview(props) {
             </div>
         )
     } else if (props.id == 'x-preview' || props.id == 'instagram-preview' || props.id == 'linkedin-preview' || props.id == 'github-preview' || props.id == 'youtube-preview' || props.id == 'dribbble-preview' || props.id == 'behance-preview' || props.id == 'twitch-preview') {
-        return (
-            <div className='contact-field'>
-                <div className='contact-icon'>
-                    {props.value != '' && <img src={props.imageURL} className='contact-image' />}
+        if (props.value != '') {
+            return (
+                <div className='contact-field'>
+                    <div className='contact-icon'>
+                        <img src={props.imageURL} className='contact-image' />
+                    </div>
+                    <div className='contact-info'>
+                        <b>{props.serviceURL}</b>
+                        <p>{'/' + props.value}</p>
+                    </div>
                 </div>
-                <div className='contact-info'>
-                    {props.value != '' && <b>{props.serviceURL}</b>}
-                    {props.value != '' && <p>{'/' + props.value}</p>}
-                </div>
-            </div>
-        )
+            )
+        }
     } else if (props.id == 'traveling-preview' || props.id == 'music-preview' || props.id == 'reading-preview' || props.id == 'gaming-preview' || props.id == 'bicycling-preview' || props.id == 'running-preview' || props.id == 'cooking-preview' || props.id == 'shopping-preview' || props.id == 'dancing-preview' || props.id == 'swimming-preview' || props.id == 'painting-preview' || props.id == 'photography-preview' || props.id == 'fishing-preview' || props.id == 'hiking-preview' || props.id == 'yoga-preview' || props.id == 'surfing-preview' || props.id == 'skiing-preview' || props.id == 'gym-preview' || props.id == 'movies-preview' || props.id == 'ball-sports-preview') {
         return (
             <div className='hobbies-field'>
@@ -47,6 +49,58 @@ function CVFieldPreview(props) {
                 <p>{props.value}</p>
             </div>
         )
+    } else if (props.id.startsWith('skill-level-')) {
+        if (props.value == 'beginner') {
+            return (
+                <div className='stars-container'>
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/empty-star.png' />
+                    <img className='star-image' src='../../public/images/empty-star.png' />
+                    <img className='star-image' src='../../public/images/empty-star.png' />
+                    <img className='star-image' src='../../public/images/empty-star.png' />
+                </div>
+            )
+        } else if (props.value == 'elementary') {
+            return (
+                <div className='stars-container'>
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/empty-star.png' />
+                    <img className='star-image' src='../../public/images/empty-star.png' />
+                    <img className='star-image' src='../../public/images/empty-star.png' />
+                </div>
+            )
+        } else if (props.value == 'intermediate') {
+            return (
+                <div className='stars-container'>
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/empty-star.png' />
+                    <img className='star-image' src='../../public/images/empty-star.png' />
+                </div>
+            )
+        } else if (props.value == 'advanced') {
+            return (
+                <div className='stars-container'>
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/empty-star.png' />
+                </div>
+            )
+        } else if (props.value == 'expert') {
+            return (
+                <div className='stars-container'>
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                    <img className='star-image' src='../../public/images/filled-star.png' />
+                </div>
+            )
+        }
     } else {
         return (
             <p>{props.value}</p>

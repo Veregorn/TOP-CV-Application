@@ -9,13 +9,14 @@
 }
 
 .preview-section {
+    flex: 1;
     padding: 20px;
 }
 
-.study-preview, .job-preview, .skill-preview {
+.study-preview, .job-preview {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: top;
     justify-content: center;
 }
 
@@ -23,9 +24,14 @@
     flex: 1;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
+    justify-content: top;
+    margin: 0 20px 0 0;
+}
+
+.dates p {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Kanit Bold', 'Arial', 'sans-serif';
 }
 
 .dates p:first-child {
@@ -42,16 +48,15 @@
     flex: 3;
     display: flex;
     flex-direction: column;
-    align-items: top;
     justify-content: center;
     padding-left: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 .job-info p, .study-info p {
     text-transform: uppercase;
     font-size: 14px;
-    color: #8c8e90;
+    color: #6a6a6b;
 }
 
 .job-info p:first-child, .study-info p:first-child {
@@ -64,11 +69,11 @@
 
 .job-info p:first-child::before, .study-info p:first-child::before {
     content: '';
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     background-color: #000;
     position: absolute;
-    margin-left: -27px;
+    margin-left: -25px;
 }
 
 .job-info p:last-child, .study-info p:last-child {
@@ -76,5 +81,34 @@
     font-weight: 300;
     font-family: 'Kanit Regular', 'Arial', 'sans-serif';
     margin-top: 8px;
-    color: #000;
+    color: #6a6a6b;
+}
+
+.hobbies-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px 40px;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px 90px;
+}
+
+.skill-preview {
+    display: flex;
+    flex: 1 0 120px;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.skill-preview p {
+    font-size: 14px;
+    font-weight: 300;
+    font-family: 'Kanit Regular', 'Arial', 'sans-serif';
+    margin-bottom: 5px;
+    color: #fff;
 }

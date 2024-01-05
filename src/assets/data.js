@@ -369,7 +369,7 @@ const SECTION_DATA = [
             {
                 id: 'photography',
                 imageURL: '/images/photography-icon.png',
-                imageAlt: 'Photography',
+                imageAlt: 'Photo',
                 type: 'input',
                 inputType: 'checkbox'
             },

@@ -22,7 +22,7 @@
 }
 
 .left-preview {
-    flex: 1.5;
+    flex: 1.7;
 }
 
 .preview-section h3 {
@@ -32,24 +32,35 @@
     padding-left: 20px;
     border-left: 5px solid #2ba8e0;
     font-family: 'Kanit Bold', 'Arial', 'sans-serif';
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.left-top-preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: top;
+    justify-content: center;
+    padding: 40px;
 }
 
 .contact-hobbies-preview {
     flex: 1;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    align-items: top;
+    justify-content: left;
 }
 
 .left-bottom-preview {
     flex: 1;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: left;
     justify-content: center;
     background-color: #2ba8e0;
+    padding: 10px 40px;
 }
 
 .left-bottom-preview h3 {
@@ -61,7 +72,8 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: top;
-    justify-content: center;
+    align-items: left;
+    justify-content: top;
     background-color: #e9ecf3;
+    padding: 40px 20px;
 }

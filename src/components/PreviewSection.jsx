@@ -611,22 +611,43 @@ function PreviewSection({
                     value={skill.name} 
                 />
                 <CVFieldPreview 
-                    id={skill.id + ('-preview')}
+                    id={('skill-level-') + skill.id + ('-preview')}
                     value={skill.level} 
                 />
             </div>
         )
     } ) : null
         
-    return (
-        <div className='preview-section'>
-            <h3>{title}</h3>
-            {studies && studiesFields}
-            {jobs && jobsFields}
-            {skills && skillsFields}
-            {sectionFields}
-        </div>
-    )
+    if (skills) {
+        return (
+            <div className='preview-section'>
+                <h3>{title}</h3>
+                {studies && studiesFields}
+                {jobs && jobsFields}
+                <div className='skills-container'>
+                    {skills && skillsFields}
+                </div>
+            </div>
+        )
+    } else if (title == 'Hobbies') {
+        return (
+            <div className='preview-section'>
+                <h3>{title}</h3>
+                <div className='hobbies-container'>
+                    {sectionFields}
+                </div>
+            </div>
+        )
+    } else {
+        return (
+            <div className='preview-section'>
+                <h3>{title}</h3>
+                {studies && studiesFields}
+                {jobs && jobsFields}
+                {sectionFields}
+            </div>
+        )
+    }
 }
 
 PreviewSection.propTypes = {
