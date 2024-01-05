@@ -15,7 +15,6 @@ function PreviewSection({
     countryPreviewText,
     birthDatePreviewText,
     genderPreviewText,
-    photoImage,
     // Education props
     schoolPreviewText,
     studiesTitlePreviewText,
@@ -138,14 +137,6 @@ function PreviewSection({
                     key={field.id + ('-preview')} 
                     id={field.id + ('-preview')} 
                     value={genderPreviewText} 
-                />
-            )
-        } else if (field.id == 'gi-photo') {
-            return (
-                <CVFieldPreview 
-                    key={field.id + ('-preview')} 
-                    id={field.id + ('-preview')} 
-                    value={photoImage} 
                 />
             )
         }
@@ -638,6 +629,15 @@ function PreviewSection({
                 </div>
             </div>
         )
+    } else if (title == 'General Info') {
+        return (
+            <div className='preview-section'>
+                <h3>{title}</h3>
+                <div className='general-information-container'>
+                    {sectionFields}
+                </div>
+            </div>
+        )
     } else {
         return (
             <div className='preview-section'>
@@ -669,7 +669,6 @@ PreviewSection.propTypes = {
     countryPreviewText: PropTypes.string,
     birthDatePreviewText: PropTypes.string,
     genderPreviewText: PropTypes.string,
-    photoImage: PropTypes.string,
     // Education props
     schoolPreviewText: PropTypes.string,
     studiesTitlePreviewText: PropTypes.string,

@@ -22,12 +22,6 @@ function CVFieldPreview(props) {
                     {props.value == '' ? <p>{props.value}</p> : <p>{formatDate(props.value)}</p>}
                 </div>
             )
-    } else if (props.id == 'gi-photo-preview') {
-        return (
-            <div className='field'>
-                {!props.value ? <p>No photo selected</p> : <img src={props.value} alt='Profile photo' />}
-            </div>
-        )
     } else if (props.id == 'x-preview' || props.id == 'instagram-preview' || props.id == 'linkedin-preview' || props.id == 'github-preview' || props.id == 'youtube-preview' || props.id == 'dribbble-preview' || props.id == 'behance-preview' || props.id == 'twitch-preview') {
         if (props.value != '') {
             return (

@@ -7,7 +7,7 @@ import FormSubSection from './FormSubSection';
 
 function FormSection(props) {
 
-    if (props.title == 'General Information') {
+    if (props.title == 'General Info') {
 
         const fields = props.fields.map((field) => {
             if (field.id == 'gi-name') {

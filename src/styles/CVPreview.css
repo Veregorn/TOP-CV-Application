@@ -75,5 +75,18 @@
     align-items: left;
     justify-content: top;
     background-color: #e9ecf3;
+}
+
+.right-top-preview img {
+    width: 100%;
+    height: 100%;
+}
+
+.right-bottom-preview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: top;
     padding: 40px 20px;
 }

@@ -2,7 +2,7 @@ const SECTION_DATA = [
     {
         id: 'generalInfo',
         buttonTitle: 'General Info',
-        longTitle: 'General Information',
+        longTitle: 'General Info',
         fields: [
             {
                 id: 'gi-name',

@@ -205,7 +205,6 @@ function CVPreview({
                     countryPreviewText={countryPreviewText} 
                     birthDatePreviewText={birthDatePreviewText} 
                     genderPreviewText={genderPreviewText} 
-                    photoImage={photoImage} 
                 />
             )
         }
@@ -240,7 +239,7 @@ function CVPreview({
                     </div>
                     <div className='right-preview'>
                         <div className='right-top-preview'>
-
+                            {photoImage ? <img className='photo-image-preview' src={photoImage} alt='Photo'/> : null}
                         </div>
                         <div className='right-bottom-preview'>
                             {giSection}
