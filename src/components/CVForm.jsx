@@ -10,6 +10,9 @@ function CVForm({
     onPreviousClick,
     onNextClick,
     onFinishClick,
+    // Hello
+    helloTextarea,
+    onHelloChange,
     // General Info
     nameInputText, 
     onNameChange, 
@@ -171,7 +174,19 @@ function CVForm({
         }
 
         // If the section id is 'generalInfo', then we want to pass the nameInputText and onNameChange props to the FormSection component
-        if (section.id == 'generalInfo') {
+        if (section.id == 'hello') {
+            return (
+                <FormSection
+                    key={section.id + ('-form')} 
+                    title={section.longTitle} 
+                    className={classesToApply} 
+                    fields={section.fields} 
+                    helloTextarea={helloTextarea} 
+                    onHelloChange={onHelloChange} 
+                    onNextClick={onNextClick} 
+                />
+            )
+        } else if (section.id == 'generalInfo') {
             return (
                 <FormSection 
                     key={section.id + ('-form')} 
@@ -198,6 +213,7 @@ function CVForm({
                     onGenderChange={onGenderChange} 
                     photoImage={photoImage} 
                     onPhotoChange={onPhotoChange} 
+                    onPreviousClick={onPreviousClick} 
                     onNextClick={onNextClick}
                 />
             )
@@ -387,6 +403,9 @@ CVForm.propTypes = {
     onNextClick: PropTypes.func.isRequired,
     onFinishClick: PropTypes.func.isRequired,
     formDivVisibility: PropTypes.string.isRequired,
+    // Hello prop types
+    helloTextarea: PropTypes.string.isRequired,
+    onHelloChange: PropTypes.func.isRequired,
     // General Info prop types
     nameInputText: PropTypes.string.isRequired,
     onNameChange: PropTypes.func.isRequired,

@@ -14,6 +14,9 @@ function CVEditor(props) {
     // State for the visibility of preview div
     const [previewDivVisibility, setPreviewDivVisibility] = useState('flex');
 
+    // Hello section state variables
+    const [helloTextarea, setHelloTextarea] = useState(''); // State for the hello textarea
+
     // General information state variables
     const [nameInputText, setNameInputText] = useState(''); // State for the name input
     const [emailInputText, setEmailInputText] = useState(''); // State for the email input
@@ -156,6 +159,8 @@ function CVEditor(props) {
                     </View>
                     <View style={styles.rightColumn}>
                         <Image src={photo} style={styles.photo} />
+                        <Text>HELLO</Text>
+                        <Text>{helloTextarea}</Text>
                         <Text>PERSONAL INFO</Text>
                         <Text>{nameInputText}</Text>
                         <Text>{emailInputText}</Text>
@@ -193,6 +198,8 @@ function CVEditor(props) {
     const handleSaveClick = () => {
             // Create the CV data object
             const cvData = {
+                // Hello data
+                hello: helloTextarea,
                 // General information data
                 name: nameInputText,
                 email: emailInputText,
@@ -260,6 +267,11 @@ function CVEditor(props) {
 
             // Set the setDocumentSaved state variable to true
             setDocumentSaved(true);
+    }
+
+    // Hello fields change handlers
+    const handleHelloTextareaChange = (event) => {
+        setHelloTextarea(event.target.value);
     }
 
     // General information fields change handlers
@@ -761,6 +773,9 @@ function CVEditor(props) {
                 onFinishClick={props.onFinishClick} 
                 editButtonVisibility={props.editButtonVisibility} 
                 saveButtonVisibility={props.saveButtonVisibility} 
+                // Hello props
+                helloTextarea={helloTextarea} 
+                onHelloChange={handleHelloTextareaChange} 
                 // General information props
                 nameInputText={nameInputText} 
                 onNameChange={handleNameInputChange} 
@@ -911,6 +926,8 @@ function CVEditor(props) {
                 onSaveClick={handleSaveClick} 
                 onPDFClick={handlePDFClick} 
                 documentSaved={documentSaved} 
+                // Hello props
+                helloPreviewText={helloTextarea} 
                 // General information props
                 namePreviewText={nameInputText} 
                 emailPreviewText={emailInputText} 

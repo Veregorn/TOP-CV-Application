@@ -13,6 +13,8 @@ function CVPreview({
     onSaveClick,
     onPDFClick,
     documentSaved,
+    // Hello props
+    helloPreviewText,
     // General information props
     namePreviewText, 
     emailPreviewText,
@@ -211,6 +213,21 @@ function CVPreview({
 
     })
 
+    const helloSection = SECTION_DATA.map((section) => {
+
+        if (section.id == 'hello') {
+            return (
+                <PreviewSection
+                    key={section.id + ('-preview')} 
+                    title={section.longTitle} 
+                    fields={section.fields} 
+                    helloPreviewText={helloPreviewText} 
+                />
+            )
+        }
+
+    })
+
     if (documentSaved) {
         return (
             <div className='preview'>
@@ -242,6 +259,7 @@ function CVPreview({
                             {photoImage ? <img className='photo-image-preview' src={photoImage} alt='Photo'/> : null}
                         </div>
                         <div className='right-bottom-preview'>
+                            {helloSection}
                             {giSection}
                         </div>
                     </div>
@@ -266,6 +284,8 @@ CVPreview.propTypes = {
     onSaveClick: PropTypes.func.isRequired,
     onPDFClick: PropTypes.func.isRequired,
     documentSaved: PropTypes.bool.isRequired,
+    // Hello props
+    helloPreviewText: PropTypes.string,
     // General information props
     namePreviewText: PropTypes.string.isRequired,
     emailPreviewText: PropTypes.string.isRequired,

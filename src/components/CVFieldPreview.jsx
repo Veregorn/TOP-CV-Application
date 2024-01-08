@@ -18,10 +18,18 @@ function CVFieldPreview(props) {
     
     if (props.id == 'gi-birth-preview') {
             return (
-                <div className='field'>
-                    {props.value == '' ? <p>{props.value}</p> : <p>{formatDate(props.value)}</p>}
+                <div className='gi-field-container'>
+                    <p className='gi-label'>{props.label}</p>
+                    {props.value == '' ? <p className='gi-value'>{props.value}</p> : <p className='gi-value'>{formatDate(props.value)}</p>}
                 </div>
             )
+    } else if (props.id.startsWith('gi-')) {
+        return (
+            <div className='gi-field-container'>
+                <p className='gi-label'>{props.label}</p>
+                <p className='gi-value'>{props.value}</p>
+            </div>
+        )
     } else if (props.id == 'x-preview' || props.id == 'instagram-preview' || props.id == 'linkedin-preview' || props.id == 'github-preview' || props.id == 'youtube-preview' || props.id == 'dribbble-preview' || props.id == 'behance-preview' || props.id == 'twitch-preview') {
         if (props.value != '') {
             return (
@@ -106,7 +114,8 @@ CVFieldPreview.propTypes = {
     value: PropTypes.string,
     id: PropTypes.string.isRequired,
     imageURL: PropTypes.string,
-    serviceURL: PropTypes.string
+    serviceURL: PropTypes.string,
+    label: PropTypes.string
 }
 
 export default CVFieldPreview

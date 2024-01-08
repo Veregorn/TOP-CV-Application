@@ -1,5 +1,21 @@
 const SECTION_DATA = [
     {
+        id: 'hello',
+        buttonTitle: 'Hello',
+        longTitle: 'Hello',
+        fields: [
+            {
+                id: 'hello',
+                label: 'Hello',
+                type: 'textarea',
+                placeholder: 'Enter your intro message',
+                required: true,
+                rows: 8,
+                cols: 32
+            }
+        ]
+    },
+    {
         id: 'generalInfo',
         buttonTitle: 'General Info',
         longTitle: 'General Info',

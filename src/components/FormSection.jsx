@@ -4,10 +4,42 @@ import Input from './Input';
 import Label from './Label';
 import Button from './Button';
 import FormSubSection from './FormSubSection';
+import Textarea from './Textarea';
 
 function FormSection(props) {
 
-    if (props.title == 'General Info') {
+    if (props.title == 'Hello') {
+
+        const fields = props.fields.map((field) => {
+            return (
+                <div key={('form-') + field.id} className='form-field'>
+                    <Label text={field.label} for={field.id + ('-textarea')} />
+                    <Textarea 
+                        id={field.id + ('-textarea')}
+                        placeholder={field.placeholder} 
+                        required={field.required} 
+                        value={props.helloTextarea} 
+                        onChange={props.onHelloChange} 
+                        rows={field.rows} 
+                        cols={field.cols} 
+                    />
+                </div>
+            )
+        })
+
+        return (
+
+            <div className={props.className}>
+                <h2 className='form-section-title'>{props.title}</h2>
+                <div className='fields-container'>
+                    {fields}
+                </div>
+                <Button text='Next >' classes='nav-button' onClick={props.onNextClick}/>
+            </div>
+
+        )
+
+    } else if (props.title == 'General Info') {
 
         const fields = props.fields.map((field) => {
             if (field.id == 'gi-name') {
@@ -168,6 +200,7 @@ function FormSection(props) {
                 <div className='fields-container'>
                     {fields}
                 </div>
+                <Button text='< Previous' classes='nav-button' onClick={props.onPreviousClick}/>
                 <Button text='Next >' classes='nav-button' onClick={props.onNextClick}/>
             </div>
 
@@ -720,6 +753,9 @@ FormSection.propTypes = {
     onPreviousClick: PropTypes.func,
     onNextClick: PropTypes.func,
     onFinishClick: PropTypes.func,
+    // Hello prop types
+    helloTextarea: PropTypes.string,
+    onHelloChange: PropTypes.func,
     // General Info prop types
     nameInputText: PropTypes.string,
     onNameChange: PropTypes.func,

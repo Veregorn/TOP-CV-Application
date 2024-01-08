@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 function PreviewSection({ 
     title, 
     fields,
+    // Hello props
+    helloPreviewText,
     // General information props
     namePreviewText, 
     emailPreviewText,
@@ -66,12 +68,23 @@ function PreviewSection({
  }) {
 
     const sectionFields = fields.map((field) => {
+        // Hello field
+        if (field.id == 'hello') {
+            return (
+                <CVFieldPreview
+                    key={field.id + ('-preview')} 
+                    id={field.id + ('-preview')} 
+                    value={helloPreviewText} 
+                />
+            )
+        } 
         // General information fields
-        if (field.id == 'gi-name') {
+        else if (field.id == 'gi-name') {
             return (
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
                     id={field.id + ('-preview')} 
+                    label={field.label} 
                     value={namePreviewText} 
                 />
             )
@@ -80,6 +93,7 @@ function PreviewSection({
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
                     id={field.id + ('-preview')} 
+                    label={field.label} 
                     value={emailPreviewText} 
                 />
             )
@@ -88,6 +102,7 @@ function PreviewSection({
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
                     id={field.id + ('-preview')} 
+                    label={field.label} 
                     value={phonePreviewText} 
                 />
             )
@@ -96,6 +111,7 @@ function PreviewSection({
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
                     id={field.id + ('-preview')} 
+                    label={field.label} 
                     value={addressPreviewText} 
                 />
             )
@@ -104,6 +120,7 @@ function PreviewSection({
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
                     id={field.id + ('-preview')} 
+                    label={field.label} 
                     value={postalCodeInputText} 
                 />
             )
@@ -112,6 +129,7 @@ function PreviewSection({
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
                     id={field.id + ('-preview')} 
+                    label={field.label} 
                     value={cityPreviewText} 
                 />
             )
@@ -120,6 +138,7 @@ function PreviewSection({
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
                     id={field.id + ('-preview')} 
+                    label={field.label} 
                     value={countryPreviewText} 
                 />
             )
@@ -128,6 +147,7 @@ function PreviewSection({
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
                     id={field.id + ('-preview')} 
+                    label={field.label} 
                     value={birthDatePreviewText} 
                 />
             )
@@ -136,6 +156,7 @@ function PreviewSection({
                 <CVFieldPreview 
                     key={field.id + ('-preview')} 
                     id={field.id + ('-preview')} 
+                    label={field.label} 
                     value={genderPreviewText} 
                 />
             )
@@ -638,6 +659,15 @@ function PreviewSection({
                 </div>
             </div>
         )
+    } else if (title == 'Hello') {
+        return (
+            <div className='preview-section'>
+                <h3>{title}</h3>
+                <div className='hello-container'>
+                    {sectionFields}
+                </div>
+            </div>
+        )
     } else {
         return (
             <div className='preview-section'>
@@ -659,6 +689,8 @@ PreviewSection.propTypes = {
         placeholder: PropTypes.string,
         required: PropTypes.bool
     })).isRequired,
+    // Hello props
+    helloPreviewText: PropTypes.string,
     // General information props
     namePreviewText: PropTypes.string,
     emailPreviewText: PropTypes.string,

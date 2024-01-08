@@ -56,7 +56,14 @@
     font-family: 'Kanit SemiBold', 'Arial', 'sans-serif';
     font-size: 1.2rem;
     color: #2c3f4c;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.form-field legend {
+    font-family: 'Kanit SemiBold', 'Arial', 'sans-serif';
+    font-size: 1.2rem;
+    color: #2c3f4c;
+    margin-bottom: 20px;
 }
 
 .form-field > input {
