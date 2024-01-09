@@ -27,17 +27,46 @@ function FormSection(props) {
             )
         })
 
-        return (
+        const helloTextarea = document.getElementById('hello-textarea');
+        if (helloTextarea) {
+            if (helloTextarea.value.length > 0) {
+                return (
 
-            <div className={props.className}>
-                <h2 className='form-section-title'>{props.title}</h2>
-                <div className='fields-container'>
-                    {fields}
+                    <div className={props.className}>
+                        <h2 className='form-section-title'>{props.title}</h2>
+                        <div className='fields-container'>
+                            {fields}
+                        </div>
+                        <Button text='Next >' classes='nav-button' onClick={props.onNextClick}/>
+                    </div>
+
+                )
+            } else {
+                return (
+
+                    <div className={props.className}>
+                        <h2 className='form-section-title'>{props.title}</h2>
+                        <div className='fields-container'>
+                            {fields}
+                        </div>
+                        <Button text='Next >' classes='nav-button' onClick={props.onNextClick} disabled={true}/>
+                    </div>
+
+                )
+            }
+        } else {
+            return (
+
+                <div className={props.className}>
+                    <h2 className='form-section-title'>{props.title}</h2>
+                    <div className='fields-container'>
+                        {fields}
+                    </div>
+                    <Button text='Next >' classes='nav-button' onClick={props.onNextClick} disabled={true}/>
                 </div>
-                <Button text='Next >' classes='nav-button' onClick={props.onNextClick}/>
-            </div>
 
-        )
+            )
+        }
 
     } else if (props.title == 'General Info') {
 
@@ -45,10 +74,11 @@ function FormSection(props) {
             if (field.id == 'gi-name') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        <Label text={field.label} for={field.id + ('-input')} />
+                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
+                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
                         <Input 
                             id={field.id + ('-input')}
-                            type={field.type} 
+                            type={field.inputType} 
                             placeholder={field.placeholder} 
                             required={field.required}
                             value={props.nameInputText}
@@ -60,10 +90,11 @@ function FormSection(props) {
             } else if (field.id == 'gi-email') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        <Label text={field.label} for={field.id + ('-input')} />
+                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
+                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
                         <Input 
                             id={field.id + ('-input')}
-                            type={field.type} 
+                            type={field.inputType} 
                             placeholder={field.placeholder} 
                             required={field.required}
                             value={props.emailInputText} 
@@ -75,10 +106,11 @@ function FormSection(props) {
             } else if (field.id == 'gi-phone') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        <Label text={field.label} for={field.id + ('-input')} />
+                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
+                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
                         <Input 
                             id={field.id + ('-input')}
-                            type={field.type} 
+                            type={field.inputType} 
                             placeholder={field.placeholder} 
                             required={field.required}
                             value={props.phoneInputText} 
@@ -90,10 +122,11 @@ function FormSection(props) {
             } else if (field.id == 'gi-address') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        <Label text={field.label} for={field.id + ('-input')} />
+                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
+                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
                         <Input 
                             id={field.id + ('-input')}
-                            type={field.type} 
+                            type={field.inputType} 
                             placeholder={field.placeholder} 
                             required={field.required}
                             value={props.addressInputText} 
@@ -105,10 +138,11 @@ function FormSection(props) {
             } else if (field.id == 'gi-postal') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        <Label text={field.label} for={field.id + ('-input')} />
+                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
+                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
                         <Input 
                             id={field.id + ('-input')}
-                            type={field.type} 
+                            type={field.inputType} 
                             placeholder={field.placeholder} 
                             required={field.required}
                             value={props.postalCodeInputText} 
@@ -120,10 +154,11 @@ function FormSection(props) {
             } else if (field.id == 'gi-city') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        <Label text={field.label} for={field.id + ('-input')} />
+                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
+                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
                         <Input 
                             id={field.id + ('-input')}
-                            type={field.type} 
+                            type={field.inputType} 
                             placeholder={field.placeholder} 
                             required={field.required}
                             value={props.cityInputText} 
@@ -135,10 +170,11 @@ function FormSection(props) {
             } else if (field.id == 'gi-country') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        <Label text={field.label} for={field.id + ('-input')} />
+                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
+                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
                         <Input 
                             id={field.id + ('-input')}
-                            type={field.type} 
+                            type={field.inputType} 
                             placeholder={field.placeholder} 
                             required={field.required}
                             value={props.countryInputText} 
@@ -150,10 +186,11 @@ function FormSection(props) {
             } else if (field.id == 'gi-gender') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        <Label text={field.label} for={field.id + ('-input')} />
+                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
+                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
                         <Input 
                             id={field.id + ('-input')}
-                            type={field.type} 
+                            type={field.inputType} 
                             placeholder={field.placeholder} 
                             required={field.required}
                             value={props.genderInputText} 
@@ -165,7 +202,8 @@ function FormSection(props) {
             } else if (field.id == 'gi-birth') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        <Label text={field.label} for={field.id + ('-input')} />
+                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
+                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -179,7 +217,8 @@ function FormSection(props) {
             } else if (field.id == 'gi-photo') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        <Label text={field.label} for={field.id + ('-input')} />
+                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
+                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
                         <Input 
                             id={field.id + ('-input')} 
                             type={field.inputType} 
@@ -193,18 +232,48 @@ function FormSection(props) {
             }
         })
 
-        return (
-            
-            <div className={props.className}>
-                <h2 className='form-section-title'>{props.title}</h2>
-                <div className='fields-container'>
-                    {fields}
-                </div>
-                <Button text='< Previous' classes='nav-button' onClick={props.onPreviousClick}/>
-                <Button text='Next >' classes='nav-button' onClick={props.onNextClick}/>
-            </div>
+        // We need to check if the name, email, date of birth and photo fields are filled, else we disable the next button
+        const nameInput = document.getElementById('gi-name-input');
+        const emailInput = document.getElementById('gi-email-input');
+        const birthDateInput = document.getElementById('gi-birth-input');
+        const photoInput = document.getElementById('gi-photo-input');
 
-        )
+        if (nameInput && emailInput && birthDateInput && photoInput) {
+            if (nameInput.value.length > 0 && emailInput.value.length > 0 && birthDateInput.value.length > 0 && photoInput.value.length > 0) {
+                return (
+                    <div className={props.className}>
+                        <h2 className='form-section-title'>{props.title}</h2>
+                        <div className='fields-container'>
+                            {fields}
+                        </div>
+                        <Button text='< Previous' classes='nav-button' onClick={props.onPreviousClick}/>
+                        <Button text='Next >' classes='nav-button' onClick={props.onNextClick}/>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className={props.className}>
+                        <h2 className='form-section-title'>{props.title}</h2>
+                        <div className='fields-container'>
+                            {fields}
+                        </div>
+                        <Button text='< Previous' classes='nav-button' onClick={props.onPreviousClick}/>
+                        <Button text='Next >' classes='nav-button' onClick={props.onNextClick} disabled={true}/>
+                    </div>
+                )
+            }
+        } else {
+            return (
+                <div className={props.className}>
+                    <h2 className='form-section-title'>{props.title}</h2>
+                    <div className='fields-container'>
+                        {fields}
+                    </div>
+                    <Button text='< Previous' classes='nav-button' onClick={props.onPreviousClick}/>
+                    <Button text='Next >' classes='nav-button' onClick={props.onNextClick} disabled={true}/>
+                </div>
+            )
+        }
 
     } else if (props.title == 'Education') {
 

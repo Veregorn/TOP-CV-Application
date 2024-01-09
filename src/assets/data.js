@@ -8,7 +8,7 @@ const SECTION_DATA = [
                 id: 'hello',
                 label: 'Hello',
                 type: 'textarea',
-                placeholder: 'Enter your intro message',
+                placeholder: 'Enter your intro message (required)',
                 required: true,
                 rows: 8,
                 cols: 32
@@ -25,7 +25,7 @@ const SECTION_DATA = [
                 label: 'Name',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter your name',
+                placeholder: 'Enter your name (required)',
                 required: true,
             },
             {
@@ -33,7 +33,7 @@ const SECTION_DATA = [
                 label: 'Email',
                 type: 'input',
                 inputType: 'email',
-                placeholder: 'Enter your email',
+                placeholder: 'Enter your email (required)',
                 required: true,
             },
             {
@@ -42,7 +42,7 @@ const SECTION_DATA = [
                 type: 'input',
                 inputType: 'tel',
                 placeholder: 'Enter your phone number',
-                required: true,
+                required: false,
             },
             {
                 id: 'gi-address',
@@ -50,7 +50,7 @@ const SECTION_DATA = [
                 type: 'input',
                 inputType: 'text',
                 placeholder: 'Enter your address',
-                required: true,
+                required: false,
             },
             {
                 id: 'gi-postal',
@@ -58,7 +58,7 @@ const SECTION_DATA = [
                 type: 'input',
                 inputType: 'text',
                 placeholder: 'Enter your postal code',
-                required: true,
+                required: false,
             },
             {
                 id: 'gi-city',
@@ -66,7 +66,7 @@ const SECTION_DATA = [
                 type: 'input',
                 inputType: 'text',
                 placeholder: 'Enter your city',
-                required: true,
+                required: false,
             },
             {
                 id: 'gi-country',
@@ -74,7 +74,7 @@ const SECTION_DATA = [
                 type: 'input',
                 inputType: 'text',
                 placeholder: 'Enter your country',
-                required: true,
+                required: false,
             },
             {
                 id: 'gi-gender',
@@ -82,7 +82,7 @@ const SECTION_DATA = [
                 type: 'input',
                 inputType: 'text',
                 placeholder: 'Enter your gender',
-                required: true,
+                required: false,
             },
             {
                 id: 'gi-birth',

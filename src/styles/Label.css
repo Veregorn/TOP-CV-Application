@@ -14,7 +14,3 @@
 .hobbies-checkbox {
     display: none;
 }
-
-/* .hobbies-checkbox:checked + .hobbies-image {
-    transform: rotate(180deg);
-} */
