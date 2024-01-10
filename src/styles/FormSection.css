@@ -61,8 +61,11 @@
     margin-bottom: 20px;
 }
 
-.form-field > .required-input {
+.form-field > .form-field-errors {
     color: red;
+    font-family: 'Kanit Light', 'Arial', 'sans-serif';
+    font-size: 1rem;
+    margin-top: 5px;
 }
 
 .form-field legend {

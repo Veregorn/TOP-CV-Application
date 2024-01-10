@@ -110,7 +110,7 @@ const SECTION_DATA = [
                 label: 'School Name',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter the school name',
+                placeholder: 'required',
                 required: true,
             },
             {
@@ -118,7 +118,7 @@ const SECTION_DATA = [
                 label: 'Study Title',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter the study title',
+                placeholder: 'required',
                 required: true,
             },
             {
@@ -153,7 +153,7 @@ const SECTION_DATA = [
                 label: 'Company Name',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter a company name',
+                placeholder: 'required',
                 required: true,
             },
             {
@@ -161,7 +161,7 @@ const SECTION_DATA = [
                 label: 'Job Position',
                 type: 'input',
                 inputType: 'text',
-                placeholder: 'Enter a job position',
+                placeholder: 'required',
                 required: true,
             },
             {

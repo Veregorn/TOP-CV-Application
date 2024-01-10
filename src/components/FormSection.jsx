@@ -23,6 +23,7 @@ function FormSection(props) {
                         rows={field.rows} 
                         cols={field.cols} 
                     />
+                    {!props.helloTextarea && <span className='form-field-errors' aria-live='polite'>Please tell us about yourself</span>}
                 </div>
             )
         })
@@ -74,8 +75,7 @@ function FormSection(props) {
             if (field.id == 'gi-name') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
-                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
+                        <Label text={field.label} for={field.id + ('-input')} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -85,13 +85,14 @@ function FormSection(props) {
                             onChange={props.onNameChange}
                             disabled={false} 
                         />
+                        {!props.nameInputText && <span className='form-field-errors' aria-live='polite'>Please enter your name</span>}
                     </div>
                 )
             } else if (field.id == 'gi-email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
-                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
+                        <Label text={field.label} for={field.id + ('-input')} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -101,13 +102,13 @@ function FormSection(props) {
                             onChange={props.onEmailChange} 
                             disabled={false} 
                         />
+                        {!emailRegex.test(props.emailInputText) && <span className='form-field-errors' aria-live='polite'>Please enter a valid email address</span>}
                     </div>
                 )
             } else if (field.id == 'gi-phone') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
-                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
+                        <Label text={field.label} for={field.id + ('-input')} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -122,8 +123,7 @@ function FormSection(props) {
             } else if (field.id == 'gi-address') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
-                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
+                        <Label text={field.label} for={field.id + ('-input')} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -154,8 +154,7 @@ function FormSection(props) {
             } else if (field.id == 'gi-city') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
-                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
+                        <Label text={field.label} for={field.id + ('-input')} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -170,8 +169,7 @@ function FormSection(props) {
             } else if (field.id == 'gi-country') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
-                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
+                        <Label text={field.label} for={field.id + ('-input')} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -186,8 +184,7 @@ function FormSection(props) {
             } else if (field.id == 'gi-gender') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
-                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
+                        <Label text={field.label} for={field.id + ('-input')} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -202,8 +199,7 @@ function FormSection(props) {
             } else if (field.id == 'gi-birth') {
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
-                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
+                        <Label text={field.label} for={field.id + ('-input')} />
                         <Input 
                             id={field.id + ('-input')}
                             type={field.inputType} 
@@ -212,13 +208,15 @@ function FormSection(props) {
                             onChange={props.onBirthDateChange} 
                             disabled={false} 
                         />
+                        {!props.birthDateInputText && <span className='form-field-errors' aria-live='polite'>Please enter your date of birth</span>}
                     </div>
                 )
             } else if (field.id == 'gi-photo') {
+                const photoRegex = /^.*\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/;
+                const photoInput = document.getElementById('gi-photo-input');
                 return (
                     <div key={('form-') + field.id} className='form-field'>
-                        {field.required && <Label text={field.label} for={field.id + ('-input')} classes='required-input' />}
-                        {!field.required && <Label text={field.label} for={field.id + ('-input')} />}
+                        <Label text={field.label} for={field.id + ('-input')} />
                         <Input 
                             id={field.id + ('-input')} 
                             type={field.inputType} 
@@ -227,6 +225,8 @@ function FormSection(props) {
                             onChange={props.onPhotoChange} 
                             disabled={false} 
                         />
+                        {photoInput && photoInput.files.length == 0 && <span className='form-field-errors' aria-live='polite'>Please upload a photo</span>}
+                        {photoInput && photoInput.files.length > 0 && !photoRegex.test(photoInput.files[0].name) && <span className='form-field-errors' aria-live='polite'>Please upload a valid photo</span>}
                     </div>
                 )
             }
@@ -311,7 +311,8 @@ function FormSection(props) {
                                 studiesDescriptionInputText={props.studiesDescriptionInputText} 
                                 onStudiesDescriptionChange={props.onStudiesDescriptionChange} 
                             />
-                            <Button text='Save' classes='save-button' onClick={props.onSaveStudiesClick}/>
+                            {props.schoolInputText != '' && props.studiesTitleInputText != '' && props.studiesStartDateSelect != '' && props.studiesEndDateSelect != '' && <Button text='Save' classes='save-button' onClick={props.onSaveStudiesClick}/>}
+                            {(props.schoolInputText == '' || props.studiesTitleInputText == '' || props.studiesStartDateSelect == '' || props.studiesEndDateSelect == '') && <Button text='Save' classes='save-button' onClick={props.onSaveStudiesClick} disabled={true} />}
                         </div>
                     }
                 </div>
@@ -357,7 +358,8 @@ function FormSection(props) {
                                 jobDescriptionInputText={props.jobDescriptionInputText} 
                                 onJobDescriptionChange={props.onJobDescriptionChange} 
                             />
-                            <Button text='Save' classes='save-button' onClick={props.onSaveJobClick}/>
+                            {props.companyInputText != '' && props.jobPositionInputText != '' && props.jobStartDateSelect != '' && props.jobEndDateSelect != '' && <Button text='Save' classes='save-button' onClick={props.onSaveJobClick}/>}
+                            {(props.companyInputText == '' || props.jobPositionInputText == '' || props.jobStartDateSelect == '' || props.jobEndDateSelect == '') && <Button text='Save' classes='save-button' onClick={props.onSaveJobClick} disabled={true} />}
                         </div>
                     }
                 </div>

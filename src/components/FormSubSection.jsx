@@ -55,6 +55,7 @@ function FormSubSection(props) {
                         onChange={props.onStudiesStartDateChange} 
                         options={years.map((year) => ({value: year, label: year}))}
                     />
+                    {props.studiesStartDateSelect == '' && <span className='form-field-errors' aria-live='polite'>Please select a  year</span>}
                 </div>
             )
         } else if (field.id == 'ed-end-date') {
@@ -73,6 +74,7 @@ function FormSubSection(props) {
                         onChange={props.onStudiesEndDateChange} 
                         options={years.map((year) => ({value: year, label: year}))}
                     />
+                    {props.studiesEndDateSelect == '' && <span className='form-field-errors' aria-live='polite'>Please select a  year</span>}
                 </div>
             )
         } else if (field.id == 'ed-description') {
@@ -136,6 +138,7 @@ function FormSubSection(props) {
                         onChange={props.onJobStartDateChange} 
                         options={years.map((year) => ({value: year, label: year}))}
                     />
+                    {props.jobStartDateSelect == '' && <span className='form-field-errors' aria-live='polite'>Please select a  year</span>}
                 </div>
             )
         } else if (field.id == 'exp-end-date') {
@@ -154,6 +157,7 @@ function FormSubSection(props) {
                         onChange={props.onJobEndDateChange} 
                         options={years.map((year) => ({value: year, label: year}))}
                     />
+                    {props.jobEndDateSelect == '' && <span className='form-field-errors' aria-live='polite'>Please select a  year</span>}
                 </div>
             )
         } else if (field.id == 'exp-description') {
