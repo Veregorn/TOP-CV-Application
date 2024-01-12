@@ -246,3 +246,20 @@ input[type="text"]:disabled {
 .hobbies > input[type="checkbox"] {
     display: none;
 }
+
+.finish-button {
+    font-family: 'Kanit SemiBold', 'Arial', 'sans-serif';
+    font-size: 1rem;
+    padding: 10px 40px;
+    border: 1px solid #22ce94;
+    border-radius: 5px;
+    background-color: #22ce94;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.finish-button:hover {
+    background-color: #ef6038;
+    border-color: #ef6038;
+}

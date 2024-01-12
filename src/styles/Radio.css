@@ -17,10 +17,9 @@ fieldset legend {
 
 .radio-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 30px;
+    gap: 10px;
 }
 
 .radio input[type="radio"] {

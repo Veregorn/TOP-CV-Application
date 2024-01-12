@@ -188,12 +188,12 @@ function FormSubSection(props) {
                         onChange={props.onSkillNameChange} 
                         disabled={false} 
                     />
+                    {props.skillNameInputText == '' && <span className='form-field-errors' aria-live='polite'>Please enter a skill name</span>}
                 </div>
             )
         } else if (field.id == 'sk-level') {
             return (
                 <div key={('form-') + field.id} className='form-field'>
-                    
                     <Radio 
                         id={field.id} 
                         legend={field.label}  
@@ -203,7 +203,7 @@ function FormSubSection(props) {
                         value={props.skillLevelRadio} 
                         onChange={props.onSkillLevelChange} 
                     />
-
+                    {props.skillLevelRadio == '' && <span className='form-field-errors' aria-live='polite'>Please select a skill level</span>}
                 </div>
             )
         }

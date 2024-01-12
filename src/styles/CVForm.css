@@ -1,6 +1,5 @@
 .form {
     flex: 1;
-    height: 100%;
     display: flex;
     position: relative;
     flex-direction: column;
@@ -8,7 +7,9 @@
     justify-content: top;
     background-color: #ef6038;
     padding: 40px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-grow: 1;
 }
 
 .form > div.slide-out-left {

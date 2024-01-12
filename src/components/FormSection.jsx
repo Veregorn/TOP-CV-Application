@@ -396,7 +396,8 @@ function FormSection(props) {
                                 skillLevelRadio={props.skillLevelRadio} 
                                 onSkillLevelChange={props.onSkillLevelChange} 
                             />
-                            <Button text='Save' classes='save-button' onClick={props.onSaveSkillClick}/>
+                            {props.skillNameInputText != '' && props.skillLevelRadio != '' && <Button text='Save' classes='save-button' onClick={props.onSaveSkillClick}/>}
+                            {(props.skillNameInputText == '' || props.skillLevelRadio == '') && <Button text='Save' classes='save-button' onClick={props.onSaveSkillClick} disabled={true} />}
                         </div>
                     }
                 </div>
@@ -804,7 +805,7 @@ function FormSection(props) {
                         {fields}
                     </div>
                     <Button text='< Previous' classes='nav-button' onClick={props.onPreviousClick}/>
-                    <Button text='Finish' onClick={props.onFinishClick}/>
+                    <Button text='Finish' classes='finish-button' onClick={props.onFinishClick}/>
                 </div>
             )
     }

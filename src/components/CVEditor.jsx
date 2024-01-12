@@ -27,7 +27,7 @@ function CVEditor(props) {
     const [countryInputText, setCountryInputText] = useState(''); // State for the country input
     const [birthDateInputText, setBirthDateInputText] = useState(''); // State for the birth date input
     const [genderInputText, setGenderInputText] = useState(''); // State for the gender input
-    const [photo, setPhoto] = useState(''); // State for the photo input
+    const [photo, setPhoto] = useState('../public/images/blank-profile-picture.png'); // State for the photo input
     
     // Education state variables
     const [schoolInputText, setSchoolInputText] = useState(''); // State for the school input

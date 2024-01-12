@@ -43,6 +43,9 @@
 .gi-value {
     font-size: 18px;
     font-family: 'Kanit Light', 'Arial', 'sans-serif';
+    margin-left: 3rem;
+    text-align: right;
+    line-height: 1.5rem;
 }
 
 .study-preview, .job-preview {

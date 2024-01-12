@@ -85,10 +85,13 @@
 }
 
 .right-bottom-preview {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: left;
     justify-content: top;
     padding: 40px 20px;
+}
+
+.right-bottom-preview > .preview-section {
+    margin-bottom: 30px;
 }
