@@ -15,7 +15,7 @@ function Button(props) {
 
 Button.propTypes = {
     text: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     visibility: PropTypes.string,
     classes: PropTypes.string,
     disabled: PropTypes.bool

@@ -4,31 +4,51 @@
 }
 
 .preview {
-    flex: 2;
+    flex: 1.5;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 3rem;
+    background-color: #c9c8c8;
 }
 
 .preview-body {
     flex: 1;
-    width: 100%;
+    max-width: 794px; /* A4 */
     display: flex;
     flex-direction: row;
     align-items: top;
     justify-content: center;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.preview-footer {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 2rem;
+}
+
+.preview-footer button:hover {
+    cursor: pointer;
+    background-color: #ef6038;
+    border: 1px solid #ef6038;
 }
 
 .left-preview {
-    flex: 1.7;
+    flex: 4;
     display: flex;
     flex-direction: column;
 }
 
 .preview-section h3 {
-    font-size: 28px;
+    font-size: 1.4rem;
     font-weight: 400;
     text-transform: uppercase;
     padding-left: 20px;
@@ -38,12 +58,11 @@
 }
 
 .left-top-preview {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: top;
     justify-content: center;
-    padding: 40px;
+    padding: 1rem;
 }
 
 .contact-hobbies-preview {
@@ -55,14 +74,13 @@
 }
 
 .left-bottom-preview {
-    flex: 1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: left;
     justify-content: center;
     background-color: #2ba8e0;
-    padding: 10px 40px;
+    padding: 1rem;
 }
 
 .left-bottom-preview h3 {
@@ -89,7 +107,7 @@
     flex-direction: column;
     align-items: left;
     justify-content: top;
-    padding: 40px 20px;
+    padding: 1rem;
 }
 
 .right-bottom-preview > .preview-section {
